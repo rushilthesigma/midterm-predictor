@@ -1,0 +1,199 @@
+{
+  "source": "Wikipedia, \"1876 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Tilden",
+    "rep": "Hayes"
+  },
+  "states": {
+    "Alabama": {
+      "dem": 102989,
+      "rep": 68708
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "dem": 58086,
+      "rep": 38649
+    },
+    "California": {
+      "dem": 75845,
+      "rep": 78614
+    },
+    "Colorado": {
+      "legislature": "rep"
+    },
+    "Connecticut": {
+      "dem": 61927,
+      "rep": 59033
+    },
+    "Delaware": {
+      "dem": 13381,
+      "rep": 10752
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 22927,
+      "rep": 23849
+    },
+    "Georgia": {
+      "dem": 130157,
+      "rep": 50533
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "dem": 258611,
+      "rep": 278232
+    },
+    "Indiana": {
+      "dem": 213526,
+      "rep": 208011
+    },
+    "Iowa": {
+      "dem": 112121,
+      "rep": 171326
+    },
+    "Kansas": {
+      "dem": 37902,
+      "rep": 78324
+    },
+    "Kentucky": {
+      "dem": 160060,
+      "rep": 97568
+    },
+    "Louisiana": {
+      "dem": 70508,
+      "rep": 75315
+    },
+    "Maine": {
+      "dem": 49917,
+      "rep": 66300
+    },
+    "Maryland": {
+      "dem": 91779,
+      "rep": 71980
+    },
+    "Massachusetts": {
+      "dem": 108777,
+      "rep": 150064
+    },
+    "Michigan": {
+      "dem": 141685,
+      "rep": 166901
+    },
+    "Minnesota": {
+      "dem": 48587,
+      "rep": 72955
+    },
+    "Mississippi": {
+      "dem": 112173,
+      "rep": 52603
+    },
+    "Missouri": {
+      "dem": 202086,
+      "rep": 145027
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "dem": 17413,
+      "rep": 31915
+    },
+    "Nevada": {
+      "dem": 9308,
+      "rep": 10383
+    },
+    "New Hampshire": {
+      "dem": 38510,
+      "rep": 41540
+    },
+    "New Jersey": {
+      "dem": 115962,
+      "rep": 103517
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "dem": 521949,
+      "rep": 489207
+    },
+    "North Carolina": {
+      "dem": 125427,
+      "rep": 108484
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dem": 323182,
+      "rep": 330698
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "dem": 14157,
+      "rep": 15214
+    },
+    "Pennsylvania": {
+      "dem": 366204,
+      "rep": 384184
+    },
+    "Rhode Island": {
+      "dem": 10712,
+      "rep": 15787
+    },
+    "South Carolina": {
+      "dem": 90897,
+      "rep": 91786
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "dem": 133177,
+      "rep": 89566
+    },
+    "Texas": {
+      "dem": 104755,
+      "rep": 44800
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "dem": 20254,
+      "rep": 44091
+    },
+    "Virginia": {
+      "dem": 140770,
+      "rep": 95518
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "dem": 56546,
+      "rep": 41997
+    },
+    "Wisconsin": {
+      "dem": 123926,
+      "rep": 130067
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

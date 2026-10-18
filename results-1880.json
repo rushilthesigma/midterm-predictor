@@ -1,0 +1,246 @@
+{
+  "source": "Wikipedia, \"1880 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Hancock",
+    "rep": "Garfield",
+    "gb": "Weaver"
+  },
+  "parties": {
+    "gb": {
+      "name": "Greenback",
+      "abbr": "GB",
+      "color": "#3d9a3d"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "rep": 56221,
+      "dem": 91185,
+      "gb": 4642
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "rep": 42436,
+      "dem": 60775,
+      "gb": 4079
+    },
+    "California": {
+      "rep": 80348,
+      "dem": 80442,
+      "gb": 3394
+    },
+    "Colorado": {
+      "rep": 27450,
+      "dem": 24647,
+      "gb": 1435
+    },
+    "Connecticut": {
+      "rep": 67071,
+      "dem": 64415,
+      "gb": 868
+    },
+    "Delaware": {
+      "rep": 14133,
+      "dem": 15275,
+      "gb": 120
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 23654,
+      "dem": 27964,
+      "gb": 0
+    },
+    "Georgia": {
+      "rep": 54086,
+      "dem": 102470,
+      "gb": 0
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "rep": 318037,
+      "dem": 277321,
+      "gb": 26358
+    },
+    "Indiana": {
+      "rep": 232164,
+      "dem": 225522,
+      "gb": 12986
+    },
+    "Iowa": {
+      "rep": 183927,
+      "dem": 105845,
+      "gb": 32701
+    },
+    "Kansas": {
+      "rep": 121549,
+      "dem": 59801,
+      "gb": 19851
+    },
+    "Kentucky": {
+      "rep": 106306,
+      "dem": 149068,
+      "gb": 11499
+    },
+    "Louisiana": {
+      "rep": 38637,
+      "dem": 65067,
+      "gb": 439
+    },
+    "Maine": {
+      "rep": 74056,
+      "dem": 65171,
+      "gb": 4480
+    },
+    "Maryland": {
+      "rep": 78515,
+      "dem": 93706,
+      "gb": 818
+    },
+    "Massachusetts": {
+      "rep": 165205,
+      "dem": 111690,
+      "gb": 4548
+    },
+    "Michigan": {
+      "rep": 185341,
+      "dem": 131597,
+      "gb": 34895
+    },
+    "Minnesota": {
+      "rep": 93903,
+      "dem": 53315,
+      "gb": 3267
+    },
+    "Mississippi": {
+      "rep": 34854,
+      "dem": 75750,
+      "gb": 5797
+    },
+    "Missouri": {
+      "rep": 153567,
+      "dem": 208609,
+      "gb": 35135
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "rep": 54979,
+      "dem": 28523,
+      "gb": 3950
+    },
+    "Nevada": {
+      "rep": 8732,
+      "dem": 9613,
+      "gb": 0
+    },
+    "New Hampshire": {
+      "rep": 44852,
+      "dem": 40794,
+      "gb": 528
+    },
+    "New Jersey": {
+      "rep": 120555,
+      "dem": 122565,
+      "gb": 2617
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "rep": 555544,
+      "dem": 534511,
+      "gb": 12373
+    },
+    "North Carolina": {
+      "rep": 115874,
+      "dem": 124208,
+      "gb": 1126
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "rep": 375048,
+      "dem": 340821,
+      "gb": 6456
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "rep": 20619,
+      "dem": 19955,
+      "gb": 245
+    },
+    "Pennsylvania": {
+      "rep": 444704,
+      "dem": 407428,
+      "gb": 20668
+    },
+    "Rhode Island": {
+      "rep": 18195,
+      "dem": 10779,
+      "gb": 236
+    },
+    "South Carolina": {
+      "rep": 58071,
+      "dem": 112312,
+      "gb": 566
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "rep": 107677,
+      "dem": 129191,
+      "gb": 5917
+    },
+    "Texas": {
+      "rep": 57893,
+      "dem": 156428,
+      "gb": 27405
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "rep": 45567,
+      "dem": 18316,
+      "gb": 1215
+    },
+    "Virginia": {
+      "rep": 83533,
+      "dem": 128083,
+      "gb": 0
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "rep": 46243,
+      "dem": 57391,
+      "gb": 9079
+    },
+    "Wisconsin": {
+      "rep": 144400,
+      "dem": 114649,
+      "gb": 7986
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

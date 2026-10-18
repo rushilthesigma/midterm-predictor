@@ -1,0 +1,207 @@
+{
+  "source": "Wikipedia, \"1896 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Bryan",
+    "rep": "McKinley"
+  },
+  "states": {
+    "Alabama": {
+      "rep": 55673,
+      "dem": 130298
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "rep": 37512,
+      "dem": 110103
+    },
+    "California": {
+      "rep": 146688,
+      "dem": 144766
+    },
+    "Colorado": {
+      "rep": 26271,
+      "dem": 161005
+    },
+    "Connecticut": {
+      "rep": 110285,
+      "dem": 56740
+    },
+    "Delaware": {
+      "rep": 20450,
+      "dem": 16574
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 11298,
+      "dem": 32756
+    },
+    "Georgia": {
+      "rep": 59395,
+      "dem": 93885
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "rep": 6314,
+      "dem": 23135
+    },
+    "Illinois": {
+      "rep": 607130,
+      "dem": 465613
+    },
+    "Indiana": {
+      "rep": 323754,
+      "dem": 305573
+    },
+    "Iowa": {
+      "rep": 289293,
+      "dem": 223741
+    },
+    "Kansas": {
+      "rep": 159345,
+      "dem": 171675
+    },
+    "Kentucky": {
+      "rep": 218171,
+      "dem": 217894
+    },
+    "Louisiana": {
+      "rep": 22037,
+      "dem": 77175
+    },
+    "Maine": {
+      "rep": 80403,
+      "dem": 34587
+    },
+    "Maryland": {
+      "rep": 136959,
+      "dem": 104150
+    },
+    "Massachusetts": {
+      "rep": 278976,
+      "dem": 105711
+    },
+    "Michigan": {
+      "rep": 293336,
+      "dem": 237166
+    },
+    "Minnesota": {
+      "rep": 193503,
+      "dem": 139735
+    },
+    "Mississippi": {
+      "rep": 4819,
+      "dem": 63355
+    },
+    "Missouri": {
+      "rep": 304940,
+      "dem": 363667
+    },
+    "Montana": {
+      "rep": 10509,
+      "dem": 42628
+    },
+    "Nebraska": {
+      "rep": 103064,
+      "dem": 115007
+    },
+    "Nevada": {
+      "rep": 1938,
+      "dem": 8376
+    },
+    "New Hampshire": {
+      "rep": 57444,
+      "dem": 21650
+    },
+    "New Jersey": {
+      "rep": 221535,
+      "dem": 133695
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "rep": 819838,
+      "dem": 551369
+    },
+    "North Carolina": {
+      "rep": 155122,
+      "dem": 174408
+    },
+    "North Dakota": {
+      "rep": 26335,
+      "dem": 20686
+    },
+    "Ohio": {
+      "rep": 525991,
+      "dem": 477497
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "rep": 48779,
+      "dem": 46739
+    },
+    "Pennsylvania": {
+      "rep": 728300,
+      "dem": 433228
+    },
+    "Rhode Island": {
+      "rep": 37437,
+      "dem": 14459
+    },
+    "South Carolina": {
+      "rep": 9313,
+      "dem": 58801
+    },
+    "South Dakota": {
+      "rep": 41042,
+      "dem": 41225
+    },
+    "Tennessee": {
+      "rep": 148683,
+      "dem": 167168
+    },
+    "Texas": {
+      "rep": 167520,
+      "dem": 370434
+    },
+    "Utah": {
+      "rep": 13491,
+      "dem": 64607
+    },
+    "Vermont": {
+      "rep": 51127,
+      "dem": 10640
+    },
+    "Virginia": {
+      "rep": 135379,
+      "dem": 154708
+    },
+    "Washington": {
+      "rep": 39153,
+      "dem": 53314
+    },
+    "West Virginia": {
+      "rep": 105379,
+      "dem": 94480
+    },
+    "Wisconsin": {
+      "rep": 268135,
+      "dem": 165523
+    },
+    "Wyoming": {
+      "rep": 10072,
+      "dem": 10861
+    }
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "source": "MIT Election Data and Science Lab, U.S. President 1976\u20132020 (Harvard Dataverse, doi:10.7910/DVN/42MVDX)",
+  "candidates": {
+    "dem": "Dukakis",
+    "rep": "Bush"
+  },
+  "states": {
+    "Alabama": {
+      "dem": 549506,
+      "rep": 815576
+    },
+    "Alaska": {
+      "dem": 72584,
+      "rep": 119251
+    },
+    "Arizona": {
+      "dem": 454029,
+      "rep": 702541
+    },
+    "Arkansas": {
+      "dem": 349237,
+      "rep": 466578
+    },
+    "California": {
+      "dem": 4702233,
+      "rep": 5054917
+    },
+    "Colorado": {
+      "dem": 621453,
+      "rep": 728177
+    },
+    "Connecticut": {
+      "dem": 676584,
+      "rep": 750241
+    },
+    "Delaware": {
+      "dem": 108647,
+      "rep": 139639
+    },
+    "District of Columbia": {
+      "dem": 159407,
+      "rep": 27590
+    },
+    "Florida": {
+      "dem": 1656701,
+      "rep": 2618885
+    },
+    "Georgia": {
+      "dem": 714792,
+      "rep": 1081331
+    },
+    "Hawaii": {
+      "dem": 192364,
+      "rep": 158625
+    },
+    "Idaho": {
+      "dem": 147272,
+      "rep": 253881
+    },
+    "Illinois": {
+      "dem": 2215940,
+      "rep": 2310939
+    },
+    "Indiana": {
+      "dem": 860643,
+      "rep": 1297763
+    },
+    "Iowa": {
+      "dem": 670557,
+      "rep": 545355
+    },
+    "Kansas": {
+      "dem": 422636,
+      "rep": 554049
+    },
+    "Kentucky": {
+      "dem": 580368,
+      "rep": 734281
+    },
+    "Louisiana": {
+      "dem": 717460,
+      "rep": 883702
+    },
+    "Maine": {
+      "dem": 243569,
+      "rep": 307131
+    },
+    "Maryland": {
+      "dem": 826304,
+      "rep": 876167
+    },
+    "Massachusetts": {
+      "dem": 1401415,
+      "rep": 1194635
+    },
+    "Michigan": {
+      "dem": 1675783,
+      "rep": 1965486
+    },
+    "Minnesota": {
+      "dem": 1109471,
+      "rep": 962337
+    },
+    "Mississippi": {
+      "dem": 363921,
+      "rep": 557890
+    },
+    "Missouri": {
+      "dem": 1001619,
+      "rep": 1084953
+    },
+    "Montana": {
+      "dem": 168936,
+      "rep": 190412
+    },
+    "Nebraska": {
+      "dem": 259235,
+      "rep": 397956
+    },
+    "Nevada": {
+      "dem": 132738,
+      "rep": 206040
+    },
+    "New Hampshire": {
+      "dem": 163696,
+      "rep": 281537
+    },
+    "New Jersey": {
+      "dem": 1320352,
+      "rep": 1743192
+    },
+    "New Mexico": {
+      "dem": 244497,
+      "rep": 270341
+    },
+    "New York": {
+      "dem": 3347882,
+      "rep": 3081871
+    },
+    "North Carolina": {
+      "dem": 890167,
+      "rep": 1237258
+    },
+    "North Dakota": {
+      "dem": 127739,
+      "rep": 166559
+    },
+    "Ohio": {
+      "dem": 1939629,
+      "rep": 2416549
+    },
+    "Oklahoma": {
+      "dem": 483423,
+      "rep": 678367
+    },
+    "Oregon": {
+      "dem": 616206,
+      "rep": 560126
+    },
+    "Pennsylvania": {
+      "dem": 2194944,
+      "rep": 2300087
+    },
+    "Rhode Island": {
+      "dem": 225123,
+      "rep": 177761
+    },
+    "South Carolina": {
+      "dem": 370554,
+      "rep": 606443
+    },
+    "South Dakota": {
+      "dem": 145560,
+      "rep": 165415
+    },
+    "Tennessee": {
+      "dem": 679794,
+      "rep": 947233
+    },
+    "Texas": {
+      "dem": 2352748,
+      "rep": 3036829
+    },
+    "Utah": {
+      "dem": 207343,
+      "rep": 428442
+    },
+    "Vermont": {
+      "dem": 115775,
+      "rep": 124331
+    },
+    "Virginia": {
+      "dem": 859799,
+      "rep": 1309162
+    },
+    "Washington": {
+      "dem": 933516,
+      "rep": 903835
+    },
+    "West Virginia": {
+      "dem": 341016,
+      "rep": 310065
+    },
+    "Wisconsin": {
+      "dem": 1126794,
+      "rep": 1047499
+    },
+    "Wyoming": {
+      "dem": 67113,
+      "rep": 106867
+    }
+  }
+}

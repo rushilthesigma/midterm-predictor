@@ -1,0 +1,213 @@
+{
+  "source": "Wikipedia, \"1972 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "McGovern",
+    "rep": "Nixon"
+  },
+  "states": {
+    "Alabama": {
+      "rep": 728701,
+      "dem": 256923
+    },
+    "Alaska": {
+      "rep": 55349,
+      "dem": 32967
+    },
+    "Arizona": {
+      "rep": 402812,
+      "dem": 198540
+    },
+    "Arkansas": {
+      "rep": 445751,
+      "dem": 198899
+    },
+    "California": {
+      "rep": 4602096,
+      "dem": 3475847
+    },
+    "Colorado": {
+      "rep": 597189,
+      "dem": 329980
+    },
+    "Connecticut": {
+      "rep": 810763,
+      "dem": 555498
+    },
+    "Delaware": {
+      "rep": 140357,
+      "dem": 92283
+    },
+    "District of Columbia": {
+      "rep": 35226,
+      "dem": 127627
+    },
+    "Florida": {
+      "rep": 1857759,
+      "dem": 718117
+    },
+    "Georgia": {
+      "rep": 881496,
+      "dem": 289529
+    },
+    "Hawaii": {
+      "rep": 168865,
+      "dem": 101409
+    },
+    "Idaho": {
+      "rep": 199384,
+      "dem": 80826
+    },
+    "Illinois": {
+      "rep": 2788179,
+      "dem": 1913472
+    },
+    "Indiana": {
+      "rep": 1405154,
+      "dem": 708568
+    },
+    "Iowa": {
+      "rep": 706207,
+      "dem": 496206
+    },
+    "Kansas": {
+      "rep": 619812,
+      "dem": 270287
+    },
+    "Kentucky": {
+      "rep": 676446,
+      "dem": 371159
+    },
+    "Louisiana": {
+      "rep": 686852,
+      "dem": 298142
+    },
+    "Maine": {
+      "rep": 256458,
+      "dem": 160584
+    },
+    "Maryland": {
+      "rep": 829305,
+      "dem": 505781
+    },
+    "Massachusetts": {
+      "rep": 1112078,
+      "dem": 1332540
+    },
+    "Michigan": {
+      "rep": 1961721,
+      "dem": 1459435
+    },
+    "Minnesota": {
+      "rep": 898269,
+      "dem": 802346
+    },
+    "Mississippi": {
+      "rep": 505125,
+      "dem": 126782
+    },
+    "Missouri": {
+      "rep": 1154058,
+      "dem": 698531
+    },
+    "Montana": {
+      "rep": 183976,
+      "dem": 120197
+    },
+    "Nebraska": {
+      "rep": 406298,
+      "dem": 169991
+    },
+    "Nevada": {
+      "rep": 115750,
+      "dem": 66016
+    },
+    "New Hampshire": {
+      "rep": 213724,
+      "dem": 116435
+    },
+    "New Jersey": {
+      "rep": 1845502,
+      "dem": 1102211
+    },
+    "New Mexico": {
+      "rep": 235606,
+      "dem": 141084
+    },
+    "New York": {
+      "rep": 4192778,
+      "dem": 2951084
+    },
+    "North Carolina": {
+      "rep": 1054889,
+      "dem": 438705
+    },
+    "North Dakota": {
+      "rep": 174109,
+      "dem": 100384
+    },
+    "Ohio": {
+      "rep": 2441827,
+      "dem": 1558889
+    },
+    "Oklahoma": {
+      "rep": 759025,
+      "dem": 247147
+    },
+    "Oregon": {
+      "rep": 486686,
+      "dem": 392760
+    },
+    "Pennsylvania": {
+      "rep": 2714521,
+      "dem": 1796951
+    },
+    "Rhode Island": {
+      "rep": 220383,
+      "dem": 194645
+    },
+    "South Carolina": {
+      "rep": 478427,
+      "dem": 189270
+    },
+    "South Dakota": {
+      "rep": 166476,
+      "dem": 139945
+    },
+    "Tennessee": {
+      "rep": 813147,
+      "dem": 357293
+    },
+    "Texas": {
+      "rep": 2298896,
+      "dem": 1154291
+    },
+    "Utah": {
+      "rep": 323643,
+      "dem": 126284
+    },
+    "Vermont": {
+      "rep": 117149,
+      "dem": 68174
+    },
+    "Virginia": {
+      "rep": 988493,
+      "dem": 438887
+    },
+    "Washington": {
+      "rep": 837135,
+      "dem": 568334
+    },
+    "West Virginia": {
+      "rep": 484964,
+      "dem": 277435
+    },
+    "Wisconsin": {
+      "rep": 989430,
+      "dem": 810174
+    },
+    "Wyoming": {
+      "rep": 100464,
+      "dem": 44358
+    }
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "source": "MIT Election Data and Science Lab, U.S. Senate 1976\u20132018 (github.com/MEDSL/constituency-returns)",
+  "race": "senate",
+  "candidates": {
+    "dem": "Democrats",
+    "rep": "Republicans",
+    "oth": "Others"
+  },
+  "parties": {
+    "oth": {
+      "name": "Others",
+      "abbr": "I",
+      "color": "#7a5ea8"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 547054
+    },
+    "Alaska": {
+      "dem": 29574,
+      "rep": 92783
+    },
+    "Arizona": {
+      "absent": "norace"
+    },
+    "Arkansas": {
+      "dem": 395506,
+      "rep": 84308
+    },
+    "California": {
+      "absent": "norace"
+    },
+    "Colorado": {
+      "dem": 330148,
+      "rep": 480801
+    },
+    "Connecticut": {
+      "absent": "norace"
+    },
+    "Delaware": {
+      "dem": 93930,
+      "rep": 66479
+    },
+    "District of Columbia": {
+      "absent": "nosenate"
+    },
+    "Florida": {
+      "absent": "norace"
+    },
+    "Georgia": {
+      "dem": 536320,
+      "rep": 108808
+    },
+    "Hawaii": {
+      "absent": "norace"
+    },
+    "Idaho": {
+      "dem": 89635,
+      "rep": 194412
+    },
+    "Illinois": {
+      "dem": 1448187,
+      "rep": 1698711
+    },
+    "Indiana": {
+      "absent": "norace"
+    },
+    "Iowa": {
+      "dem": 395066,
+      "rep": 421598
+    },
+    "Kansas": {
+      "dem": 317602,
+      "rep": 403354
+    },
+    "Kentucky": {
+      "dem": 290730,
+      "rep": 175766
+    },
+    "Louisiana": {
+      "dem": 1
+    },
+    "Maine": {
+      "dem": 127327,
+      "rep": 212294
+    },
+    "Maryland": {
+      "absent": "norace"
+    },
+    "Massachusetts": {
+      "dem": 1093283,
+      "rep": 890584
+    },
+    "Michigan": {
+      "dem": 1484193,
+      "rep": 1362165
+    },
+    "Minnesota": {
+      "dem": 638375,
+      "rep": 894092
+    },
+    "Mississippi": {
+      "dem": 187541,
+      "rep": 267302,
+      "oth": 133646
+    },
+    "Missouri": {
+      "absent": "norace"
+    },
+    "Montana": {
+      "dem": 160353,
+      "rep": 127589
+    },
+    "Nebraska": {
+      "dem": 334096,
+      "rep": 159706
+    },
+    "Nevada": {
+      "absent": "norace"
+    },
+    "New Hampshire": {
+      "dem": 127945,
+      "rep": 133745
+    },
+    "New Jersey": {
+      "dem": 1082960,
+      "rep": 844200
+    },
+    "New Mexico": {
+      "dem": 160045,
+      "rep": 183442
+    },
+    "New York": {
+      "absent": "norace"
+    },
+    "North Carolina": {
+      "dem": 516663,
+      "rep": 619151
+    },
+    "North Dakota": {
+      "absent": "norace"
+    },
+    "Ohio": {
+      "absent": "norace"
+    },
+    "Oklahoma": {
+      "dem": 493953,
+      "rep": 247857
+    },
+    "Oregon": {
+      "dem": 341616,
+      "rep": 550165
+    },
+    "Pennsylvania": {
+      "absent": "norace"
+    },
+    "Rhode Island": {
+      "dem": 229557,
+      "rep": 76061
+    },
+    "South Carolina": {
+      "dem": 280146,
+      "rep": 351917
+    },
+    "South Dakota": {
+      "dem": 84767,
+      "rep": 170832
+    },
+    "Tennessee": {
+      "dem": 466228,
+      "rep": 642644
+    },
+    "Texas": {
+      "dem": 1139149,
+      "rep": 1151376
+    },
+    "Utah": {
+      "absent": "norace"
+    },
+    "Vermont": {
+      "absent": "norace"
+    },
+    "Virginia": {
+      "dem": 608511,
+      "rep": 613232
+    },
+    "Washington": {
+      "absent": "norace"
+    },
+    "West Virginia": {
+      "dem": 249034,
+      "rep": 244317
+    },
+    "Wisconsin": {
+      "absent": "norace"
+    },
+    "Wyoming": {
+      "dem": 50456,
+      "rep": 82908
+    }
+  },
+  "names": {
+    "Alabama": [
+      "Howell Heflin",
+      null
+    ],
+    "Alaska": [
+      "Donald Hobbs",
+      "Ted Stevens"
+    ],
+    "Arkansas": [
+      "David Pryor",
+      "Tom Kelly"
+    ],
+    "Colorado": [
+      "Floyd K. Haskell",
+      "William L. Armstrong"
+    ],
+    "Delaware": [
+      "Joseph R. Biden Jr.",
+      "James H. Baxter Jr."
+    ],
+    "Georgia": [
+      "Sam Nunn",
+      "John W. Stokes"
+    ],
+    "Idaho": [
+      "Dwight Jensen",
+      "James A. McClure"
+    ],
+    "Illinois": [
+      "Alex Seith",
+      "Charles H. Percy"
+    ],
+    "Iowa": [
+      "Dick Clark",
+      "Roger W. Jepsen"
+    ],
+    "Kansas": [
+      "Bill Roy",
+      "Nancy Landon Kassebaum"
+    ],
+    "Kentucky": [
+      "Walter D. Huddleston",
+      "Louie Guenthner Jr. "
+    ],
+    "Louisiana": [
+      "J. Bennett Johnston Jr. ",
+      null
+    ],
+    "Maine": [
+      "William D. Hathaway",
+      "William S. Cohen"
+    ],
+    "Massachusetts": [
+      "Paul E. Tsongas",
+      "Edward W. Brooke"
+    ],
+    "Michigan": [
+      "Carl Levin",
+      "Robert P. Griffin"
+    ],
+    "Minnesota": [
+      "Wendell Anderson",
+      "Rudolph E. Boschwitz"
+    ],
+    "Mississippi": [
+      "Maurice Dantin",
+      "Thad Cochran",
+      "James Charles Evers"
+    ],
+    "Montana": [
+      "Max Baucus",
+      "Larry Williams"
+    ],
+    "Nebraska": [
+      "James J. Exon",
+      "Donald Eugene Shasten"
+    ],
+    "New Hampshire": [
+      "Thomas J. McIntyre",
+      "Gordon J. Humphrey"
+    ],
+    "New Jersey": [
+      "Bill Bradley",
+      "Jeffrey Bell"
+    ],
+    "New Mexico": [
+      "Toney Anaya",
+      "Pete V. Domenici"
+    ],
+    "North Carolina": [
+      "John Randolph Ingram",
+      "Jesse Helms"
+    ],
+    "Oklahoma": [
+      "David Lyle Boren",
+      "Robert B. Kamm"
+    ],
+    "Oregon": [
+      "Vern Cook",
+      "Mark Hatfield"
+    ],
+    "Rhode Island": [
+      "Claiborne Pell",
+      "James G. Reyonlds"
+    ],
+    "South Carolina": [
+      "Charles D. Ravenel",
+      "Strom Thurmond"
+    ],
+    "South Dakota": [
+      "Don Barnett",
+      "Larry Pressler"
+    ],
+    "Tennessee": [
+      "Jane Eskind",
+      "Howard H. Baker"
+    ],
+    "Texas": [
+      "Robert Krueger",
+      "John G. Tower"
+    ],
+    "Virginia": [
+      "Andrew P. Miller",
+      "John William Warner"
+    ],
+    "West Virginia": [
+      "Jennings Randolph",
+      "Arch A. Moore Jr. "
+    ],
+    "Wyoming": [
+      "Raymond B. Whitaker",
+      "Alan K. Simpson"
+    ]
+  },
+  "specials": {
+    "Alabama": {
+      "votes": {
+        "dem": 401852,
+        "rep": 316170
+      },
+      "names": [
+        "Donald Stewart",
+        "James D. Martin"
+      ]
+    },
+    "Minnesota": {
+      "votes": {
+        "dem": 538675,
+        "rep": 957908
+      },
+      "names": [
+        "Bob Short",
+        "David Durenberger"
+      ]
+    }
+  },
+  "unopposed": {
+    "Louisiana": "dem"
+  },
+  "national": {
+    "dem": 15,
+    "rep": 20
+  }
+}

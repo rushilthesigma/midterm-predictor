@@ -1,0 +1,320 @@
+{
+  "source": "Wikipedia, \"1912 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Wilson",
+    "rep": "Taft",
+    "prog": "Roosevelt",
+    "soc": "Debs"
+  },
+  "parties": {
+    "prog": {
+      "name": "Progressive",
+      "abbr": "Prog",
+      "color": "#7a3fa6"
+    },
+    "soc": {
+      "name": "Socialist",
+      "abbr": "Soc",
+      "color": "#b8326e"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 82438,
+      "prog": 22680,
+      "rep": 9807,
+      "soc": 3029
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "dem": 10324,
+      "prog": 6949,
+      "rep": 3021,
+      "soc": 3163
+    },
+    "Arkansas": {
+      "dem": 68814,
+      "prog": 21644,
+      "rep": 25585,
+      "soc": 8153
+    },
+    "California": {
+      "dem": 283436,
+      "prog": 283610,
+      "rep": 3914,
+      "soc": 79201
+    },
+    "Colorado": {
+      "dem": 114232,
+      "prog": 72306,
+      "rep": 58386,
+      "soc": 16418
+    },
+    "Connecticut": {
+      "dem": 74561,
+      "prog": 34129,
+      "rep": 68324,
+      "soc": 10056
+    },
+    "Delaware": {
+      "dem": 22631,
+      "prog": 8886,
+      "rep": 15998,
+      "soc": 556
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 35343,
+      "prog": 4555,
+      "rep": 4279,
+      "soc": 4806
+    },
+    "Georgia": {
+      "dem": 93087,
+      "prog": 21985,
+      "rep": 5191,
+      "soc": 1058
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "dem": 33921,
+      "prog": 25527,
+      "rep": 32810,
+      "soc": 11960
+    },
+    "Illinois": {
+      "dem": 405048,
+      "prog": 386478,
+      "rep": 253593,
+      "soc": 81278
+    },
+    "Indiana": {
+      "dem": 281890,
+      "prog": 162007,
+      "rep": 151267,
+      "soc": 36931
+    },
+    "Iowa": {
+      "dem": 185325,
+      "prog": 161819,
+      "rep": 119805,
+      "soc": 16967
+    },
+    "Kansas": {
+      "dem": 143663,
+      "prog": 120210,
+      "rep": 74845,
+      "soc": 26779
+    },
+    "Kentucky": {
+      "dem": 219484,
+      "prog": 101766,
+      "rep": 115510,
+      "soc": 11646
+    },
+    "Louisiana": {
+      "dem": 60871,
+      "prog": 9283,
+      "rep": 3833,
+      "soc": 5261
+    },
+    "Maine": {
+      "dem": 51113,
+      "prog": 48495,
+      "rep": 26545,
+      "soc": 2541
+    },
+    "Maryland": {
+      "dem": 112674,
+      "prog": 57789,
+      "rep": 54956,
+      "soc": 3996
+    },
+    "Massachusetts": {
+      "dem": 173408,
+      "prog": 142228,
+      "rep": 155948,
+      "soc": 12616
+    },
+    "Michigan": {
+      "dem": 150751,
+      "prog": 214584,
+      "rep": 152244,
+      "soc": 23211
+    },
+    "Minnesota": {
+      "dem": 106426,
+      "prog": 125856,
+      "rep": 64334,
+      "soc": 27505
+    },
+    "Mississippi": {
+      "dem": 57324,
+      "prog": 3549,
+      "rep": 1560,
+      "soc": 2050
+    },
+    "Missouri": {
+      "dem": 330746,
+      "prog": 124375,
+      "rep": 207821,
+      "soc": 28466
+    },
+    "Montana": {
+      "dem": 27941,
+      "prog": 22456,
+      "rep": 18512,
+      "soc": 10885
+    },
+    "Nebraska": {
+      "dem": 109008,
+      "prog": 72681,
+      "rep": 54226,
+      "soc": 10185
+    },
+    "Nevada": {
+      "dem": 7986,
+      "prog": 5620,
+      "rep": 3196,
+      "soc": 3313
+    },
+    "New Hampshire": {
+      "dem": 34724,
+      "prog": 17794,
+      "rep": 32927,
+      "soc": 1981
+    },
+    "New Jersey": {
+      "dem": 178289,
+      "prog": 145410,
+      "rep": 88835,
+      "soc": 15948
+    },
+    "New Mexico": {
+      "dem": 20437,
+      "prog": 8347,
+      "rep": 17733,
+      "soc": 2859
+    },
+    "New York": {
+      "dem": 655573,
+      "prog": 390093,
+      "rep": 455487,
+      "soc": 63434
+    },
+    "North Carolina": {
+      "dem": 144407,
+      "prog": 69135,
+      "rep": 29129,
+      "soc": 987
+    },
+    "North Dakota": {
+      "dem": 29555,
+      "prog": 25726,
+      "rep": 23090,
+      "soc": 6966
+    },
+    "Ohio": {
+      "dem": 424834,
+      "prog": 229807,
+      "rep": 278168,
+      "soc": 90144
+    },
+    "Oklahoma": {
+      "dem": 119156,
+      "prog": 0,
+      "rep": 90786,
+      "soc": 41674
+    },
+    "Oregon": {
+      "dem": 47064,
+      "prog": 37600,
+      "rep": 34673,
+      "soc": 13343
+    },
+    "Pennsylvania": {
+      "dem": 395637,
+      "prog": 444894,
+      "rep": 273360,
+      "soc": 83614
+    },
+    "Rhode Island": {
+      "dem": 30412,
+      "prog": 16878,
+      "rep": 27703,
+      "soc": 2049
+    },
+    "South Carolina": {
+      "dem": 48357,
+      "prog": 1293,
+      "rep": 536,
+      "soc": 164
+    },
+    "South Dakota": {
+      "dem": 48942,
+      "prog": 58811,
+      "rep": 0,
+      "soc": 4662
+    },
+    "Tennessee": {
+      "dem": 133021,
+      "prog": 54041,
+      "rep": 60475,
+      "soc": 3564
+    },
+    "Texas": {
+      "dem": 221589,
+      "prog": 28853,
+      "rep": 26755,
+      "soc": 25743
+    },
+    "Utah": {
+      "dem": 36579,
+      "prog": 24174,
+      "rep": 42100,
+      "soc": 9023
+    },
+    "Vermont": {
+      "dem": 15354,
+      "prog": 22132,
+      "rep": 23332,
+      "soc": 928
+    },
+    "Virginia": {
+      "dem": 90332,
+      "prog": 21776,
+      "rep": 23288,
+      "soc": 820
+    },
+    "Washington": {
+      "dem": 86840,
+      "prog": 113698,
+      "rep": 70445,
+      "soc": 40134
+    },
+    "West Virginia": {
+      "dem": 113197,
+      "prog": 79112,
+      "rep": 56754,
+      "soc": 15248
+    },
+    "Wisconsin": {
+      "dem": 164230,
+      "prog": 62448,
+      "rep": 130596,
+      "soc": 33476
+    },
+    "Wyoming": {
+      "dem": 15310,
+      "prog": 9232,
+      "rep": 14560,
+      "soc": 2760
+    }
+  }
+}

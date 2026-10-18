@@ -1,0 +1,353 @@
+{
+  "source": "MIT Election Data and Science Lab, U.S. Senate 1976\u20132018 (github.com/MEDSL/constituency-returns)",
+  "race": "senate",
+  "candidates": {
+    "dem": "Democrats",
+    "rep": "Republicans",
+    "oth": "Others"
+  },
+  "parties": {
+    "oth": {
+      "name": "Others",
+      "abbr": "I",
+      "color": "#7a5ea8"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 609360,
+      "rep": 602537
+    },
+    "Alaska": {
+      "dem": 79727,
+      "rep": 97674
+    },
+    "Arizona": {
+      "dem": 340965,
+      "rep": 521850
+    },
+    "Arkansas": {
+      "dem": 433122,
+      "rep": 262313
+    },
+    "California": {
+      "dem": 3646672,
+      "rep": 3541804
+    },
+    "Colorado": {
+      "dem": 529449,
+      "rep": 512994
+    },
+    "Connecticut": {
+      "dem": 632695,
+      "rep": 340438
+    },
+    "Delaware": {
+      "absent": "norace"
+    },
+    "District of Columbia": {
+      "absent": "nosenate"
+    },
+    "Florida": {
+      "dem": 1877543,
+      "rep": 1552376
+    },
+    "Georgia": {
+      "dem": 623707,
+      "rep": 601241
+    },
+    "Hawaii": {
+      "dem": 241887,
+      "rep": 86910
+    },
+    "Idaho": {
+      "dem": 185066,
+      "rep": 196958
+    },
+    "Illinois": {
+      "dem": 2033783,
+      "rep": 1053734
+    },
+    "Indiana": {
+      "dem": 595192,
+      "rep": 936143
+    },
+    "Iowa": {
+      "dem": 299406,
+      "rep": 588880
+    },
+    "Kansas": {
+      "dem": 246664,
+      "rep": 576902
+    },
+    "Kentucky": {
+      "dem": 503775,
+      "rep": 173330
+    },
+    "Louisiana": {
+      "dem": 723586,
+      "rep": 646311
+    },
+    "Maine": {
+      "absent": "norace"
+    },
+    "Maryland": {
+      "dem": 675225,
+      "rep": 437411
+    },
+    "Massachusetts": {
+      "absent": "norace"
+    },
+    "Michigan": {
+      "absent": "norace"
+    },
+    "Minnesota": {
+      "absent": "norace"
+    },
+    "Mississippi": {
+      "absent": "norace"
+    },
+    "Missouri": {
+      "dem": 699624,
+      "rep": 777612
+    },
+    "Montana": {
+      "absent": "norace"
+    },
+    "Nebraska": {
+      "absent": "norace"
+    },
+    "Nevada": {
+      "dem": 130955,
+      "rep": 116606
+    },
+    "New Hampshire": {
+      "dem": 79222,
+      "rep": 154090
+    },
+    "New Jersey": {
+      "absent": "norace"
+    },
+    "New Mexico": {
+      "absent": "norace"
+    },
+    "New York": {
+      "dem": 1723216,
+      "rep": 2378197
+    },
+    "North Carolina": {
+      "dem": 780967,
+      "rep": 753881
+    },
+    "North Dakota": {
+      "dem": 143932,
+      "rep": 141812
+    },
+    "Ohio": {
+      "dem": 1949208,
+      "rep": 1171893
+    },
+    "Oklahoma": {
+      "dem": 400230,
+      "rep": 493436
+    },
+    "Oregon": {
+      "dem": 375735,
+      "rep": 656317
+    },
+    "Pennsylvania": {
+      "dem": 1448219,
+      "rep": 1906537
+    },
+    "Rhode Island": {
+      "absent": "norace"
+    },
+    "South Carolina": {
+      "dem": 465500,
+      "rep": 262886
+    },
+    "South Dakota": {
+      "dem": 152657,
+      "rep": 143173
+    },
+    "Tennessee": {
+      "absent": "norace"
+    },
+    "Texas": {
+      "absent": "norace"
+    },
+    "Utah": {
+      "dem": 115523,
+      "rep": 314608
+    },
+    "Vermont": {
+      "dem": 124123,
+      "rep": 67798
+    },
+    "Virginia": {
+      "absent": "norace"
+    },
+    "Washington": {
+      "dem": 677471,
+      "rep": 650931
+    },
+    "West Virginia": {
+      "absent": "norace"
+    },
+    "Wisconsin": {
+      "dem": 702963,
+      "rep": 754573
+    },
+    "Wyoming": {
+      "absent": "norace"
+    }
+  },
+  "names": {
+    "Alabama": [
+      "Richard Shelby",
+      "Jeremiah Denton"
+    ],
+    "Alaska": [
+      "Glenn Olds",
+      "Frank H. Murkowski"
+    ],
+    "Arizona": [
+      "Richard Kimball",
+      "John McCain"
+    ],
+    "Arkansas": [
+      "Dale Bumpers",
+      "Asa Hutchinson"
+    ],
+    "California": [
+      "Alan Cranston",
+      "Ed Zschau"
+    ],
+    "Colorado": [
+      "Timothy E. Wirth",
+      "Ken Kramer"
+    ],
+    "Connecticut": [
+      "Christopher J. Dodd",
+      "Roger W. Eddy"
+    ],
+    "Florida": [
+      "Bob Graham",
+      "Paula Hawkins"
+    ],
+    "Georgia": [
+      "Wyche Fowler Jr.",
+      "Mack Mattingly"
+    ],
+    "Hawaii": [
+      "Daniel K. Inouye",
+      "Frank Hutchinson"
+    ],
+    "Idaho": [
+      "John V. Evans",
+      "Steve Symms"
+    ],
+    "Illinois": [
+      "Alan J. Dixon",
+      "Judy Koehler"
+    ],
+    "Indiana": [
+      "Jill Lynette Long",
+      "Dan Quayle"
+    ],
+    "Iowa": [
+      "John O. Roehrick",
+      "Charles E. Grassley"
+    ],
+    "Kansas": [
+      "Guy MacDonald",
+      "Bob Dole"
+    ],
+    "Kentucky": [
+      "Wendell H. Ford",
+      "Jackson M. Andrews"
+    ],
+    "Louisiana": [
+      "John B. Breaux",
+      "W. Henson Moore"
+    ],
+    "Maryland": [
+      "Barbara A. Mikulski",
+      "Linda Chavez"
+    ],
+    "Missouri": [
+      "Harriett Woods",
+      "Christopher (Kit) Bond"
+    ],
+    "Nevada": [
+      "Harry Reid",
+      "Jim Santini"
+    ],
+    "New Hampshire": [
+      "Endicott Peabody",
+      "Warren B. Rudman"
+    ],
+    "New York": [
+      "Mark Green",
+      "Alfonse M. D'Amato"
+    ],
+    "North Carolina": [
+      "Terry Sanford",
+      "James T. (Jim) Broyhill"
+    ],
+    "North Dakota": [
+      "Kent Conrad",
+      "Mark Andrews"
+    ],
+    "Ohio": [
+      "John Glenn",
+      "Thomas N. Kindness"
+    ],
+    "Oklahoma": [
+      "James R. Jones",
+      "Don Nickles"
+    ],
+    "Oregon": [
+      "Rick Bauman",
+      "Bob Packwood"
+    ],
+    "Pennsylvania": [
+      "Bob Edgar",
+      "Arlen Specter"
+    ],
+    "South Carolina": [
+      "Ernest Fritz Hollings",
+      "Henry D. McMaster"
+    ],
+    "South Dakota": [
+      "Thomas A. Daschle",
+      "James Abdnor"
+    ],
+    "Utah": [
+      "Craig S. Oliver",
+      "E. J. \"Jake\" Garn"
+    ],
+    "Vermont": [
+      "Patrick Leahy",
+      "Dick Snelling"
+    ],
+    "Washington": [
+      "Brock Adams",
+      "Slade Gorton"
+    ],
+    "Wisconsin": [
+      "Edward R. Garvey",
+      "Robert W. Kasten Jr."
+    ]
+  },
+  "specials": {
+    "North Carolina": {
+      "only": true
+    }
+  },
+  "unopposed": {},
+  "national": {
+    "dem": 20,
+    "rep": 14
+  }
+}

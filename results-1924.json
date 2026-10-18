@@ -1,0 +1,266 @@
+{
+  "source": "Wikipedia, \"1924 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Davis",
+    "rep": "Coolidge",
+    "prog": "La Follette"
+  },
+  "parties": {
+    "prog": {
+      "name": "Progressive",
+      "abbr": "Prog",
+      "color": "#7a3fa6"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "rep": 45005,
+      "dem": 112966,
+      "prog": 8084
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "rep": 30516,
+      "dem": 26235,
+      "prog": 17210
+    },
+    "Arkansas": {
+      "rep": 40564,
+      "dem": 84795,
+      "prog": 13173
+    },
+    "California": {
+      "rep": 733250,
+      "dem": 105514,
+      "prog": 424649
+    },
+    "Colorado": {
+      "rep": 195171,
+      "dem": 75238,
+      "prog": 69945
+    },
+    "Connecticut": {
+      "rep": 246322,
+      "dem": 110184,
+      "prog": 42416
+    },
+    "Delaware": {
+      "rep": 52441,
+      "dem": 33445,
+      "prog": 4979
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 30633,
+      "dem": 62083,
+      "prog": 8625
+    },
+    "Georgia": {
+      "rep": 30300,
+      "dem": 123200,
+      "prog": 12691
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "rep": 69879,
+      "dem": 24256,
+      "prog": 54160
+    },
+    "Illinois": {
+      "rep": 1453321,
+      "dem": 576975,
+      "prog": 432027
+    },
+    "Indiana": {
+      "rep": 703042,
+      "dem": 492245,
+      "prog": 71700
+    },
+    "Iowa": {
+      "rep": 537635,
+      "dem": 162600,
+      "prog": 272243
+    },
+    "Kansas": {
+      "rep": 407671,
+      "dem": 156319,
+      "prog": 98461
+    },
+    "Kentucky": {
+      "rep": 398966,
+      "dem": 374855,
+      "prog": 38465
+    },
+    "Louisiana": {
+      "rep": 24670,
+      "dem": 93218,
+      "prog": 0
+    },
+    "Maine": {
+      "rep": 138440,
+      "dem": 41964,
+      "prog": 11382
+    },
+    "Maryland": {
+      "rep": 162414,
+      "dem": 148072,
+      "prog": 47157
+    },
+    "Massachusetts": {
+      "rep": 703476,
+      "dem": 280831,
+      "prog": 141225
+    },
+    "Michigan": {
+      "rep": 874631,
+      "dem": 152359,
+      "prog": 122014
+    },
+    "Minnesota": {
+      "rep": 420759,
+      "dem": 55913,
+      "prog": 339192
+    },
+    "Mississippi": {
+      "rep": 8494,
+      "dem": 100474,
+      "prog": 3494
+    },
+    "Missouri": {
+      "rep": 648486,
+      "dem": 572753,
+      "prog": 84160
+    },
+    "Montana": {
+      "rep": 74138,
+      "dem": 33805,
+      "prog": 66123
+    },
+    "Nebraska": {
+      "rep": 218585,
+      "dem": 137289,
+      "prog": 106701
+    },
+    "Nevada": {
+      "rep": 11243,
+      "dem": 5909,
+      "prog": 9769
+    },
+    "New Hampshire": {
+      "rep": 98575,
+      "dem": 57201,
+      "prog": 8993
+    },
+    "New Jersey": {
+      "rep": 675162,
+      "dem": 297743,
+      "prog": 108901
+    },
+    "New Mexico": {
+      "rep": 54745,
+      "dem": 48542,
+      "prog": 9543
+    },
+    "New York": {
+      "rep": 1820058,
+      "dem": 950796,
+      "prog": 474913
+    },
+    "North Carolina": {
+      "rep": 191753,
+      "dem": 284270,
+      "prog": 6651
+    },
+    "North Dakota": {
+      "rep": 94931,
+      "dem": 13858,
+      "prog": 89922
+    },
+    "Ohio": {
+      "rep": 1176130,
+      "dem": 477888,
+      "prog": 357948
+    },
+    "Oklahoma": {
+      "rep": 226242,
+      "dem": 255798,
+      "prog": 46375
+    },
+    "Oregon": {
+      "rep": 142579,
+      "dem": 67589,
+      "prog": 68403
+    },
+    "Pennsylvania": {
+      "rep": 1401481,
+      "dem": 409192,
+      "prog": 307567
+    },
+    "Rhode Island": {
+      "rep": 125286,
+      "dem": 76606,
+      "prog": 7628
+    },
+    "South Carolina": {
+      "rep": 1123,
+      "dem": 49008,
+      "prog": 620
+    },
+    "South Dakota": {
+      "rep": 101299,
+      "dem": 27214,
+      "prog": 75355
+    },
+    "Tennessee": {
+      "rep": 130882,
+      "dem": 158537,
+      "prog": 10656
+    },
+    "Texas": {
+      "rep": 130023,
+      "dem": 484605,
+      "prog": 42881
+    },
+    "Utah": {
+      "rep": 77327,
+      "dem": 47001,
+      "prog": 32662
+    },
+    "Vermont": {
+      "rep": 80498,
+      "dem": 16124,
+      "prog": 5964
+    },
+    "Virginia": {
+      "rep": 73312,
+      "dem": 139716,
+      "prog": 10377
+    },
+    "Washington": {
+      "rep": 220224,
+      "dem": 42842,
+      "prog": 150727
+    },
+    "West Virginia": {
+      "rep": 288635,
+      "dem": 257232,
+      "prog": 36723
+    },
+    "Wisconsin": {
+      "rep": 311614,
+      "dem": 68115,
+      "prog": 453678
+    },
+    "Wyoming": {
+      "rep": 41858,
+      "dem": 12868,
+      "prog": 25174
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "source": "Wikipedia, \"1808 United States presidential election\": results by state",
+  "candidates": {
+    "dr": "Madison",
+    "fed": "Pinckney",
+    "monroe": "Monroe"
+  },
+  "parties": {
+    "dr": {
+      "name": "Democratic-Republican",
+      "abbr": "DR",
+      "color": "#2e8b57"
+    },
+    "fed": {
+      "name": "Federalist",
+      "abbr": "F",
+      "color": "#d9822b"
+    },
+    "monroe": {
+      "name": "Democratic-Republican (Monroe)",
+      "abbr": "DR",
+      "color": "#7fb07f"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "absent": "territory"
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "absent": "territory"
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "legislature": "fed"
+    },
+    "Delaware": {
+      "legislature": "fed"
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "legislature": "dr"
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "absent": "territory"
+    },
+    "Indiana": {
+      "absent": "territory"
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "electors": "dr"
+    },
+    "Louisiana": {
+      "absent": "territory"
+    },
+    "Maine": {
+      "partOf": "Massachusetts"
+    },
+    "Maryland": {
+      "dr": 15336,
+      "fed": 7433,
+      "monroe": 0
+    },
+    "Massachusetts": {
+      "legislature": "fed"
+    },
+    "Michigan": {
+      "absent": "territory"
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "absent": "territory"
+    },
+    "Missouri": {
+      "absent": "territory"
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dr": 12793,
+      "fed": 14085,
+      "monroe": 0
+    },
+    "New Jersey": {
+      "dr": 18670,
+      "fed": 14687,
+      "monroe": 0
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "legislature": "dr"
+    },
+    "North Carolina": {
+      "electors": "dr"
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dr": 3645,
+      "fed": 1174,
+      "monroe": 1174
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "dr": 42518,
+      "fed": 11735,
+      "monroe": 0
+    },
+    "Rhode Island": {
+      "dr": 2692,
+      "fed": 3072,
+      "monroe": 0
+    },
+    "South Carolina": {
+      "legislature": "dr"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "electors": "dr"
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "legislature": "dr"
+    },
+    "Virginia": {
+      "dr": 15683,
+      "fed": 761,
+      "monroe": 3505
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

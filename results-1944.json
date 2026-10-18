@@ -1,0 +1,266 @@
+{
+  "source": "Wikipedia, \"1944 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Roosevelt",
+    "rep": "Dewey",
+    "tr": "Texas Regulars"
+  },
+  "parties": {
+    "tr": {
+      "name": "Texas Regulars",
+      "abbr": "TR",
+      "color": "#d98a00"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 198918,
+      "rep": 44540,
+      "tr": 0
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "dem": 80926,
+      "rep": 56287,
+      "tr": 0
+    },
+    "Arkansas": {
+      "dem": 148965,
+      "rep": 63551,
+      "tr": 0
+    },
+    "California": {
+      "dem": 1988564,
+      "rep": 1512965,
+      "tr": 0
+    },
+    "Colorado": {
+      "dem": 234331,
+      "rep": 268731,
+      "tr": 0
+    },
+    "Connecticut": {
+      "dem": 435146,
+      "rep": 390527,
+      "tr": 0
+    },
+    "Delaware": {
+      "dem": 68166,
+      "rep": 56747,
+      "tr": 0
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 339377,
+      "rep": 143215,
+      "tr": 0
+    },
+    "Georgia": {
+      "dem": 268187,
+      "rep": 59880,
+      "tr": 0
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "dem": 107399,
+      "rep": 100137,
+      "tr": 0
+    },
+    "Illinois": {
+      "dem": 2079479,
+      "rep": 1939314,
+      "tr": 0
+    },
+    "Indiana": {
+      "dem": 781403,
+      "rep": 875891,
+      "tr": 0
+    },
+    "Iowa": {
+      "dem": 499876,
+      "rep": 547267,
+      "tr": 0
+    },
+    "Kansas": {
+      "dem": 287458,
+      "rep": 442096,
+      "tr": 0
+    },
+    "Kentucky": {
+      "dem": 472589,
+      "rep": 392448,
+      "tr": 0
+    },
+    "Louisiana": {
+      "dem": 281564,
+      "rep": 67750,
+      "tr": 0
+    },
+    "Maine": {
+      "dem": 140631,
+      "rep": 155434,
+      "tr": 0
+    },
+    "Maryland": {
+      "dem": 315490,
+      "rep": 292949,
+      "tr": 0
+    },
+    "Massachusetts": {
+      "dem": 1035296,
+      "rep": 921350,
+      "tr": 0
+    },
+    "Michigan": {
+      "dem": 1106899,
+      "rep": 1084423,
+      "tr": 0
+    },
+    "Minnesota": {
+      "dem": 589864,
+      "rep": 527416,
+      "tr": 0
+    },
+    "Mississippi": {
+      "dem": 168479,
+      "rep": 11601,
+      "tr": 0
+    },
+    "Missouri": {
+      "dem": 807804,
+      "rep": 761524,
+      "tr": 0
+    },
+    "Montana": {
+      "dem": 112556,
+      "rep": 93163,
+      "tr": 0
+    },
+    "Nebraska": {
+      "dem": 233246,
+      "rep": 329880,
+      "tr": 0
+    },
+    "Nevada": {
+      "dem": 29623,
+      "rep": 24611,
+      "tr": 0
+    },
+    "New Hampshire": {
+      "dem": 119663,
+      "rep": 109916,
+      "tr": 0
+    },
+    "New Jersey": {
+      "dem": 987874,
+      "rep": 961335,
+      "tr": 0
+    },
+    "New Mexico": {
+      "dem": 81389,
+      "rep": 70688,
+      "tr": 0
+    },
+    "New York": {
+      "dem": 3304238,
+      "rep": 2987647,
+      "tr": 0
+    },
+    "North Carolina": {
+      "dem": 527399,
+      "rep": 263155,
+      "tr": 0
+    },
+    "North Dakota": {
+      "dem": 100144,
+      "rep": 118535,
+      "tr": 0
+    },
+    "Ohio": {
+      "dem": 1570763,
+      "rep": 1582293,
+      "tr": 0
+    },
+    "Oklahoma": {
+      "dem": 401549,
+      "rep": 319424,
+      "tr": 0
+    },
+    "Oregon": {
+      "dem": 248635,
+      "rep": 225365,
+      "tr": 0
+    },
+    "Pennsylvania": {
+      "dem": 1940479,
+      "rep": 1835054,
+      "tr": 0
+    },
+    "Rhode Island": {
+      "dem": 175356,
+      "rep": 123487,
+      "tr": 0
+    },
+    "South Carolina": {
+      "dem": 90601,
+      "rep": 4610,
+      "tr": 7799
+    },
+    "South Dakota": {
+      "dem": 96711,
+      "rep": 135365,
+      "tr": 0
+    },
+    "Tennessee": {
+      "dem": 308707,
+      "rep": 200311,
+      "tr": 0
+    },
+    "Texas": {
+      "dem": 821605,
+      "rep": 191425,
+      "tr": 135439
+    },
+    "Utah": {
+      "dem": 150088,
+      "rep": 97891,
+      "tr": 0
+    },
+    "Vermont": {
+      "dem": 53820,
+      "rep": 71527,
+      "tr": 0
+    },
+    "Virginia": {
+      "dem": 242276,
+      "rep": 145243,
+      "tr": 0
+    },
+    "Washington": {
+      "dem": 486774,
+      "rep": 361689,
+      "tr": 0
+    },
+    "West Virginia": {
+      "dem": 392777,
+      "rep": 322819,
+      "tr": 0
+    },
+    "Wisconsin": {
+      "dem": 650413,
+      "rep": 674532,
+      "tr": 0
+    },
+    "Wyoming": {
+      "dem": 49419,
+      "rep": 51921,
+      "tr": 0
+    }
+  }
+}

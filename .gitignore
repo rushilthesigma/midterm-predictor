@@ -1,0 +1,13 @@
+# Raw downloads and intermediate builds in work/ are multiple GB; keep only the scripts
+work/**
+!work/
+!work/*.py
+!work/*.mjs
+!work/*.sh
+!work/*/
+!work/*/*.py
+!work/*/*.mjs
+work/venv/
+**/node_modules/
+.DS_Store
+.claude/

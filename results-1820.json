@@ -1,0 +1,189 @@
+{
+  "source": "Wikipedia, \"1820 United States presidential election\": results by state",
+  "candidates": {
+    "dr": "Monroe",
+    "fed": "Federalist electors"
+  },
+  "parties": {
+    "dr": {
+      "name": "Democratic-Republican",
+      "abbr": "DR",
+      "color": "#2e8b57"
+    },
+    "fed": {
+      "name": "Federalist",
+      "abbr": "F",
+      "color": "#d9822b"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "legislature": "dr"
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "absent": "territory"
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "dr": 3871,
+      "fed": 728
+    },
+    "Delaware": {
+      "legislature": "dr"
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "legislature": "dr"
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "dr": 940,
+      "fed": 0
+    },
+    "Indiana": {
+      "legislature": "dr"
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "dr": 2729,
+      "fed": 1941
+    },
+    "Louisiana": {
+      "legislature": "dr"
+    },
+    "Maine": {
+      "dr": 4364,
+      "fed": 0
+    },
+    "Maryland": {
+      "dr": 4167,
+      "fed": 877
+    },
+    "Massachusetts": {
+      "dr": 8124,
+      "fed": 17009
+    },
+    "Michigan": {
+      "absent": "territory"
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "dr": 490,
+      "fed": 0
+    },
+    "Missouri": {
+      "legislature": "dr"
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dr": 9459,
+      "fed": 99
+    },
+    "New Jersey": {
+      "dr": 4102,
+      "fed": 5
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "legislature": "dr"
+    },
+    "North Carolina": {
+      "dr": 3340,
+      "fed": 1
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dr": 7164,
+      "fed": 0
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "dr": 30313,
+      "fed": 0
+    },
+    "Rhode Island": {
+      "dr": 724,
+      "fed": 0
+    },
+    "South Carolina": {
+      "legislature": "dr"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "dr": 1336,
+      "fed": 0
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "legislature": "dr"
+    },
+    "Virginia": {
+      "dr": 4320,
+      "fed": 0
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

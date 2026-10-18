@@ -1,0 +1,210 @@
+{
+  "source": "Wikipedia, \"1952 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Stevenson",
+    "rep": "Eisenhower"
+  },
+  "states": {
+    "Alabama": {
+      "rep": 149231,
+      "dem": 275075
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "rep": 152042,
+      "dem": 108528
+    },
+    "Arkansas": {
+      "rep": 177155,
+      "dem": 226300
+    },
+    "California": {
+      "rep": 3035587,
+      "dem": 2257646
+    },
+    "Colorado": {
+      "rep": 379782,
+      "dem": 245504
+    },
+    "Connecticut": {
+      "rep": 611012,
+      "dem": 481649
+    },
+    "Delaware": {
+      "rep": 90059,
+      "dem": 83315
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 544036,
+      "dem": 444950
+    },
+    "Georgia": {
+      "rep": 198979,
+      "dem": 456823
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "rep": 180707,
+      "dem": 95081
+    },
+    "Illinois": {
+      "rep": 2457327,
+      "dem": 2013920
+    },
+    "Indiana": {
+      "rep": 1136259,
+      "dem": 801530
+    },
+    "Iowa": {
+      "rep": 808906,
+      "dem": 451513
+    },
+    "Kansas": {
+      "rep": 616302,
+      "dem": 273296
+    },
+    "Kentucky": {
+      "rep": 495029,
+      "dem": 495729
+    },
+    "Louisiana": {
+      "rep": 306925,
+      "dem": 345027
+    },
+    "Maine": {
+      "rep": 232353,
+      "dem": 118806
+    },
+    "Maryland": {
+      "rep": 499424,
+      "dem": 395337
+    },
+    "Massachusetts": {
+      "rep": 1292325,
+      "dem": 1083525
+    },
+    "Michigan": {
+      "rep": 1551529,
+      "dem": 1230657
+    },
+    "Minnesota": {
+      "rep": 763211,
+      "dem": 608458
+    },
+    "Mississippi": {
+      "rep": 112966,
+      "dem": 172566
+    },
+    "Missouri": {
+      "rep": 959429,
+      "dem": 929830
+    },
+    "Montana": {
+      "rep": 157394,
+      "dem": 106213
+    },
+    "Nebraska": {
+      "rep": 421603,
+      "dem": 188057
+    },
+    "Nevada": {
+      "rep": 50502,
+      "dem": 31688
+    },
+    "New Hampshire": {
+      "rep": 166287,
+      "dem": 106663
+    },
+    "New Jersey": {
+      "rep": 1374613,
+      "dem": 1015902
+    },
+    "New Mexico": {
+      "rep": 132170,
+      "dem": 105661
+    },
+    "New York": {
+      "rep": 3952815,
+      "dem": 3104601
+    },
+    "North Carolina": {
+      "rep": 558107,
+      "dem": 652803
+    },
+    "North Dakota": {
+      "rep": 191712,
+      "dem": 76694
+    },
+    "Ohio": {
+      "rep": 2100391,
+      "dem": 1600367
+    },
+    "Oklahoma": {
+      "rep": 518045,
+      "dem": 430939
+    },
+    "Oregon": {
+      "rep": 420815,
+      "dem": 270579
+    },
+    "Pennsylvania": {
+      "rep": 2415789,
+      "dem": 2146269
+    },
+    "Rhode Island": {
+      "rep": 210935,
+      "dem": 203293
+    },
+    "South Carolina": {
+      "rep": 168082,
+      "dem": 173004
+    },
+    "South Dakota": {
+      "rep": 203857,
+      "dem": 90426
+    },
+    "Tennessee": {
+      "rep": 446147,
+      "dem": 443710
+    },
+    "Texas": {
+      "rep": 1102878,
+      "dem": 969228
+    },
+    "Utah": {
+      "rep": 194190,
+      "dem": 135364
+    },
+    "Vermont": {
+      "rep": 109717,
+      "dem": 43355
+    },
+    "Virginia": {
+      "rep": 349037,
+      "dem": 268677
+    },
+    "Washington": {
+      "rep": 599107,
+      "dem": 492845
+    },
+    "West Virginia": {
+      "rep": 419970,
+      "dem": 453578
+    },
+    "Wisconsin": {
+      "rep": 979744,
+      "dem": 622175
+    },
+    "Wyoming": {
+      "rep": 81047,
+      "dem": 47934
+    }
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "source": "FEC, Federal Elections 2018",
+  "race": "senate",
+  "candidates": {
+    "dem": "Democrats",
+    "rep": "Republicans",
+    "oth": "Others"
+  },
+  "parties": {
+    "oth": {
+      "name": "Others",
+      "abbr": "I",
+      "color": "#7a5ea8"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "absent": "norace"
+    },
+    "Alaska": {
+      "absent": "norace"
+    },
+    "Arizona": {
+      "dem": 1191100,
+      "rep": 1135200
+    },
+    "Arkansas": {
+      "absent": "norace"
+    },
+    "California": {
+      "dem": 6019422
+    },
+    "Colorado": {
+      "absent": "norace"
+    },
+    "Connecticut": {
+      "dem": 825579,
+      "rep": 545717
+    },
+    "Delaware": {
+      "dem": 217385,
+      "rep": 137127
+    },
+    "District of Columbia": {
+      "absent": "nosenate"
+    },
+    "Florida": {
+      "dem": 4089472,
+      "rep": 4099505
+    },
+    "Georgia": {
+      "absent": "norace"
+    },
+    "Hawaii": {
+      "dem": 276316,
+      "rep": 112035
+    },
+    "Idaho": {
+      "absent": "norace"
+    },
+    "Illinois": {
+      "absent": "norace"
+    },
+    "Indiana": {
+      "dem": 1023553,
+      "rep": 1158000
+    },
+    "Iowa": {
+      "absent": "norace"
+    },
+    "Kansas": {
+      "absent": "norace"
+    },
+    "Kentucky": {
+      "absent": "norace"
+    },
+    "Louisiana": {
+      "absent": "norace"
+    },
+    "Maine": {
+      "dem": 66268,
+      "rep": 223502,
+      "oth": 344575
+    },
+    "Maryland": {
+      "dem": 1491614,
+      "rep": 697017
+    },
+    "Massachusetts": {
+      "dem": 1633371,
+      "rep": 979210
+    },
+    "Michigan": {
+      "dem": 2214478,
+      "rep": 1938818
+    },
+    "Minnesota": {
+      "dem": 1566174,
+      "rep": 940437
+    },
+    "Mississippi": {
+      "dem": 369567,
+      "rep": 547619
+    },
+    "Missouri": {
+      "dem": 1112935,
+      "rep": 1254927
+    },
+    "Montana": {
+      "dem": 253876,
+      "rep": 235963
+    },
+    "Nebraska": {
+      "dem": 269917,
+      "rep": 403151
+    },
+    "Nevada": {
+      "dem": 490071,
+      "rep": 441202
+    },
+    "New Hampshire": {
+      "absent": "norace"
+    },
+    "New Jersey": {
+      "dem": 1711654,
+      "rep": 1357355
+    },
+    "New Mexico": {
+      "dem": 376998,
+      "rep": 212813,
+      "oth": 107201
+    },
+    "New York": {
+      "dem": 4056931,
+      "rep": 1998220
+    },
+    "North Carolina": {
+      "absent": "norace"
+    },
+    "North Dakota": {
+      "dem": 144376,
+      "rep": 179720
+    },
+    "Ohio": {
+      "dem": 2358508,
+      "rep": 2057559
+    },
+    "Oklahoma": {
+      "absent": "norace"
+    },
+    "Oregon": {
+      "absent": "norace"
+    },
+    "Pennsylvania": {
+      "dem": 2792437,
+      "rep": 2134848
+    },
+    "Rhode Island": {
+      "dem": 231477,
+      "rep": 144421
+    },
+    "South Carolina": {
+      "absent": "norace"
+    },
+    "South Dakota": {
+      "absent": "norace"
+    },
+    "Tennessee": {
+      "dem": 985450,
+      "rep": 1227483
+    },
+    "Texas": {
+      "dem": 4045632,
+      "rep": 4260553
+    },
+    "Utah": {
+      "dem": 328541,
+      "rep": 665215
+    },
+    "Vermont": {
+      "rep": 74815,
+      "oth": 183649
+    },
+    "Virginia": {
+      "dem": 1910370,
+      "rep": 1374313
+    },
+    "Washington": {
+      "dem": 1803364,
+      "rep": 1282804
+    },
+    "West Virginia": {
+      "dem": 290510,
+      "rep": 271113
+    },
+    "Wisconsin": {
+      "dem": 1472914,
+      "rep": 1184885
+    },
+    "Wyoming": {
+      "dem": 61227,
+      "rep": 136210
+    }
+  },
+  "names": {
+    "Arizona": [
+      "Kyrsten Sinema",
+      "Martha McSally"
+    ],
+    "California": [
+      "Dianne Feinstein",
+      null
+    ],
+    "Connecticut": [
+      "Christopher S. Murphy",
+      "Matthew Corey"
+    ],
+    "Delaware": [
+      "Thomas R. Carper",
+      "Robert B. Arlett"
+    ],
+    "Florida": [
+      "Bill Nelson",
+      "Rick Scott"
+    ],
+    "Hawaii": [
+      "Mazie K. Hirono",
+      "Ron Curtis"
+    ],
+    "Indiana": [
+      "Joe Donnelly",
+      "Mike Braun"
+    ],
+    "Maine": [
+      "Zak Ringelstein",
+      "Eric L. Brakey",
+      "Angus S., Jr. King"
+    ],
+    "Maryland": [
+      "Ben Cardin",
+      "Tony Cambell"
+    ],
+    "Massachusetts": [
+      "Elizabeth A. Warren",
+      "Geoff Diehl"
+    ],
+    "Michigan": [
+      "Debbie Stabenow",
+      "John James"
+    ],
+    "Minnesota": [
+      "Amy Klobuchar",
+      "Jim Newberger"
+    ],
+    "Mississippi": [
+      "David Baria",
+      "Roger F. Wicker"
+    ],
+    "Missouri": [
+      "Claire McCaskill",
+      "Josh Hawley"
+    ],
+    "Montana": [
+      "Jon Tester",
+      "Matt Rosendale"
+    ],
+    "Nebraska": [
+      "Jane Raybould",
+      "Deb Fischer"
+    ],
+    "Nevada": [
+      "Jacky Rosen",
+      "Dean Heller"
+    ],
+    "New Jersey": [
+      "Robert Menendez",
+      "Bob Hugin"
+    ],
+    "New Mexico": [
+      "Martin T. Heinrich",
+      "Mick Rich",
+      "Gary E. Johnson"
+    ],
+    "New York": [
+      "Kirsten E. Gillibrand",
+      "Chele Chiavacci Farley"
+    ],
+    "North Dakota": [
+      "Heidi Heitkamp",
+      "Kevin Cramer"
+    ],
+    "Ohio": [
+      "Sherrod Brown",
+      "Jim Renacci"
+    ],
+    "Pennsylvania": [
+      "Bob, Jr. Casey",
+      "Lou Barletta"
+    ],
+    "Rhode Island": [
+      "Sheldon Whitehouse",
+      "Robert G., Jr. Flanders"
+    ],
+    "Tennessee": [
+      "Phil Bredesen",
+      "Marsha Blackburn"
+    ],
+    "Texas": [
+      "Beto O'Rourke",
+      "Ted Cruz"
+    ],
+    "Utah": [
+      "Jenny Wilson",
+      "Mitt Romney"
+    ],
+    "Vermont": [
+      null,
+      "Lawrence Zupan",
+      "Bernie Sanders"
+    ],
+    "Virginia": [
+      "Timothy M. Kaine",
+      "Corey A. Stewart"
+    ],
+    "Washington": [
+      "Maria Cantwell",
+      "Susan Hutchison"
+    ],
+    "West Virginia": [
+      "Joseph, III Manchin",
+      "Patrick Morrisey"
+    ],
+    "Wisconsin": [
+      "Tammy Baldwin",
+      "Leah Vukmir"
+    ],
+    "Wyoming": [
+      "Gary Trauner",
+      "John Barrasso"
+    ]
+  },
+  "specials": {
+    "Minnesota": {
+      "votes": {
+        "dem": 1370540,
+        "rep": 1095777
+      },
+      "names": [
+        "Tina Smith",
+        "Karin Housley"
+      ]
+    },
+    "Mississippi": {
+      "votes": {
+        "dem": 420819,
+        "rep": 486769
+      },
+      "names": [
+        "Mike Espy",
+        "Cindy Hyde-Smith"
+      ]
+    }
+  },
+  "unopposed": {},
+  "national": {
+    "dem": 22,
+    "rep": 11,
+    "oth": 2
+  }
+}

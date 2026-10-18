@@ -1,0 +1,214 @@
+{
+  "source": "FEC, Official 2024 Presidential General Election Results",
+  "url": "https://www.fec.gov/resources/cms-content/documents/2024presgeresults.pdf",
+  "candidates": {
+    "dem": "Harris",
+    "rep": "Trump"
+  },
+  "states": {
+    "Alaska": {
+      "dem": 140026,
+      "rep": 184458
+    },
+    "Alabama": {
+      "dem": 772412,
+      "rep": 1462616
+    },
+    "Arkansas": {
+      "dem": 396905,
+      "rep": 759241
+    },
+    "Arizona": {
+      "dem": 1582860,
+      "rep": 1770242
+    },
+    "California": {
+      "dem": 9276179,
+      "rep": 6081697
+    },
+    "Colorado": {
+      "dem": 1728159,
+      "rep": 1377441
+    },
+    "Connecticut": {
+      "dem": 992053,
+      "rep": 736918
+    },
+    "District of Columbia": {
+      "dem": 294185,
+      "rep": 21076
+    },
+    "Delaware": {
+      "dem": 289758,
+      "rep": 214351
+    },
+    "Florida": {
+      "dem": 4683038,
+      "rep": 6110125
+    },
+    "Georgia": {
+      "dem": 2548017,
+      "rep": 2663117
+    },
+    "Hawaii": {
+      "dem": 313044,
+      "rep": 193661
+    },
+    "Iowa": {
+      "dem": 707278,
+      "rep": 927019
+    },
+    "Idaho": {
+      "dem": 274972,
+      "rep": 605246
+    },
+    "Illinois": {
+      "dem": 3062863,
+      "rep": 2449079
+    },
+    "Indiana": {
+      "dem": 1163603,
+      "rep": 1720347
+    },
+    "Kansas": {
+      "dem": 544853,
+      "rep": 758802
+    },
+    "Kentucky": {
+      "dem": 704043,
+      "rep": 1337494
+    },
+    "Louisiana": {
+      "dem": 766870,
+      "rep": 1208505
+    },
+    "Massachusetts": {
+      "dem": 2126518,
+      "rep": 1251303
+    },
+    "Maryland": {
+      "dem": 1902577,
+      "rep": 1035550
+    },
+    "Maine": {
+      "dem": 435652,
+      "rep": 377977
+    },
+    "Michigan": {
+      "dem": 2736533,
+      "rep": 2816636
+    },
+    "Minnesota": {
+      "dem": 1656979,
+      "rep": 1519032
+    },
+    "Missouri": {
+      "dem": 1200599,
+      "rep": 1751986
+    },
+    "Mississippi": {
+      "dem": 466668,
+      "rep": 747744
+    },
+    "Montana": {
+      "dem": 231906,
+      "rep": 352079
+    },
+    "North Carolina": {
+      "dem": 2715375,
+      "rep": 2898423
+    },
+    "North Dakota": {
+      "dem": 112327,
+      "rep": 246505
+    },
+    "Nebraska": {
+      "dem": 369995,
+      "rep": 564816
+    },
+    "New Hampshire": {
+      "dem": 418488,
+      "rep": 395523
+    },
+    "New Jersey": {
+      "dem": 2220713,
+      "rep": 1968215
+    },
+    "New Mexico": {
+      "dem": 478802,
+      "rep": 423391
+    },
+    "Nevada": {
+      "dem": 705197,
+      "rep": 751205
+    },
+    "New York": {
+      "dem": 4619195,
+      "rep": 3578899
+    },
+    "Ohio": {
+      "dem": 2533699,
+      "rep": 3180116
+    },
+    "Oklahoma": {
+      "dem": 499599,
+      "rep": 1036213
+    },
+    "Oregon": {
+      "dem": 1240600,
+      "rep": 919480
+    },
+    "Pennsylvania": {
+      "dem": 3423042,
+      "rep": 3543308
+    },
+    "Rhode Island": {
+      "dem": 285156,
+      "rep": 214406
+    },
+    "South Carolina": {
+      "dem": 1028452,
+      "rep": 1483747
+    },
+    "South Dakota": {
+      "dem": 146859,
+      "rep": 272081
+    },
+    "Tennessee": {
+      "dem": 1056265,
+      "rep": 1966865
+    },
+    "Texas": {
+      "dem": 4835250,
+      "rep": 6393597
+    },
+    "Utah": {
+      "dem": 562566,
+      "rep": 883818
+    },
+    "Virginia": {
+      "dem": 2333778,
+      "rep": 2074097
+    },
+    "Vermont": {
+      "dem": 235791,
+      "rep": 119395
+    },
+    "Washington": {
+      "dem": 2245849,
+      "rep": 1530923
+    },
+    "Wisconsin": {
+      "dem": 1668229,
+      "rep": 1697626
+    },
+    "West Virginia": {
+      "dem": 214309,
+      "rep": 533556
+    },
+    "Wyoming": {
+      "dem": 69527,
+      "rep": 192633
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "source": "Wikipedia, \"1828 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Jackson",
+    "nr": "Adams"
+  },
+  "parties": {
+    "nr": {
+      "name": "National Republican",
+      "abbr": "NR",
+      "color": "#8c5bb5"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 16750,
+      "nr": 1976
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "absent": "territory"
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "dem": 4488,
+      "nr": 13838
+    },
+    "Delaware": {
+      "legislature": "nr"
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "dem": 17703,
+      "nr": 605
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "dem": 9582,
+      "nr": 4681
+    },
+    "Indiana": {
+      "dem": 22140,
+      "nr": 16978
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "dem": 39085,
+      "nr": 31456
+    },
+    "Louisiana": {
+      "dem": 4603,
+      "nr": 4076
+    },
+    "Maine": {
+      "dem": 13808,
+      "nr": 20558
+    },
+    "Maryland": {
+      "dem": 24565,
+      "nr": 25517
+    },
+    "Massachusetts": {
+      "dem": 6016,
+      "nr": 29842
+    },
+    "Michigan": {
+      "absent": "territory"
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "dem": 7086,
+      "nr": 1602
+    },
+    "Missouri": {
+      "dem": 8287,
+      "nr": 3672
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dem": 21182,
+      "nr": 24120
+    },
+    "New Jersey": {
+      "dem": 21951,
+      "nr": 23764
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "dem": 139412,
+      "nr": 131563
+    },
+    "North Carolina": {
+      "dem": 37634,
+      "nr": 13938
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dem": 67596,
+      "nr": 63456
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "dem": 102151,
+      "nr": 50783
+    },
+    "Rhode Island": {
+      "dem": 820,
+      "nr": 2753
+    },
+    "South Carolina": {
+      "legislature": "dem"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "dem": 44092,
+      "nr": 2240
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "dem": 8335,
+      "nr": 24365
+    },
+    "Virginia": {
+      "dem": 26842,
+      "nr": 11989
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

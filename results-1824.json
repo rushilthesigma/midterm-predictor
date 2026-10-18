@@ -1,0 +1,240 @@
+{
+  "source": "Wikipedia, \"1824 United States presidential election\": results by state",
+  "candidates": {
+    "jackson": "Jackson",
+    "adams": "Adams",
+    "clay": "Clay",
+    "crawford": "Crawford"
+  },
+  "parties": {
+    "jackson": {
+      "name": "Democratic-Republican (Jackson)",
+      "abbr": "DR",
+      "color": "#1f5fbf"
+    },
+    "adams": {
+      "name": "Democratic-Republican (Adams)",
+      "abbr": "DR",
+      "color": "#8c5bb5"
+    },
+    "clay": {
+      "name": "Democratic-Republican (Clay)",
+      "abbr": "DR",
+      "color": "#c9971a"
+    },
+    "crawford": {
+      "name": "Democratic-Republican (Crawford)",
+      "abbr": "DR",
+      "color": "#2e8b57"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "jackson": 9461,
+      "adams": 2422,
+      "clay": 96,
+      "crawford": 1663
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "absent": "territory"
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "jackson": 0,
+      "adams": 9261,
+      "clay": 0,
+      "crawford": 1978
+    },
+    "Delaware": {
+      "legislature": "crawford"
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "legislature": "crawford"
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "jackson": 1272,
+      "adams": 1541,
+      "clay": 1047,
+      "crawford": 847
+    },
+    "Indiana": {
+      "jackson": 7444,
+      "adams": 3093,
+      "clay": 5321,
+      "crawford": 0
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "jackson": 6658,
+      "adams": 120,
+      "clay": 17207,
+      "crawford": 3
+    },
+    "Louisiana": {
+      "legislature": "jackson"
+    },
+    "Maine": {
+      "jackson": 0,
+      "adams": 9412,
+      "clay": 0,
+      "crawford": 3081
+    },
+    "Maryland": {
+      "jackson": 14473,
+      "adams": 14191,
+      "clay": 695,
+      "crawford": 3371
+    },
+    "Massachusetts": {
+      "jackson": 0,
+      "adams": 37891,
+      "clay": 0,
+      "crawford": 0
+    },
+    "Michigan": {
+      "absent": "territory"
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "jackson": 3313,
+      "adams": 1718,
+      "clay": 21,
+      "crawford": 121
+    },
+    "Missouri": {
+      "jackson": 1166,
+      "adams": 191,
+      "clay": 2042,
+      "crawford": 34
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "jackson": 0,
+      "adams": 10203,
+      "clay": 0,
+      "crawford": 0
+    },
+    "New Jersey": {
+      "jackson": 10342,
+      "adams": 8405,
+      "clay": 0,
+      "crawford": 1232
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "legislature": "adams"
+    },
+    "North Carolina": {
+      "jackson": 20418,
+      "adams": 0,
+      "clay": 0,
+      "crawford": 15629
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "jackson": 18411,
+      "adams": 12686,
+      "clay": 19165,
+      "crawford": 0
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "jackson": 36091,
+      "adams": 5424,
+      "clay": 1703,
+      "crawford": 4189
+    },
+    "Rhode Island": {
+      "jackson": 0,
+      "adams": 2144,
+      "clay": 0,
+      "crawford": 200
+    },
+    "South Carolina": {
+      "legislature": "jackson"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "jackson": 19285,
+      "adams": 224,
+      "clay": 890,
+      "crawford": 316
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "legislature": "adams"
+    },
+    "Virginia": {
+      "jackson": 2975,
+      "adams": 3514,
+      "clay": 419,
+      "crawford": 8558
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

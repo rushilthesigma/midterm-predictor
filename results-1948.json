@@ -1,0 +1,266 @@
+{
+  "source": "Wikipedia, \"1948 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Truman",
+    "rep": "Dewey",
+    "dix": "Thurmond"
+  },
+  "parties": {
+    "dix": {
+      "name": "States' Rights Democratic",
+      "abbr": "SRD",
+      "color": "#d98a00"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 0,
+      "rep": 40930,
+      "dix": 171443
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "dem": 95251,
+      "rep": 77597,
+      "dix": 0
+    },
+    "Arkansas": {
+      "dem": 149659,
+      "rep": 50959,
+      "dix": 40068
+    },
+    "California": {
+      "dem": 1913134,
+      "rep": 1895269,
+      "dix": 1228
+    },
+    "Colorado": {
+      "dem": 267288,
+      "rep": 239714,
+      "dix": 0
+    },
+    "Connecticut": {
+      "dem": 423297,
+      "rep": 437754,
+      "dix": 0
+    },
+    "Delaware": {
+      "dem": 67813,
+      "rep": 69588,
+      "dix": 0
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 281988,
+      "rep": 194280,
+      "dix": 89755
+    },
+    "Georgia": {
+      "dem": 254646,
+      "rep": 76691,
+      "dix": 85135
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "dem": 107370,
+      "rep": 101514,
+      "dix": 0
+    },
+    "Illinois": {
+      "dem": 1994715,
+      "rep": 1961103,
+      "dix": 0
+    },
+    "Indiana": {
+      "dem": 807833,
+      "rep": 821079,
+      "dix": 0
+    },
+    "Iowa": {
+      "dem": 522380,
+      "rep": 494018,
+      "dix": 0
+    },
+    "Kansas": {
+      "dem": 351902,
+      "rep": 423039,
+      "dix": 0
+    },
+    "Kentucky": {
+      "dem": 466756,
+      "rep": 341210,
+      "dix": 10411
+    },
+    "Louisiana": {
+      "dem": 136344,
+      "rep": 72657,
+      "dix": 204290
+    },
+    "Maine": {
+      "dem": 111916,
+      "rep": 150234,
+      "dix": 0
+    },
+    "Maryland": {
+      "dem": 286521,
+      "rep": 294814,
+      "dix": 2489
+    },
+    "Massachusetts": {
+      "dem": 1151788,
+      "rep": 909370,
+      "dix": 0
+    },
+    "Michigan": {
+      "dem": 1003448,
+      "rep": 1038595,
+      "dix": 0
+    },
+    "Minnesota": {
+      "dem": 692966,
+      "rep": 483617,
+      "dix": 0
+    },
+    "Mississippi": {
+      "dem": 19384,
+      "rep": 5043,
+      "dix": 167538
+    },
+    "Missouri": {
+      "dem": 917315,
+      "rep": 655039,
+      "dix": 42
+    },
+    "Montana": {
+      "dem": 119071,
+      "rep": 96770,
+      "dix": 0
+    },
+    "Nebraska": {
+      "dem": 224165,
+      "rep": 264774,
+      "dix": 0
+    },
+    "Nevada": {
+      "dem": 31291,
+      "rep": 29357,
+      "dix": 0
+    },
+    "New Hampshire": {
+      "dem": 107995,
+      "rep": 121299,
+      "dix": 7
+    },
+    "New Jersey": {
+      "dem": 895455,
+      "rep": 981124,
+      "dix": 0
+    },
+    "New Mexico": {
+      "dem": 105464,
+      "rep": 80303,
+      "dix": 0
+    },
+    "New York": {
+      "dem": 2780204,
+      "rep": 2841163,
+      "dix": 0
+    },
+    "North Carolina": {
+      "dem": 459070,
+      "rep": 258572,
+      "dix": 69652
+    },
+    "North Dakota": {
+      "dem": 95812,
+      "rep": 115139,
+      "dix": 374
+    },
+    "Ohio": {
+      "dem": 1452791,
+      "rep": 1445684,
+      "dix": 0
+    },
+    "Oklahoma": {
+      "dem": 452782,
+      "rep": 268817,
+      "dix": 0
+    },
+    "Oregon": {
+      "dem": 243147,
+      "rep": 260904,
+      "dix": 0
+    },
+    "Pennsylvania": {
+      "dem": 1752426,
+      "rep": 1902197,
+      "dix": 0
+    },
+    "Rhode Island": {
+      "dem": 188736,
+      "rep": 135787,
+      "dix": 0
+    },
+    "South Carolina": {
+      "dem": 34423,
+      "rep": 5386,
+      "dix": 102607
+    },
+    "South Dakota": {
+      "dem": 117653,
+      "rep": 129651,
+      "dix": 0
+    },
+    "Tennessee": {
+      "dem": 270402,
+      "rep": 202914,
+      "dix": 73815
+    },
+    "Texas": {
+      "dem": 824235,
+      "rep": 303467,
+      "dix": 113776
+    },
+    "Utah": {
+      "dem": 149151,
+      "rep": 124402,
+      "dix": 0
+    },
+    "Vermont": {
+      "dem": 45557,
+      "rep": 75926,
+      "dix": 0
+    },
+    "Virginia": {
+      "dem": 200786,
+      "rep": 172070,
+      "dix": 43393
+    },
+    "Washington": {
+      "dem": 475165,
+      "rep": 386315,
+      "dix": 0
+    },
+    "West Virginia": {
+      "dem": 429188,
+      "rep": 316251,
+      "dix": 0
+    },
+    "Wisconsin": {
+      "dem": 647310,
+      "rep": 590959,
+      "dix": 0
+    },
+    "Wyoming": {
+      "dem": 52354,
+      "rep": 47947,
+      "dix": 0
+    }
+  }
+}

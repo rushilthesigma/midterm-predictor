@@ -1,0 +1,187 @@
+{
+  "source": "Wikipedia, \"1864 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "McClellan",
+    "rep": "Lincoln"
+  },
+  "states": {
+    "Alabama": {
+      "absent": "seceded"
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "absent": "seceded"
+    },
+    "California": {
+      "rep": 62140,
+      "dem": 43838
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "rep": 44693,
+      "dem": 42288
+    },
+    "Delaware": {
+      "rep": 8155,
+      "dem": 8767
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "seceded"
+    },
+    "Georgia": {
+      "absent": "seceded"
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "rep": 189512,
+      "dem": 158724
+    },
+    "Indiana": {
+      "rep": 150422,
+      "dem": 130233
+    },
+    "Iowa": {
+      "rep": 88500,
+      "dem": 49525
+    },
+    "Kansas": {
+      "rep": 17089,
+      "dem": 3836
+    },
+    "Kentucky": {
+      "rep": 27787,
+      "dem": 64301
+    },
+    "Louisiana": {
+      "absent": "uncounted"
+    },
+    "Maine": {
+      "rep": 67805,
+      "dem": 46992
+    },
+    "Maryland": {
+      "rep": 40153,
+      "dem": 32739
+    },
+    "Massachusetts": {
+      "rep": 126742,
+      "dem": 48745
+    },
+    "Michigan": {
+      "rep": 79149,
+      "dem": 68513
+    },
+    "Minnesota": {
+      "rep": 25055,
+      "dem": 17357
+    },
+    "Mississippi": {
+      "absent": "seceded"
+    },
+    "Missouri": {
+      "rep": 72750,
+      "dem": 31596
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "rep": 9826,
+      "dem": 6594
+    },
+    "New Hampshire": {
+      "rep": 36596,
+      "dem": 33034
+    },
+    "New Jersey": {
+      "rep": 60723,
+      "dem": 68024
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "rep": 368735,
+      "dem": 361986
+    },
+    "North Carolina": {
+      "absent": "seceded"
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "rep": 265654,
+      "dem": 205599
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "rep": 9888,
+      "dem": 8457
+    },
+    "Pennsylvania": {
+      "rep": 296391,
+      "dem": 276316
+    },
+    "Rhode Island": {
+      "rep": 13962,
+      "dem": 8470
+    },
+    "South Carolina": {
+      "absent": "seceded"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "absent": "uncounted"
+    },
+    "Texas": {
+      "absent": "seceded"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "rep": 42420,
+      "dem": 13322
+    },
+    "Virginia": {
+      "absent": "seceded"
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "rep": 23799,
+      "dem": 11078
+    },
+    "Wisconsin": {
+      "rep": 83458,
+      "dem": 65884
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

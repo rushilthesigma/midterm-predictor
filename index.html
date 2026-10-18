@@ -1,0 +1,1789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>US Map</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #fff; }
+  body { display: flex; flex-direction: column; }
+  svg { display: block; width: 100%; flex: 1; min-height: 0; }
+  .bottom-bar {
+    flex: 0 0 72px; display: flex; align-items: center; gap: 16px; padding: 0 16px;
+    border-top: 1px solid #e8e8e8;
+    background: #fff; font: 14px/1 system-ui, -apple-system, sans-serif; color: #111;
+  }
+  .bottom-bar button {
+    padding: 4px 0; border: 0; background: none; color: #888; font: inherit; cursor: pointer;
+  }
+  .bottom-bar button:hover, .bottom-bar button[aria-pressed="true"] { color: #111; }
+  .bottom-bar button:disabled { color: #ccc; cursor: default; }
+  .elections {
+    flex: 1; min-width: 0; display: flex; justify-content: space-between; gap: 16px;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .elections::-webkit-scrollbar { display: none; }
+  .elections button { flex: none; font-variant-numeric: tabular-nums; }
+  /* The scrollbar is hidden, so fade whichever edge has more years past it */
+  .elections.more-left { mask-image: linear-gradient(to right, transparent, #000 32px); }
+  .elections.more-right { mask-image: linear-gradient(to left, transparent, #000 32px); }
+  .elections.more-left.more-right {
+    mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+  }
+  .elections.dragging { cursor: grabbing; user-select: none; }
+  .elections.dragging button { cursor: grabbing; }
+  /* House midterms, when shown among the presidential years: smaller, so the presidential years lead */
+  .elections button.midterm { font-size: 12px; }
+  .bottom-bar .short { display: none; }
+  @media (max-width: 600px) {
+    .bottom-bar { gap: 8px; padding: 0 10px; }
+    .bottom-bar .forecast-tab { padding: 6px 7px; }
+    .bottom-bar .long { display: none; }
+    .bottom-bar .short { display: inline; }
+  }
+  /* No result (DC before 1964) */
+  .state, .county { fill: #e3e3e3; }
+  .state { stroke: #fff; stroke-width: 0.75; vector-effect: non-scaling-stroke; cursor: pointer; }
+  .state.rep { fill: #d6202f; }
+  .state.dem { fill: #1f5fbf; }
+  .state:hover { filter: brightness(0.9); }
+  /* Zoomed in past COUNTY_ZOOM: counties carry the color, states keep only their borders */
+  .county { stroke: #fff; stroke-width: 0.25; vector-effect: non-scaling-stroke; cursor: pointer; }
+  .county:hover { filter: brightness(0.9); }
+  /* District detail mode: districts carry the color, states keep only their borders */
+  .district { stroke: #fff; stroke-width: 0.35; vector-effect: non-scaling-stroke; cursor: pointer; }
+  .district:hover { filter: brightness(0.9); }
+  .district.selected { stroke: #111; stroke-width: 1.5; }
+  /* In district mode, state borders come from the district shapes instead of the state outlines */
+  .district-states { fill: none; stroke: #fff; stroke-width: 1.25; vector-effect: non-scaling-stroke; pointer-events: none; }
+  /* Counties and districts cross-fade in over the state fills, and back out */
+  svg g.counties, svg g.districts { opacity: 0; pointer-events: none; transition: opacity 500ms ease; }
+  g.detail g.counties, g.district-detail g.districts { opacity: 1; pointer-events: auto; }
+  .state { transition: fill-opacity 500ms ease, stroke-width 500ms ease, stroke-opacity 500ms ease; }
+  g.detail .state, g.district-detail .state { fill-opacity: 0; stroke-width: 1.25; pointer-events: none; }
+  /* States that didn't vote (territories, the Confederacy in 1864) have no counties drawn: keep them gray */
+  g.detail .state.novote { fill-opacity: 1; }
+  g.district-detail .state { stroke-opacity: 0; }
+  svg g { transition: opacity 250ms ease; }
+  svg g.fading { opacity: 0; }
+  .legend {
+    position: fixed; right: 16px; bottom: calc(72px + 16px); width: 200px;
+    background: #fff; border: 1px solid #ccc;
+    font: 11px/1.3 system-ui, -apple-system, sans-serif; color: #444;
+  }
+  .legend summary {
+    display: flex; justify-content: space-between; padding: 6px 8px;
+    list-style: none; cursor: pointer; user-select: none;
+    font-weight: 600; color: #222;
+  }
+  .legend summary::-webkit-details-marker { display: none; }
+  .legend summary::after { content: "+"; color: #888; font-weight: 400; }
+  .legend[open] summary::after { content: "\2212"; }
+  .legend[open] summary { border-bottom: 1px solid #eee; }
+  .legend .body { padding: 8px 8px 6px; }
+  .legend .row { display: grid; grid-template-columns: 64px 1fr; align-items: center; margin-bottom: 4px; }
+  .legend .row.absent .bar { background: #e3e3e3; }
+  .legend .bar { height: 8px; }
+  .legend .note { margin: 6px 0 0; color: #888; }
+  .legend .note:empty { display: none; }
+  body.panel-open .legend { right: calc(340px + 16px); }
+
+  /* State results panel, opened by clicking a state */
+  .panel {
+    position: fixed; top: 0; right: 0; bottom: 72px; width: 340px; box-sizing: border-box;
+    display: flex; flex-direction: column; overflow-y: auto;
+    background: #fff; border-left: 1px solid #e3e3e3;
+    font: 13px/1.4 system-ui, -apple-system, sans-serif; color: #111;
+    font-variant-numeric: tabular-nums;
+  }
+  .panel[hidden] { display: none; }
+  .panel header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 20px 20px 16px; border-bottom: 1px solid #eee;
+  }
+  .panel h2 { margin: 2px 0 0; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+  .panel .eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #888;
+  }
+  .panel .close {
+    margin: -4px -6px 0 0; padding: 4px 6px; border: 0; background: none;
+    font: 20px/1 system-ui, sans-serif; color: #888; cursor: pointer;
+  }
+  .panel .close:hover { color: #111; }
+  .panel section { padding: 16px 20px; border-bottom: 1px solid #eee; }
+  .panel section:last-of-type { border-bottom: 0; }
+  .panel section .eyebrow + * { margin-top: 10px; }
+
+  .candidates { width: 100%; border-collapse: collapse; }
+  .candidates td { padding: 3px 0; }
+  .candidates td + td { text-align: right; padding-left: 12px; }
+  .candidates .votes { color: #666; }
+  .candidates .winner td { font-weight: 600; }
+  .swatch { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 1px; vertical-align: 0; }
+  .split { display: flex; gap: 2px; height: 6px; margin: 10px 0 8px; }
+  .split div:first-child { border-radius: 2px 0 0 2px; }
+  .split div:last-child { border-radius: 0 2px 2px 0; }
+  .panel .note { margin: 0; color: #666; }
+
+  .history { width: 100%; border-collapse: collapse; }
+  .history th {
+    padding: 0 0 6px; text-align: left; font-size: 11px; font-weight: 400; color: #888;
+    border-bottom: 1px solid #eee;
+  }
+  .history td { padding: 5px 0; border-bottom: 1px solid #f3f3f3; }
+  .history th:nth-child(3), .history td:nth-child(3) { text-align: right; padding-right: 10px; }
+  .history td:first-child { color: #666; width: 40px; }
+  .history tbody tr { cursor: pointer; }
+  .history tbody tr:hover td { background: #fafafa; }
+  .history tbody tr.current td { background: #f2f2f2; font-weight: 600; }
+  .history tbody tr.absent td.who { color: #999; }
+  .history tbody tr.current td:first-child { color: #111; }
+  .history svg { display: block; width: 100px; height: 10px; }
+
+  @media (max-width: 600px) {
+    .panel { top: auto; left: 0; width: auto; height: 50%; border-left: 0; border-top: 1px solid #e3e3e3; }
+    body.panel-open .legend { display: none; }
+  }
+  /* Settings: map detail level */
+  .settings {
+    position: fixed; top: 16px; right: 16px; z-index: 2;
+    font: 13px/1.4 system-ui, -apple-system, sans-serif; color: #111;
+  }
+  body.panel-open .settings { right: calc(340px + 16px); }
+  .settings > button {
+    display: grid; place-items: center; width: 32px; height: 32px; padding: 0;
+    background: #fff; border: 1px solid #ccc; color: #555; cursor: pointer;
+  }
+  .settings > button:hover, .settings > button[aria-expanded="true"] { color: #111; border-color: #999; }
+  .settings .menu {
+    position: absolute; top: calc(100% + 6px); right: 0; width: 220px; margin: 0; padding: 10px 0 6px;
+    background: #fff; border: 1px solid #ccc; box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+  }
+  .settings .menu[hidden] { display: none; }
+  .settings legend {
+    padding: 0 12px 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #888;
+  }
+  .settings fieldset { margin: 0; padding: 0; border: 0; }
+  .settings fieldset + fieldset { margin-top: 6px; padding-top: 8px; border-top: 1px solid #eee; }
+  .settings label { display: flex; gap: 8px; align-items: flex-start; padding: 6px 12px; cursor: pointer; }
+  .settings label:hover { background: #f6f6f6; }
+  .settings input { margin: 2px 0 0; accent-color: #111; }
+  @media (max-width: 600px) { body.panel-open .settings { right: 16px; } }
+  .legend .ticks { display: flex; justify-content: space-between; margin-left: 64px; color: #888; font-variant-numeric: tabular-nums; }
+
+  /* House or Senate, on a midterm year: a two-way switch over the map's top left */
+  .chamber {
+    position: fixed; top: 16px; left: 16px; z-index: 1; display: flex;
+    background: #fff; border: 1px solid #ccc; font: 13px/1 system-ui, -apple-system, sans-serif;
+  }
+  .chamber[hidden] { display: none; }
+  .chamber button { padding: 8px 12px; border: 0; background: none; color: #555; font: inherit; cursor: pointer; }
+  .chamber button + button { border-left: 1px solid #ccc; }
+  .chamber button:hover { color: #111; }
+  .chamber button[aria-pressed="true"] { background: #111; color: #fff; }
+  /* On the 2026 prediction the switch picks House or Senate, so the card sits below it */
+  .chamber:not([hidden]) ~ .forecast { top: calc(16px + 31px + 8px); max-height: calc(100% - 72px - 32px - 39px); }
+
+  /* Prediction tabs (2026 House, 2028): buttons set apart at the end of the election picker */
+  .bottom-bar .forecast-tab {
+    flex: none; padding: 6px 10px; border: 1px solid #ccc; color: #555;
+  }
+  .bottom-bar .forecast-tab:hover { border-color: #999; }
+  .bottom-bar .forecast-tab[aria-pressed="true"] { background: #111; border-color: #111; color: #fff; }
+
+  /* Prediction card, shown on a prediction: the viewer's ratings and the electoral vote (or seat) tally */
+  .forecast {
+    position: fixed; top: 16px; left: 16px; z-index: 1; width: 280px; max-width: calc(100% - 80px);
+    max-height: calc(100% - 72px - 32px); overflow-y: auto; box-sizing: border-box;
+    background: #fff; border: 1px solid #ccc;
+    font: 12px/1.4 system-ui, -apple-system, sans-serif; color: #111; font-variant-numeric: tabular-nums;
+  }
+  .forecast[hidden] { display: none; }
+  .forecast .block { padding: 10px; border-top: 1px solid #eee; }
+  .forecast .block:first-child { border-top: 0; }
+  .forecast .tally { display: flex; justify-content: space-between; align-items: flex-end; }
+  .forecast .tally .big { display: block; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .forecast .tally .mid { text-align: center; color: #666; }
+  .forecast .tally .rep { text-align: right; }
+  .forecast .dem-text { color: #1f5fbf; }
+  .forecast .rep-text { color: #d6202f; }
+  .forecast .evbar { position: relative; display: flex; height: 12px; margin: 8px 0 4px; background: #d4d4d4; }
+  .forecast .evbar .mark { position: absolute; top: -3px; bottom: -3px; width: 1px; background: #111; z-index: 1; }
+  .forecast .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .forecast .brushes { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin: 6px 0; }
+  .forecast .brushes button, .forecast .units button {
+    padding: 0; border: 0; font: 600 10px/1.15 system-ui, -apple-system, sans-serif; cursor: pointer;
+  }
+  .forecast .brushes button { height: 32px; white-space: pre-line; }
+  .forecast .brushes button[aria-pressed="true"], .forecast .cycle[aria-pressed="true"] { outline: 2px solid #111; outline-offset: 1px; }
+  .forecast .cycle { width: 100%; padding: 5px 0; border: 1px solid #ccc; background: #fff; font: inherit; color: #555; cursor: pointer; }
+  .forecast .cycle[aria-pressed="true"] { color: #111; }
+  .forecast .units { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-top: 6px; }
+  .forecast .units button { height: 26px; }
+  .forecast table { width: 100%; border-collapse: collapse; }
+  .forecast td { padding: 2px 0; }
+  .forecast td + td { text-align: right; padding-left: 8px; }
+  .forecast .presets { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .forecast .presets button, .forecast .share {
+    padding: 4px 8px; border: 1px solid #ccc; background: #fff; font: inherit; color: #333; cursor: pointer;
+  }
+  .forecast .presets button:hover, .forecast .share:hover, .forecast .cycle:hover { border-color: #999; }
+  .forecast .presets button:disabled { color: #bbb; cursor: wait; }
+  .forecast .share { margin-left: auto; }
+  @media (max-width: 600px) {
+    body.panel-open .forecast { display: none; }
+    .forecast { width: auto; }
+  }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 975 610" preserveAspectRatio="xMidYMid meet"><g></g></svg>
+<div class="bottom-bar">
+  <span class="label long">Election</span>
+  <button class="step" data-dir="-1" aria-label="Previous election">&lsaquo;</button>
+  <div class="elections" role="group" aria-label="Presidential election"></div>
+  <button class="step" data-dir="1" aria-label="Next election">&rsaquo;</button>
+  <button class="forecast-tab" type="button" data-year="2026" aria-pressed="false" aria-label="Predict the 2026 House and Senate"><span class="long">Predict </span>2026</button>
+  <button class="forecast-tab" type="button" data-year="2028" aria-pressed="false" aria-label="Predict 2028"><span class="long">Predict </span>2028</button>
+</div>
+<div class="chamber" role="group" aria-label="Chamber" hidden>
+  <button type="button" data-chamber="house" title="House races, district by district">House</button>
+  <button type="button" data-chamber="senate" title="Senate races, state by state">Senate</button>
+</div>
+<div class="forecast" hidden>
+  <div class="block">
+    <div class="tally">
+      <div><span class="big dem-text ev-dem"></span><span class="side-dem">Democrat</span></div>
+      <div class="mid"><span class="big tossup-ev"></span>Toss-up</div>
+      <div class="rep"><span class="big rep-text ev-rep"></span><span class="side-rep">Republican</span></div>
+    </div>
+    <div class="evbar"><span class="mark"></span></div>
+  </div>
+  <div class="block">
+    <div class="brushes" role="group" aria-label="Rating to paint"></div>
+    <button class="cycle" type="button">Cycle with each click</button>
+  </div>
+  <div class="block split-units">
+    <div class="units"></div>
+  </div>
+  <div class="block">
+    <table class="counts"><tbody></tbody></table>
+  </div>
+  <div class="block">
+    <div class="presets">
+      <button type="button" data-preset="blank">All toss-ups</button>
+      <button type="button" data-preset="results"></button>
+      <button type="button" data-preset="model">Model</button>
+      <button class="share" type="button" title="Copy a link that opens this map">Copy link</button>
+    </div>
+  </div>
+</div>
+<div class="settings">
+  <button class="settings-toggle" type="button" aria-label="Map settings" aria-expanded="false" aria-controls="settings-menu">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <path d="M2 4h7M13 4h1M2 12h1M7 12h7"/><circle cx="11" cy="4" r="1.8"/><circle cx="5" cy="12" r="1.8"/>
+    </svg>
+  </button>
+  <form class="menu" id="settings-menu" hidden>
+    <fieldset>
+      <legend>Map detail</legend>
+      <label><input type="radio" name="detail" value="state">
+        <span>State-level results</span></label>
+      <label><input type="radio" name="detail" value="county">
+        <span>County-level results</span></label>
+      <label><input type="radio" name="detail" value="auto">
+        <span>Auto switch</span></label>
+      <label><input type="radio" name="detail" value="district">
+        <span>District-level results</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Elections</legend>
+      <label><input type="checkbox" name="midterms">
+        <span>Midterms</span></label>
+    </fieldset>
+  </form>
+</div>
+<details class="legend" open hidden>
+  <summary><span><span class="measure">Margin of victory</span>, <span class="year">2024</span></span></summary>
+  <div class="body">
+    <div class="rows"></div>
+    <div class="ticks"></div>
+    <p class="note"></p>
+  </div>
+</details>
+<aside class="panel" hidden aria-labelledby="panel-state">
+  <header>
+    <div>
+      <h2 id="panel-state"></h2>
+    </div>
+    <button class="close" type="button" aria-label="Close and zoom out">&times;</button>
+  </header>
+  <section>
+    <div class="eyebrow current-year"></div>
+    <table class="candidates"><tbody></tbody></table>
+    <div class="split"></div>
+    <p class="note"></p>
+  </section>
+  <section>
+    <table class="history">
+      <thead><tr><th>Year</th><th>Winner</th><th>Margin</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</aside>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+  // Election picker in the bottom bar. Selecting a year fades the map out, loads that
+  // year's results-YYYY.json, recolors the states, and fades back in.
+  // Two races: presidential elections, and midterms (race "house", which also covers the 2026
+  // prediction). A midterm has House and Senate results, picked with the chamber switch: the
+  // House by district (districts-YYYY.json, drawn whatever the detail setting), the Senate by state
+  // (results-YYYY.json, race: "senate"). Midterms join the list when the Elections setting turns
+  // them on; a year's panel history follows its own race and chamber.
+  const PRESIDENTIAL = d3.range(1796, 2025, 4);
+  const MIDTERMS = d3.range(1978, 2023, 4);
+  // The next elections, which have predictions instead of results: the 2026 House, rated district by
+  // district, and 2028, rated state by state. The step buttons reach them past the last election,
+  // but they have their own tabs rather than places among the years.
+  const FORECAST_YEARS = [2026, 2028];
+  const HOUSE_FORECAST = 2026, FORECAST_YEAR = 2028;
+  const isForecast = year => FORECAST_YEARS.includes(year);
+  const raceOf = year => MIDTERMS.includes(year) || year === HOUSE_FORECAST ? "house" : "president";
+  let race = "president";
+  // Remembered per browser, best effort
+  let showMidterms = false;
+  try { showMidterms = localStorage.getItem("showMidterms") === "1"; } catch {}
+  let ELECTIONS = PRESIDENTIAL;
+  let STEPS = [...ELECTIONS, ...FORECAST_YEARS];
+  let election = 2024;
+  let onElectionChange = year => {};
+  let onRaceChange = () => {};
+  let chamber = "house";
+  try { if (localStorage.getItem("midtermChamber") === "senate") chamber = "senate"; } catch {}
+  // "house" or "senate" on a midterm with results, null otherwise
+  const chamberOf = year => MIDTERMS.includes(year) ? chamber : null;
+
+  let electionButtons;
+  function listElections() {
+    ELECTIONS = showMidterms ? [...PRESIDENTIAL, ...MIDTERMS].sort((a, b) => a - b) : PRESIDENTIAL;
+    STEPS = [...ELECTIONS, ...FORECAST_YEARS];
+    d3.select(".elections").attr("aria-label", showMidterms ? "Election" : "Presidential election");
+    electionButtons = d3.select(".elections")
+      .selectAll("button")
+      .data(ELECTIONS, y => y)
+      .join("button")
+      .attr("type", "button")
+      .classed("midterm", y => raceOf(y) === "house")
+      .attr("title", y => raceOf(y) === "house" ? `${y} midterms` : null)
+      .text(y => y)
+      .on("click", (e, y) => selectElection(y));
+  }
+  listElections();
+
+  // The years overflow the bar, so let it scroll by mouse wheel (vertical wheels scroll it
+  // sideways) and by dragging, as well as by trackpad and touch
+  const electionsEl = document.querySelector(".elections");
+  const updateEdges = () => {
+    const { scrollLeft, scrollWidth, clientWidth } = electionsEl;
+    electionsEl.classList.toggle("more-left", scrollLeft > 1);
+    electionsEl.classList.toggle("more-right", scrollLeft + clientWidth < scrollWidth - 1);
+  };
+  electionsEl.addEventListener("scroll", updateEdges, { passive: true });
+  window.addEventListener("resize", updateEdges);
+  electionsEl.addEventListener("wheel", e => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || electionsEl.scrollWidth <= electionsEl.clientWidth) return;
+    e.preventDefault();
+    electionsEl.scrollLeft += e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+  }, { passive: false });
+
+  // A drag that moves more than a few pixels scrolls instead of picking the year under the pointer
+  let drag = null;
+  electionsEl.addEventListener("pointerdown", e => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    drag = { x: e.clientX, left: electionsEl.scrollLeft, moved: false };
+  });
+  window.addEventListener("pointermove", e => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x;
+    if (!drag.moved && Math.abs(dx) < 4) return;
+    drag.moved = true;
+    electionsEl.classList.add("dragging");
+    electionsEl.scrollLeft = drag.left - dx;
+  });
+  window.addEventListener("pointerup", () => {
+    if (drag?.moved) {
+      electionsEl.classList.remove("dragging");
+      electionsEl.addEventListener("click", e => e.stopPropagation(), { capture: true, once: true });
+    }
+    drag = null;
+  });
+
+  d3.selectAll(".bottom-bar .step")
+    .on("click", function () {
+      const i = STEPS.indexOf(election) + Number(this.dataset.dir);
+      if (i >= 0 && i < STEPS.length) selectElection(STEPS[i]);
+    });
+  const forecastTabs = d3.selectAll(".forecast-tab").on("click", function () { selectElection(Number(this.dataset.year)); });
+
+  d3.select(".elections").on("keydown", e => {
+    const dir = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
+    if (!dir || !ELECTIONS.includes(election)) return;
+    e.preventDefault();
+    const i = ELECTIONS.indexOf(election) + dir;
+    if (i >= 0 && i < ELECTIONS.length) {
+      selectElection(ELECTIONS[i]);
+      electionButtons.filter(y => y === election).node().focus();
+    }
+  });
+
+  function selectElection(year) {
+    const raceChanged = raceOf(year) !== race;
+    race = raceOf(year);
+    if (raceChanged) onRaceChange(year);
+    election = year;
+    electionButtons.attr("aria-pressed", y => y === year);
+    forecastTabs.attr("aria-pressed", function () { return Number(this.dataset.year) === year; });
+    d3.select(".chamber").attr("hidden", chamberOf(year) || year === HOUSE_FORECAST ? null : true)
+      .selectAll("button").attr("aria-pressed", function () { return this.dataset.chamber === chamber; });
+    const i = STEPS.indexOf(year);
+    d3.select('.step[data-dir="-1"]').property("disabled", i === 0);
+    d3.select('.step[data-dir="1"]').property("disabled", i === STEPS.length - 1);
+    electionButtons.filter(y => y === year).node()?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    updateEdges();
+    onElectionChange(year);
+  }
+  selectElection(election);
+  // Switching chambers redraws the same year
+  d3.selectAll(".chamber button").on("click", function () {
+    if (this.dataset.chamber === chamber) return;
+    chamber = this.dataset.chamber;
+    try { localStorage.setItem("midtermChamber", chamber); } catch {}
+    onRaceChange(election);
+    selectElection(election);
+  });
+
+  const svg = d3.select("svg");
+  const g = svg.select("g");
+  const path = d3.geoPath();
+
+  // Map detail setting: "state", "county", "auto" (counties once zoomed past COUNTY_ZOOM), or
+  // "district". Remembered per browser; storage can be unavailable, so it's best effort.
+  const DETAIL_MODES = ["state", "county", "auto", "district"];
+  let detailMode = "auto";
+  try {
+    const saved = localStorage.getItem("detailMode");
+    if (DETAIL_MODES.includes(saved)) detailMode = saved;
+  } catch {}
+  let onDetailMode = () => {};
+
+  const settingsButton = d3.select(".settings-toggle");
+  const settingsMenu = d3.select("#settings-menu");
+  const setMenuOpen = open => {
+    settingsMenu.attr("hidden", open ? null : true);
+    settingsButton.attr("aria-expanded", open);
+  };
+  settingsButton.on("click", () => setMenuOpen(settingsMenu.attr("hidden") !== null));
+  settingsMenu.selectAll('input[name="detail"]')
+    .property("checked", function () { return this.value === detailMode; })
+    .on("change", function () {
+      detailMode = this.value;
+      try { localStorage.setItem("detailMode", detailMode); } catch {}
+      onDetailMode();
+    });
+
+  // Turning midterms off while on one moves to the presidential election after it (the 2026
+  // prediction has its own tab, so it stays)
+  settingsMenu.select('input[name="midterms"]')
+    .property("checked", showMidterms)
+    .on("change", function () {
+      showMidterms = this.checked;
+      try { localStorage.setItem("showMidterms", showMidterms ? "1" : "0"); } catch {}
+      listElections();
+      selectElection(!showMidterms && race === "house" && !isForecast(election) ? election + 2 : election);
+    });
+
+  d3.select(document).on("pointerdown.settings", e => {
+    if (!e.target.closest(".settings")) setMenuOpen(false);
+  });
+  d3.select(window).on("keydown.settings", e => {
+    if (e.key === "Escape" && settingsMenu.attr("hidden") === null) {
+      setMenuOpen(false);
+      settingsButton.node().focus();
+      e.stopImmediatePropagation();
+    }
+  }, { capture: true });
+
+  // In auto mode, past COUNTY_ZOOM the map switches to county results (where the election has them)
+  const COUNTY_ZOOM = 3;
+  // High enough to fit the smallest counties (Virginia's independent cities)
+  const MAX_ZOOM = 40;
+  let zoomK = 1;
+  let onZoomLevel = () => {};
+  const zoom = d3.zoom()
+    .scaleExtent([1, MAX_ZOOM])
+    .on("zoom", e => {
+      g.attr("transform", e.transform);
+      const crossed = (e.transform.k >= COUNTY_ZOOM) !== (zoomK >= COUNTY_ZOOM);
+      zoomK = e.transform.k;
+      if (crossed) onZoomLevel();
+    });
+  svg.call(zoom);
+
+  // Click a state to zoom to it and open its results panel; click it again (or close) to zoom out.
+  // Zoomed in, click a county to zoom to it instead; click it again to go back out to its state.
+  // In district mode, click a district to zoom to it; click it again to go back out to its state.
+  let selected = null; // { feature, county, district, state }; state is a county's or district's state
+
+  function zoomToState(event, d) {
+    if (selected?.feature === d) return clearSelection();
+    selectFeature({ feature: d, county: false });
+  }
+
+  function zoomToCounty(event, d, state) {
+    if (selected?.county && sameCounty(selected.feature, d)) return state ? zoomToState(event, state) : clearSelection();
+    selectFeature({ feature: d, county: true, state });
+  }
+
+  function zoomToDistrict(event, d, state) {
+    if (selected?.district && selected.feature.id === d.id) {
+      return state ? zoomToState(event, state) : clearSelection();
+    }
+    selectFeature({ feature: d, district: true, state });
+  }
+
+  // Districts are redrawn from each election's own lines, so they match the selection by id
+  function markSelected() {
+    const d = selected?.feature;
+    g.selectAll(".state").classed("selected", s => s === d);
+    // Counties are redrawn when the outlines change between elections, so match them as the same county
+    g.selectAll(".county").classed("selected", s => !!selected?.county && sameCounty(s, d));
+    g.selectAll(".district").classed("selected", s => !!selected?.district && s.id === d.id);
+  }
+
+  function selectFeature(sel) {
+    selected = sel;
+    const d = sel.feature;
+    markSelected();
+    openPanel();
+
+    // Fit the state into the part of the map the panel doesn't cover. The zoom transform is in
+    // viewBox units, so convert that free area from screen pixels.
+    const box = svg.node().getBoundingClientRect();
+    const pane = document.querySelector(".panel").getBoundingClientRect();
+    const besidePanel = pane.left > box.left + 1;
+    const free = besidePanel
+      ? { x: 0, y: 0, w: pane.left - box.left, h: box.height }
+      : { x: 0, y: 0, w: box.width, h: Math.min(box.height, pane.top - box.top) };
+    const s = Math.min(box.width / 975, box.height / 610);
+    const ox = (box.width - 975 * s) / 2, oy = (box.height - 610 * s) / 2;
+    const cx = (free.x + free.w / 2 - ox) / s, cy = (free.y + free.h / 2 - oy) / s;
+
+    const [[x0, y0], [x1, y1]] = (sel.district ? districtPath : path).bounds(d);
+    const k = Math.min(MAX_ZOOM, 0.8 / Math.max((x1 - x0) / (free.w / s), (y1 - y0) / (free.h / s)));
+    svg.transition().duration(750).call(zoom.transform,
+      d3.zoomIdentity.translate(cx, cy).scale(k).translate(-(x0 + x1) / 2, -(y0 + y1) / 2));
+  }
+
+  function clearSelection() {
+    selected = null;
+    markSelected();
+    d3.select(".panel").attr("hidden", true);
+    d3.select("body").classed("panel-open", false);
+    svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
+  }
+
+  // Midterms have no county results, so a selected county gives way to its state
+  // Midterms have no county results, and the Senate no districts, so those selections give way to
+  // their state
+  onRaceChange = year => {
+    if (raceOf(year) !== "house") return;
+    if (!selected?.county && !(selected?.district && chamberOf(year) === "senate")) return;
+    if (selected.state) selectFeature({ feature: selected.state, county: false });
+    else clearSelection();
+  };
+
+  d3.select(".panel .close").on("click", clearSelection);
+  d3.select(window).on("keydown.panel", e => { if (e.key === "Escape" && selected) clearSelection(); });
+
+  const fmtVotes = d3.format(",");
+  const fmtPct = d3.format(".1f");
+  // Besides dem and rep, a year's results can name third parties (results.candidates key →
+  // results.parties[key] = { name, abbr, color }); loadResults registers their colors here
+  const PARTY_COLOR = { dem: "#1f5fbf", rep: "#d6202f" };
+  const thirdParties = results => Object.keys(results.candidates).filter(p => p !== "dem" && p !== "rep");
+  const partyAbbr = (p, results) => results.parties?.[p]?.abbr ?? ({ dem: "D", rep: "R" })[p] ?? "I";
+  // { dem, rep, [third party]: votes } from a county or district's [dem, rep, third?...] votes
+  const voteObj = (v, results) => {
+    const r = { dem: v[0], rep: v[1] };
+    thirdParties(results).forEach((p, i) => { if (v[i + 2] != null) r[p] = v[i + 2]; });
+    return r;
+  };
+  // A district's own candidates ([dem, rep, third?] names, House years) in place of the year's party labels
+  const withNames = (results, names) => {
+    if (!names) return results.candidates;
+    const c = { ...results.candidates };
+    ["dem", "rep", ...thirdParties(results)].forEach((p, i) => { if (names[i]) c[p] = names[i]; });
+    return c;
+  };
+  // A Senate special election held alongside the regular one (or in its place: { only: true })
+  const specialText = (sp, results) => {
+    if (sp.only) return "Special election for an unexpired term";
+    const c = withNames(results, sp.names), { winner, total, lead } = rank(sp.votes);
+    return `Also a special election: ${c[winner]} (${partyAbbr(winner, results)}) won by ${fmtPct(lead / total * 100)} points`;
+  };
+  // Seats won, "D 40 · R 12"
+  const seatText = (seats, results) => Object.entries(seats).sort((a, b) => b[1] - a[1])
+    .map(([p, n]) => `${partyAbbr(p, results)} ${n}`).join(" \u00b7 ");
+  // The parties in a result, most votes first, with the total and the winner's lead in votes
+  const rank = r => {
+    const order = Object.keys(r).filter(p => typeof r[p] === "number" && r[p] > 0).sort((a, b) => r[b] - r[a]);
+    return { order, winner: order[0], total: d3.sum(order, p => r[p]), lead: r[order[0]] - (r[order[1]] ?? 0) };
+  };
+
+  // Before 1976 some states have no popular vote to show. A state entry can instead be
+  // { legislature: party } (its legislature picked the electors), { electors: party } (voters chose
+  // the electors, but no complete statewide count survives: early district-elected electors),
+  // { partOf: state } (it voted as part of another: Maine until 1820, West Virginia until 1864),
+  // or { absent: reason } (it didn't vote). Before 1828 the parties aren't Democratic and
+  // Republican at all; results.parties names them.
+  const ABSENT = {
+    territory: "Not yet a state",
+    dc: "No electoral votes until 1964",
+    seceded: "Seceded; did not vote",
+    unreconstructed: "Not yet readmitted; did not vote",
+    uncounted: "Wartime vote not counted by Congress",
+    delegate: "Non-voting delegate only",
+    norace: "No Senate race",
+    nosenate: "No Senate seats"
+  };
+  // Not worth a row in a state's history: years before it could vote at all (and DC's House delegate)
+  const PRE_STATEHOOD = new Set(["territory", "dc", "delegate", "norace", "nosenate"]);
+  // { r, legislature, byVoters, absent, partOf } for a state, with partOf resolved to the other state's
+  // result. A state with only its electoral outcome reports the winner as legislature, with byVoters
+  // set when it was voters, not the legislature, who chose the electors.
+  function stateStatus(results, name) {
+    let s = results.states[name];
+    if (!s) return { absent: "none" };
+    const partOf = s.partOf;
+    if (partOf) s = results.states[partOf] ?? {};
+    if (s.absent) return { absent: s.absent };
+    if (s.legislature) return { legislature: s.legislature, partOf };
+    if (s.electors) return { legislature: s.electors, byVoters: true, partOf };
+    return rank(s).winner ? { r: s, partOf } : { absent: "none" };
+  }
+  const absentText = reason => ABSENT[reason] ?? "No result";
+  const noVoteText = status => status.byVoters
+    ? "voters chose the electors, but no complete statewide count survives"
+    : "the state legislature chose the electors, with no popular vote";
+
+  function openPanel() {
+    const { feature, county, district, state } = selected;
+    d3.select(".panel").attr("hidden", null);
+    d3.select("body").classed("panel-open", true);
+    d3.select("#panel-state").text(district ? districtLabel(feature.id, state?.properties.name)
+      : county && state ? `${feature.properties.name}, ${state.properties.name}`
+      : feature.properties.name);
+    updatePanel();
+  }
+
+  // Each election's { year, results, r: { dem, rep, ... } } for the selection; r is missing where
+  // there's no result (states also carry status: see stateStatus). States and counties go back to 1796,
+  // districts only to 1952.
+  // District numbers carry across redistricting, but their lines can change between elections.
+  function loadSelectionResults(sel) {
+    if (sel.district) {
+      const id = sel.feature.id;
+      const years = DISTRICT_YEARS.filter(y => raceOf(y) === race);
+      return Promise.all(years.map(y => Promise.all([loadResults(y), loadDistricts(y)])))
+        .then(all => all.map(([results, data], i) => {
+          const v = data?.votes[id], lone = data?.unopposed[id];
+          return { year: years[i], results, r: v ? voteObj(v, results) : lone ? { [lone]: 1 } : null,
+            pctOnly: !!data?.percentOnly.has(id), unopposed: !!lone && !v,
+            names: data?.names[id], note: data?.notes[id] };
+        }));
+    }
+    if (sel.county) {
+      // Follow the county across outline sets: historical years by atlas id, later ones by FIPS
+      const fips = countyFips(sel.feature);
+      return Promise.all([
+        sel.feature.properties.key || !fips ? null : loadHistoricalCounties().catch(() => null),
+        Promise.all(COUNTY_YEARS.map(y => Promise.all([loadResults(y), loadCounties(y)])))
+      ]).then(([hist, all]) => {
+        const key = sel.feature.properties.key ?? hist?.keyByFips.get(fips);
+        return all.map(([results, votes], i) => {
+          const v = votes?.[votes.outlinesDate ? key : fips];
+          return { year: COUNTY_YEARS[i], results, r: v && voteObj(v, results) };
+        });
+      });
+    }
+    const name = sel.feature.properties.name;
+    const years = race === "house" ? MIDTERMS : PRESIDENTIAL;
+    return Promise.all(years.map(loadResults))
+      .then(all => all.map((results, i) => {
+        const status = stateStatus(results, name);
+        const lone = results.unopposed?.[name];
+        return { year: years[i], results, r: status.r, status, names: results.names?.[name],
+          unopposed: !!lone, special: results.specials?.[name] };
+      }));
+  }
+
+  // Renders the selection's results for every election, highlighting the current one.
+  // All years load together (and are cached), so switching elections never waits on the panel.
+  let panelToken = 0;
+  function updatePanel() {
+    if (!selected) return;
+    const sel = selected;
+    const token = ++panelToken;
+    if (chamberOf(election) === "house" && !sel.district && !sel.county) return renderDelegation(sel, token);
+    loadSelectionResults(sel).then(all => {
+      if (token !== panelToken || selected !== sel) return;
+      // Years with votes, plus (for states) years the legislature chose or the state sat out
+      const shown = row => row.r ? !!rank(row.r).winner
+        : !!row.status && (!!row.status.legislature || !PRE_STATEHOOD.has(row.status.absent) && row.status.absent !== "none");
+      const rows = all.filter(shown).map(({ year, results, r, pctOnly, status, unopposed, names, note, special }) => {
+        const base = { year, results, candidates: withNames(results, names), pctOnly, unopposed, note, special,
+          status: status ?? {}, abbr: p => partyAbbr(p, results) };
+        if (!r) return { ...base, r: null, order: [], winner: status.legislature, total: 0, margin: 0 };
+        const { order, winner, total, lead } = rank(r);
+        return { ...base, r, total, winner, order, margin: lead / total * 100 };
+      });
+
+      // Selected election
+      const cur = rows.find(row => row.year === election);
+      const curStatus = all.find(row => row.year === election)?.status;
+      // The label only shows when there's no result to show in its place
+      d3.select(".panel .current-year").style("display", cur?.winner ? "none" : null).text(cur?.winner ? ""
+        : curStatus?.absent && curStatus.absent !== "none" ? `${election}: ${absentText(curStatus.absent)}`
+        : `${election}: no ${sel.district ? "district " : sel.county ? "county " : ""}result`);
+      d3.select(".candidates tbody").selectAll("tr")
+        .data(cur?.r ? cur.order : cur?.winner ? [cur.winner] : [])
+        .join(enter => {
+          const tr = enter.append("tr");
+          tr.append("td").attr("class", "name");
+          tr.append("td").attr("class", "votes");
+          tr.append("td").attr("class", "pct");
+          return tr;
+        })
+        .classed("winner", p => p === cur.winner)
+        .call(tr => {
+          tr.select(".name").html("")
+            .call(td => td.append("span").attr("class", "swatch").style("background", p => PARTY_COLOR[p]))
+            .call(td => td.append("span").text(p => cur.candidates[p]));
+          tr.select(".votes").text(p => cur.pctOnly || cur.unopposed || !cur.r ? "" : fmtVotes(cur.r[p]));
+          tr.select(".pct").text(p => cur.unopposed ? "Unopposed" : cur.r ? fmtPct(cur.r[p] / cur.total * 100) + "%" : "");
+        });
+      d3.select(".split").selectAll("div")
+        .data(cur?.r ? ["dem", ...thirdParties(cur.results), "rep"].filter(p => cur.r[p]) : [])
+        .join("div")
+        .style("background", p => PARTY_COLOR[p])
+        .style("flex", p => `${cur.r[p]} 0 0`);
+      const winnerLabel = row => `${row.candidates[row.winner]} (${row.abbr(row.winner)})`;
+      d3.select(".panel .note").text(!cur?.winner ? ""
+        : (cur.unopposed ? `${winnerLabel(cur)} ran unopposed; no votes were counted`
+          : cur.r ? `${winnerLabel(cur)} won by ${fmtPct(cur.margin)} points`
+          : `${winnerLabel(cur)} won; ${noVoteText(cur.status)}`)
+        + (cur.status.partOf ? `. Voted as part of ${cur.status.partOf}` : "")
+        + (cur.note ? `. ${cur.note}` : "")
+        + (cur.special ? `. ${specialText(cur.special, cur.results)}` : ""));
+      // A prediction has no row among the results, so it fills the same elements itself
+      if (isForecast(election)) renderForecastPanel(sel);
+
+      // History, newest first: diverging margin bars, Democratic left of center, Republican right,
+      // third-party wins centered (saturating at MAX points)
+      const MAX = 30, W = 100;
+      const x = d3.scaleLinear().domain([0, MAX]).range([0, W / 2]).clamp(true);
+      d3.select(".history tbody").selectAll("tr")
+        .data(rows.slice().reverse(), row => row.year)
+        .join(enter => {
+          const tr = enter.append("tr").on("click", (e, row) => selectElection(row.year));
+          tr.append("td").text(row => row.year);
+          tr.append("td").attr("class", "who");
+          tr.append("td").attr("class", "margin");
+          const svgCell = tr.append("td").append("svg").attr("viewBox", `0 0 ${W} 10`);
+          svgCell.append("line").attr("x1", W / 2).attr("x2", W / 2).attr("y1", 0).attr("y2", 10)
+            .attr("stroke", "#ccc");
+          svgCell.append("rect").attr("y", 2).attr("height", 6).attr("rx", 1);
+          return tr;
+        })
+        .classed("current", row => row.year === election)
+        .classed("absent", row => !row.winner)
+        .attr("title", row => `${row.year}: ` + (row.unopposed ? `${row.candidates[row.winner]} unopposed`
+          : row.r ? row.order.map(p => `${row.candidates[p]} ${fmtPct(row.r[p] / row.total * 100)}%`).join(", ")
+            + (row.special?.votes ? `; special: ${specialText(row.special, row.results)}` : "")
+          : row.winner ? noVoteText(row.status) : absentText(row.status.absent)))
+        .call(tr => {
+          tr.select(".who").text(row => row.winner ? winnerLabel(row) : absentText(row.status.absent));
+          tr.select(".margin").text(row => row.unopposed ? "Unopp." : row.r ? `+${fmtPct(row.margin)}` : row.winner ? (row.status.byVoters ? "No count" : "Legis.") : "");
+          tr.select("rect")
+            .attr("fill", row => PARTY_COLOR[row.winner])
+            .attr("x", row => ({ dem: W / 2 - x(row.margin), rep: W / 2 + 1 })[row.winner] ?? W / 2 - x(row.margin) / 2)
+            .attr("width", row => row.r ? Math.max(1, x(row.margin) - (row.winner === "rep" ? 1 : 0)) : 0);
+        });
+    });
+  }
+
+
+  // A state selected on a midterm's House map lists its districts' results that year, and its
+  // seats won in every midterm, rather than any statewide figure
+  function renderDelegation(sel, token) {
+    const fips = sel.feature.id;
+    Promise.all(MIDTERMS.map(y => Promise.all([loadResults(y), loadDistricts(y)]))).then(all => {
+      if (token !== panelToken || selected !== sel) return;
+      const years = all.map(([results, data], i) => {
+        const ids = data ? Object.keys({ ...data.votes, ...data.unopposed }).filter(id => id.startsWith(fips)).sort() : [];
+        const seats = {};
+        const races = ids.map(id => {
+          const v = data.votes[id], lone = !v && data.unopposed[id];
+          const { winner, total, lead } = rank(lone ? { [lone]: 1 } : voteObj(v, results));
+          seats[winner] = (seats[winner] ?? 0) + 1;
+          return { id, winner, unopposed: !!lone, margin: lead / total * 100,
+            name: withNames(results, data.names[id])[winner] };
+        });
+        const { winner, total, lead } = rank(seats);
+        return { year: MIDTERMS[i], results, races, seats, winner, margin: total ? lead / total * 100 : 0 };
+      }).filter(y => y.races.length);
+      const cur = years.find(y => y.year === election);
+      const n = cur?.races.length ?? 0;
+      d3.select(".panel .current-year").text(cur ? `${election} House: ${n === 1 ? "one at-large seat" : `${n} districts`}` : `${election}: no House results`);
+      d3.select(".candidates tbody").selectAll("tr")
+        .data(cur?.races ?? [], r => r.id)
+        .join(enter => {
+          const tr = enter.append("tr");
+          tr.append("td").attr("class", "name");
+          tr.append("td").attr("class", "votes");
+          tr.append("td").attr("class", "pct");
+          return tr;
+        })
+        .classed("winner", false)
+        .call(tr => {
+          tr.select(".name").html("")
+            .call(td => td.append("span").attr("class", "swatch").style("background", r => PARTY_COLOR[r.winner]))
+            .call(td => td.append("span").text(r => `${r.id.endsWith("00") ? "At-large" : Number(r.id.slice(2))}: ${r.name} (${partyAbbr(r.winner, cur.results)})`));
+          tr.select(".votes").text("");
+          tr.select(".pct").text(r => r.unopposed ? "Unopp." : `+${fmtPct(r.margin)}`);
+        });
+      d3.select(".split").selectAll("div")
+        .data(cur ? ["dem", "oth", "rep"].filter(p => cur.seats[p]) : [])
+        .join("div")
+        .style("background", p => PARTY_COLOR[p])
+        .style("flex", p => `${cur.seats[p]} 0 0`);
+      d3.select(".panel .note").text(cur ? `Seats won: ${seatText(cur.seats, cur.results)}. Click a district for its history` : "");
+
+      // History: seats won each midterm, the bar showing the winning party's lead in seats
+      const MAX = 100, W = 100;
+      const x = d3.scaleLinear().domain([0, MAX]).range([0, W / 2]).clamp(true);
+      d3.select(".history tbody").selectAll("tr")
+        .data(years.slice().reverse(), y => y.year)
+        .join(enter => {
+          const tr = enter.append("tr").on("click", (e, row) => selectElection(row.year));
+          tr.append("td").text(row => row.year);
+          tr.append("td").attr("class", "who");
+          tr.append("td").attr("class", "margin");
+          const svgCell = tr.append("td").append("svg").attr("viewBox", `0 0 ${W} 10`);
+          svgCell.append("line").attr("x1", W / 2).attr("x2", W / 2).attr("y1", 0).attr("y2", 10).attr("stroke", "#ccc");
+          svgCell.append("rect").attr("y", 2).attr("height", 6).attr("rx", 1);
+          return tr;
+        })
+        .classed("current", row => row.year === election)
+        .classed("absent", false)
+        .attr("title", row => `${row.year}: ${row.races.map(r => `${r.name} (${partyAbbr(r.winner, row.results)})`).join(", ")}`)
+        .call(tr => {
+          tr.select(".who").text(row => `Seats ${seatText(row.seats, row.results)}`);
+          tr.select(".margin").text("");
+          tr.select("rect")
+            .attr("fill", row => row.margin ? PARTY_COLOR[row.winner] : "#ccc")
+            .attr("x", row => ({ dem: W / 2 - x(row.margin), rep: W / 2 + 1 })[row.winner] ?? W / 2 - x(row.margin) / 2)
+            .attr("width", row => row.margin ? Math.max(1, x(row.margin) - (row.winner === "rep" ? 1 : 0)) : 0);
+        });
+    });
+  }
+
+  // A state selected while on the prediction shows the viewer's rating in place of results
+  function renderForecastPanel(sel) {
+    if (election === HOUSE_FORECAST) {
+      d3.select(".panel .current-year").text(`${HOUSE_FORECAST}: rate districts on the map`);
+      d3.select(".candidates tbody").selectAll("tr").remove();
+      d3.select(".split").selectAll("div").remove();
+      d3.select(".panel .note").text("");
+      return;
+    }
+    const ratings = PREDICTIONS[FORECAST_YEAR].ratings;
+    const name = sel.feature.properties.name;
+    const r = sel.county || sel.district ? null : ratings[name] ?? TOSSUP;
+    d3.select(".panel .current-year").text(r == null ? `${FORECAST_YEAR}: rate states on the statewide map`
+      : `${FORECAST_YEAR} prediction · ${EV[name]} electoral votes`);
+    d3.select(".candidates tbody").selectAll("tr").remove();
+    d3.select(".split").selectAll("div").remove();
+    d3.select(".panel .note").text(r == null ? "" : `You rate it ${RATINGS[r]}. Click it on the map to change that.`);
+  }
+
+  // Statewide popular vote per election: 1796–1856 from the same Wikipedia articles (built by
+  // work/build_early_results.py, which also records how states without a popular vote chose electors),
+  // 1860–1972 from Wikipedia's results tables (Leip's Atlas;
+  // built by work/build_historical_results.py, which keeps third parties that took 10%+ of a state),
+  // 1976–2020 from the MIT Election Data and Science Lab, 2024 from FEC official results
+  const resultsCache = new Map();
+  const loadResults = year => {
+    if (isForecast(year)) return loadPrediction(year);
+    if (!resultsCache.has(year)) resultsCache.set(year, d3.json(`results-${year}.json`).then(results => {
+      for (const [p, { color }] of Object.entries(results.parties ?? {})) {
+        if (shade[p]) continue;
+        PARTY_COLOR[p] = color;
+        shade[p] = d3.interpolateRgb(d3.interpolateRgb("#fff", color)(0.2), d3.color(color).darker(0.9));
+      }
+      return results;
+    }));
+    return resultsCache.get(year);
+  };
+
+  // Before 1960, counties are drawn as they stood on election day, from the Newberry Library's Atlas
+  // of Historical County Boundaries (built by work/build_historical_shapes.mjs): every version of
+  // every county, each with the dates it was in force. Those years' county files say
+  // outlines: "historical" and key their votes by the atlas's county id (stable across boundary
+  // changes) instead of FIPS (work/build_historical_counties.mjs).
+  let historicalCounties = null;
+  const loadHistoricalCounties = () => historicalCounties ??= d3.json("counties-historical.json").then(t => {
+    const features = topojson.feature(t, t.objects.counties).features;
+    // Latest version of each county with a FIPS code, to follow today's counties back in time
+    const keyByFips = new Map();
+    for (const f of features.slice().sort((a, b) => a.properties.end - b.properties.end)) {
+      if (f.properties.fips) keyByFips.set(f.properties.fips, f.properties.key);
+    }
+    return { features, keyByFips };
+  }).catch(err => {
+    historicalCounties = null;
+    throw err;
+  });
+  // A county outline's key into its year's votes, and its FIPS code (missing for counties since abolished)
+  const countyKey = d => d.properties.key ?? d.id;
+  const countyFips = d => d.properties.key ? d.properties.fips : d.id;
+  const sameCounty = (a, b) => countyKey(a) === countyKey(b) || (!!countyFips(a) && countyFips(a) === countyFips(b));
+
+  // County vote by FIPS, { fips: [dem, rep, third?] }, the third in that year's third-party order. 1868–1956 come
+  // from Algara & Amlani and 1796–1864 from Wikipedia's state articles, both on historical outlines
+  // (above; before 1860 only some states' articles have county tables, and none do for 1812,
+  // work/build_early_counties.mjs); 1960–1976 from Algara & Amlani's county returns
+  // (Harvard Dataverse), 1980–2004 from the Census Bureau's USA Counties file (CQ America Votes),
+  // 2008–2024 from tonmcg's county results;
+  // Alaska reports by house district rather than borough, so it falls back to the state color.
+  // Counties and cities created since an election (partOf: { fips: parent }) take their parent's
+  // result, marked with .partOf.
+  const COUNTY_YEARS = d3.range(1796, 2025, 4).filter(y => y !== 1812);
+  const countyCache = new Map();
+  const loadCounties = year => {
+    if (!COUNTY_YEARS.includes(year)) return Promise.resolve(null);
+    if (!countyCache.has(year)) {
+      countyCache.set(year, d3.json(`counties-${year}.json`).then(d => {
+        for (const [id, parent] of Object.entries(d.partOf ?? {})) {
+          if (!d.counties[id] && d.counties[parent]) d.counties[id] = Object.assign(d.counties[parent].slice(), { partOf: parent });
+        }
+        // Historical years carry their election day, to pick the outlines in force on it
+        if (d.outlines === "historical") Object.defineProperty(d.counties, "outlinesDate", { value: d.date });
+        // A caveat about the year's coverage (1864 has counties for only some states)
+        if (d.note) Object.defineProperty(d.counties, "note", { value: d.note });
+        return d.counties;
+      }).catch(err => {
+        console.error(`Could not load county results for ${year}`, err);
+        countyCache.delete(year);
+        return null;
+      }));
+    }
+    return countyCache.get(year);
+  };
+  // Presidential vote by congressional district, { lines, votes: { "SSDD": [dem, rep] }, features },
+  // 2008–2024 from The Downballot on Census boundaries, 1952–2004 from Kiernan Park-Egan's WWU atlas on
+  // UCLA's historical district shapes (work/build_pbcd.py; 1964 has percentages only), each election
+  // on the lines it was counted on. Shapes are lon/lat boundaries, projected to match the 975 × 610 Albers USA frame baked into us-atlas.
+  // Midterm years hold the House result in each district (work/build_midterms.py), with the
+  // candidates' names, seats won unopposed (no votes counted) and notes; where the lines match a
+  // presidential year's, the file names that year (shapesFrom) instead of repeating its shapes.
+  const DISTRICT_YEARS = [...MIDTERMS, ...d3.range(1952, 2025, 4)].sort((a, b) => a - b);
+  // The 2026 prediction's districts load the same way, from districts-2026.json (work/build_2026.py):
+  // the lines in force for 2026 with each district's 2024 presidential vote, label and incumbent
+  const hasDistrictFile = year => DISTRICT_YEARS.includes(year) || year === HOUSE_FORECAST;
+  const districtPath = d3.geoPath(d3.geoAlbersUsa().scale(1300).translate([487.5, 305]));
+  // Census rings wind the opposite way from what d3-geo expects, which would draw each polygon
+  // as the rest of the globe; flip any polygon that covers more than a hemisphere.
+  const rewind = f => {
+    const geom = f.geometry;
+    if (!geom) return f;
+    (geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates).forEach(rings => {
+      if (d3.geoArea({ type: "Polygon", coordinates: rings }) > 2 * Math.PI) rings.forEach(r => r.reverse());
+    });
+    return f;
+  };
+  const districtCache = new Map();
+  const loadDistricts = year => {
+    if (!hasDistrictFile(year)) return Promise.resolve(null);
+    if (!districtCache.has(year)) {
+      districtCache.set(year, d3.json(`districts-${year}.json`).then(d => Promise.resolve(d.shapesFrom
+        ? loadDistricts(d.shapesFrom).then(base => base && { features: base.features, stateBorders: base.stateBorders })
+        : {
+          features: topojson.feature(d.shapes, d.shapes.objects.districts).features.map(rewind),
+          // State borders traced from the districts' own edges, so they line up exactly
+          stateBorders: topojson.mesh(d.shapes, d.shapes.objects.districts,
+            (a, b) => a !== b && a.id.slice(0, 2) !== b.id.slice(0, 2))
+        }).then(shapes => {
+        if (!shapes) throw new Error(`No district shapes for ${year}`);
+        return {
+        lines: d.lines,
+        votes: d.districts,
+        // Districts with only rounded percentages, not vote counts (much of 2008)
+        percentOnly: new Set(d.percentOnly ?? []),
+        names: d.names ?? {},
+        unopposed: d.unopposed ?? {},
+        notes: d.notes ?? {},
+        // Seats won, midterm House years
+        national: d.national,
+        labels: d.labels ?? {},
+        incumbents: d.incumbents ?? {},
+        ...shapes
+      };
+      })).catch(err => {
+        console.error(`Could not load district results for ${year}`, err);
+        districtCache.delete(year);
+        return null;
+      }));
+    }
+    return districtCache.get(year);
+  };
+  const districtLabel = (id, stateName) =>
+    `${stateName ?? id.slice(0, 2)} ${id.endsWith("00") ? "at-large" : "District " + Number(id.slice(2))}`;
+
+  // Predictions. For 2028 the viewer rates each state, and Maine's and Nebraska's districts; for the
+  // 2026 House, each of the 435 districts. Ratings run from Safe D to Safe R; the map shades by rating
+  // and the card tallies electoral votes or seats, toss-ups counting for neither side. Ratings can start
+  // from all toss-ups, the 2024 presidential results, or a model.
+  const RATINGS = ["Safe D", "Likely D", "Lean D", "Toss-up", "Lean R", "Likely R", "Safe R"];
+  const TOSSUP = 3;
+  // Cycling steps a state toss-up → lean → likely → safe D, then lean → likely → safe R, then back
+  const CYCLE = [3, 2, 1, 0, 4, 5, 6];
+  const ratingSide = i => i < TOSSUP ? "dem" : i > TOSSUP ? "rep" : null;
+
+  // 2028 model: each state's lean (its two-party margin minus the national margin) blends 2024 and 2020,
+  // weighted toward the more recent; Maine's and Nebraska's districts keep their 2024 lean relative
+  // to the state. Adding the 2024 national margin gives each projected margin. Simulations draw a
+  // shared national error and an error per state, so states move together, and each unit is rated
+  // by its favorite's chance to win.
+  const FORECAST = { leanWeight: 0.75, nationalSd: 4.5, stateSd: 3.5, districtSd: 2, sims: 20000 };
+  // 2026 House model: each district's lean (its 2024 presidential two-party margin minus the nation's)
+  // plus the national environment, the generic-ballot average in mid-October 2026 (Democrats about +8:
+  // Silver Bulletin D+8.9, RealClearPolling D+8.0, FiftyPlusOne D+8.2). No incumbency or candidate
+  // effects. Simulations draw a shared national error and an error per district.
+  const HOUSE_MODEL = { environment: 8, nationalSd: 3, districtSd: 5, sims: 20000 };
+  // 2026 Senate model: the same environment applied to each state's 2024 presidential lean, with a
+  // wider error per state for the candidates (again no incumbency effects: Collins, for one, runs far
+  // ahead of it)
+  const SENATE_MODEL = { stateSd: 6 };
+  // 2026 Senate: the 35 seats up (Class 2, plus specials for the seats Vance and Rubio left), each with
+  // the senator holding it now, and the 65 seats not up, by state (D, R, or I for King and Sanders, who
+  // caucus with the Democrats). Republicans hold 53 seats, Democrats 47; at 50–50 Vice President Vance
+  // breaks ties, so Democrats need 51 for control and Republicans 50.
+  const SENATE_RACES = {
+    Alabama: ["Tommy Tuberville", "rep"], Alaska: ["Dan Sullivan", "rep"], Arkansas: ["Tom Cotton", "rep"],
+    Colorado: ["John Hickenlooper", "dem"], Delaware: ["Chris Coons", "dem"], Florida: ["Ashley Moody", "rep", "special"],
+    Georgia: ["Jon Ossoff", "dem"], Idaho: ["Jim Risch", "rep"], Illinois: ["Dick Durbin", "dem"], Iowa: ["Joni Ernst", "rep"],
+    Kansas: ["Roger Marshall", "rep"], Kentucky: ["Mitch McConnell", "rep"], Louisiana: ["Bill Cassidy", "rep"],
+    Maine: ["Susan Collins", "rep"], Massachusetts: ["Ed Markey", "dem"], Michigan: ["Gary Peters", "dem"],
+    Minnesota: ["Tina Smith", "dem"], Mississippi: ["Cindy Hyde-Smith", "rep"], Montana: ["Steve Daines", "rep"],
+    Nebraska: ["Pete Ricketts", "rep"], "New Hampshire": ["Jeanne Shaheen", "dem"], "New Jersey": ["Cory Booker", "dem"],
+    "New Mexico": ["Ben Ray Luján", "dem"], "North Carolina": ["Thom Tillis", "rep"], Ohio: ["Jon Husted", "rep", "special"],
+    Oklahoma: ["Markwayne Mullin", "rep"], Oregon: ["Jeff Merkley", "dem"], "Rhode Island": ["Jack Reed", "dem"],
+    "South Carolina": ["Lindsey Graham", "rep"], "South Dakota": ["Mike Rounds", "rep"], Tennessee: ["Bill Hagerty", "rep"],
+    Texas: ["John Cornyn", "rep"], Virginia: ["Mark Warner", "dem"], "West Virginia": ["Shelley Moore Capito", "rep"],
+    Wyoming: ["Cynthia Lummis", "rep"]
+  };
+  const SENATE_HELD = {
+    Alabama: "R", Alaska: "R", Arizona: "DD", Arkansas: "R", California: "DD", Colorado: "D", Connecticut: "DD",
+    Delaware: "D", Florida: "R", Georgia: "D", Hawaii: "DD", Idaho: "R", Illinois: "D", Indiana: "RR", Iowa: "R",
+    Kansas: "R", Kentucky: "R", Louisiana: "R", Maine: "I", Maryland: "DD", Massachusetts: "D", Michigan: "D",
+    Minnesota: "D", Mississippi: "R", Missouri: "RR", Montana: "R", Nebraska: "R", Nevada: "DD", "New Hampshire": "D",
+    "New Jersey": "D", "New Mexico": "D", "New York": "DD", "North Carolina": "R", "North Dakota": "RR", Ohio: "R",
+    Oklahoma: "R", Oregon: "D", Pennsylvania: "DR", "Rhode Island": "D", "South Carolina": "R", "South Dakota": "R",
+    Tennessee: "R", Texas: "R", Utah: "RR", Vermont: "ID", Virginia: "D", Washington: "DD", "West Virginia": "R",
+    Wisconsin: "RD", Wyoming: "R"
+  };
+  const heldSide = c => c === "R" ? "rep" : "dem";
+  const SENATE_HELD_SEATS = { dem: 0, rep: 0 };
+  for (const seats of Object.values(SENATE_HELD)) for (const c of seats) SENATE_HELD_SEATS[heldSide(c)]++;
+  // Electoral votes under the 2020 census apportionment, in force for 2024 and 2028
+  const EV = {
+    Alabama: 9, Alaska: 3, Arizona: 11, Arkansas: 6, California: 54, Colorado: 10, Connecticut: 7,
+    Delaware: 3, "District of Columbia": 3, Florida: 30, Georgia: 16, Hawaii: 4, Idaho: 4, Illinois: 19,
+    Indiana: 11, Iowa: 6, Kansas: 6, Kentucky: 8, Louisiana: 8, Maine: 4, Maryland: 10, Massachusetts: 11,
+    Michigan: 15, Minnesota: 10, Mississippi: 6, Missouri: 10, Montana: 4, Nebraska: 5, Nevada: 6,
+    "New Hampshire": 4, "New Jersey": 14, "New Mexico": 5, "New York": 28, "North Carolina": 16,
+    "North Dakota": 3, Ohio: 17, Oklahoma: 7, Oregon: 8, Pennsylvania: 19, "Rhode Island": 4,
+    "South Carolina": 9, "South Dakota": 3, Tennessee: 11, Texas: 40, Utah: 6, Vermont: 3, Virginia: 13,
+    Washington: 12, "West Virginia": 4, Wisconsin: 10, Wyoming: 3
+  };
+  // States that award an elector per congressional district (by district id), and two statewide
+  const SPLIT_STATES = { Maine: ["2301", "2302"], Nebraska: ["3101", "3102", "3103"] };
+  // Two-party margin, Democrat minus Republican, in points
+  const twoParty = (dem, rep) => (dem - rep) / (dem + rep) * 100;
+  // Rating by the Democrat's chance to win
+  const ratingOf = p => {
+    const q = Math.max(p, 1 - p), k = q >= 0.95 ? 0 : q >= 0.75 ? 1 : q >= 0.6 ? 2 : TOSSUP;
+    return k === TOSSUP || p >= 0.5 ? k : 6 - k;
+  };
+  // A margin's rating: 10+ points safe, 5 to 10 likely, under 5 lean
+  const marginRating = m => { const k = Math.abs(m) >= 10 ? 0 : Math.abs(m) >= 5 ? 1 : 2; return m > 0 ? k : 6 - k; };
+
+  // What the viewer rates in 2028: each state's statewide electors, then each district that awards its own
+  const UNITS = Object.entries(EV).flatMap(([name, ev]) => {
+    const districts = SPLIT_STATES[name] ?? [];
+    return [{ id: name, state: name, label: name, ev: ev - districts.length },
+      ...districts.map(id => ({ id, state: name, label: `${name === "Maine" ? "ME" : "NE"}-${Number(id.slice(2))}`, ev: 1, district: true }))];
+  });
+
+  // Each prediction: its units, the viewer's ratings by unit id (toss-ups left out), and the totals.
+  // Ratings are remembered per browser (best effort); a shared link (#predict= for 2028, #predict2026=
+  // for the House, a digit per unit in units order) opens on that prediction and wins over that.
+  // The House's units come from districts-2026.json, so its ratings are restored once that loads.
+  const SENATE_FORECAST = "2026-senate";
+  const PREDICTIONS = {
+    [SENATE_FORECAST]: { year: HOUSE_FORECAST, chamber: "senate", race: "senate", name: "2026 Senate", storage: "prediction2026senate",
+      hash: /[#&]predictsenate2026=([0-6]+)/, hashKey: "predictsenate2026", total: 100, toWin: 51, needs: { dem: 51, rep: 50 },
+      unit: ["seat", "seats"], ratings: {}, held: SENATE_HELD_SEATS,
+      units: Object.keys(SENATE_RACES).sort().map(name => ({ id: name, state: name, label: name, ev: 1 })) },
+    [HOUSE_FORECAST]: { year: HOUSE_FORECAST, chamber: "house", race: "house", name: "2026 House", storage: "prediction2026", hash: /[#&]predict2026=([0-6]+)/,
+      hashKey: "predict2026", total: 435, toWin: 218, unit: ["seat", "seats"], ratings: {}, units: null },
+    [FORECAST_YEAR]: { year: FORECAST_YEAR, race: "president", name: "2028", storage: "prediction2028", hash: /[#&]predict=([0-6]+)/,
+      hashKey: "predict", total: 538, toWin: 270, unit: ["EV", "EV"], ratings: {}, units: UNITS }
+  };
+  const encodeRatings = P => P.units.map(u => P.ratings[u.id] ?? TOSSUP).join("");
+  const restoreRatings = P => {
+    const ids = new Set(P.units.map(u => u.id));
+    try {
+      const saved = JSON.parse(localStorage.getItem(P.storage));
+      for (const [id, r] of Object.entries(saved ?? {})) {
+        if (ids.has(id) && Number.isInteger(r) && r >= 0 && r <= 6 && r !== TOSSUP) P.ratings[id] = r;
+      }
+    } catch {}
+    const shared = location.hash.match(P.hash)?.[1];
+    if (shared?.length === P.units.length) {
+      P.ratings = Object.fromEntries(P.units.map((u, i) => [u.id, Number(shared[i])]).filter(([, r]) => r !== TOSSUP));
+    }
+  };
+  restoreRatings(PREDICTIONS[FORECAST_YEAR]);
+  restoreRatings(PREDICTIONS[SENATE_FORECAST]);
+  // The prediction on screen for a year: 2026 has the House and the Senate, picked with the chamber switch
+  const predictionKey = year => year === HOUSE_FORECAST && chamber === "senate" ? SENATE_FORECAST : year;
+  const houseForecastOn = () => election === HOUSE_FORECAST && chamber === "house";
+  // Districts in id order, one seat each; loaded on first use, with the ratings restored then
+  let houseUnitsLoad = null;
+  const houseUnits = () => houseUnitsLoad ??= loadDistricts(HOUSE_FORECAST).then(data => {
+    if (!data) throw new Error("No 2026 districts");
+    const P = PREDICTIONS[HOUSE_FORECAST];
+    P.units = Object.keys(data.votes).sort().map(id => ({ id, state: id.slice(0, 2), label: data.labels[id] ?? id, ev: 1, district: true }));
+    restoreRatings(P);
+    return data;
+  }).catch(err => { houseUnitsLoad = null; throw err; });
+  for (const P of Object.values(PREDICTIONS)) {
+    if (!P.hash.test(location.hash)) continue;
+    if (P.chamber) chamber = P.chamber;
+    selectElection(P.year);
+  }
+
+  // Results-shaped object for the map: states carry a stand-in vote for the side they're rated
+  // toward (2028; the House has no statewide result), and the prediction itself goes under .forecast
+  // (the House and Senate have none). Senate seats not up count for the party holding them.
+  const loadPrediction = year => {
+    const P = PREDICTIONS[predictionKey(year)];
+    return (P.race === "house" ? houseUnits() : Promise.resolve()).then(() => {
+      const units = P.units.map(u => ({ ...u, rating: P.ratings[u.id] ?? TOSSUP }));
+      const ev = side => d3.sum(units, u => ratingSide(u.rating) === side ? u.ev : 0) + (P.held?.[side] ?? 0);
+      const forecast = { ...P, units, byId: new Map(units.map(u => [u.id, u])), dem: ev("dem"), rep: ev("rep") };
+      forecast.needs ??= { dem: P.toWin, rep: P.toWin };
+      forecast.tossup = P.total - forecast.dem - forecast.rep;
+      if (P.race !== "president") return { candidates: { dem: "Democrats", rep: "Republicans" }, states: {}, forecast };
+      const statewide = units.filter(u => !u.district);
+      forecast.states = Object.fromEntries(statewide.map(u => [u.state, { ...u, ev: EV[u.state] }]));
+      return {
+        candidates: { dem: "Democrat", rep: "Republican" },
+        states: Object.fromEntries(statewide.map(u => [u.state, ratingSide(u.rating) === "rep" ? { dem: 0, rep: 1 } : { dem: 1, rep: 0 }])),
+        forecast
+      };
+    });
+  };
+
+  // Seeded, so the model always gives the same ratings
+  const mulberry32 = seed => () => {
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+  const normalFrom = rand => () => Math.sqrt(-2 * Math.log(1 - rand())) * Math.cos(2 * Math.PI * rand());
+  const nationalMargin = r => twoParty(d3.sum(Object.values(r.states), s => s.dem ?? 0), d3.sum(Object.values(r.states), s => s.rep ?? 0));
+
+  // Starting points, each { unit id: rating }
+  const modelRatings = new Map();
+  const loadModelRatings = year => {
+    if (!modelRatings.has(year)) modelRatings.set(year, (year === HOUSE_FORECAST ? houseModel()
+      : year === SENATE_FORECAST ? senateModel() : presidentialModel())
+      .catch(err => { modelRatings.delete(year); throw err; }));
+    return modelRatings.get(year);
+  };
+  const presidentialModel = () => Promise.all([loadResults(2020), loadResults(2024), loadDistricts(2024)])
+    .then(([r20, r24, d24]) => {
+      const n20 = nationalMargin(r20), n24 = nationalMargin(r24);
+      const stateMargin = (r, name) => twoParty(r.states[name].dem, r.states[name].rep);
+      const lean = name => FORECAST.leanWeight * (stateMargin(r24, name) - n24) + (1 - FORECAST.leanWeight) * (stateMargin(r20, name) - n20);
+      const leans = UNITS.map(u => u.district
+        ? lean(u.state) + twoParty(d24.votes[u.id][0], d24.votes[u.id][1]) - stateMargin(r24, u.state)
+        : lean(u.state));
+      const normal = normalFrom(mulberry32(FORECAST_YEAR));
+      const demWins = new Float64Array(UNITS.length);
+      for (let s = 0; s < FORECAST.sims; s++) {
+        const nationalErr = normal() * FORECAST.nationalSd;
+        const stateErr = {};
+        for (const name of Object.keys(EV)) stateErr[name] = normal() * FORECAST.stateSd;
+        UNITS.forEach((u, i) => {
+          if (n24 + leans[i] + nationalErr + stateErr[u.state] + (u.district ? normal() * FORECAST.districtSd : 0) > 0) demWins[i]++;
+        });
+      }
+      return Object.fromEntries(UNITS.map((u, i) => [u.id, ratingOf(demWins[i] / FORECAST.sims)]));
+    });
+  const houseModel = () => Promise.all([loadResults(2024), houseUnits()]).then(([r24, d26]) => {
+    const units = PREDICTIONS[HOUSE_FORECAST].units;
+    const n24 = nationalMargin(r24);
+    const projected = units.map(u => HOUSE_MODEL.environment + twoParty(...d26.votes[u.id]) - n24);
+    const normal = normalFrom(mulberry32(HOUSE_FORECAST));
+    const demWins = new Float64Array(units.length);
+    for (let s = 0; s < HOUSE_MODEL.sims; s++) {
+      const nationalErr = normal() * HOUSE_MODEL.nationalSd;
+      projected.forEach((m, i) => { if (m + nationalErr + normal() * HOUSE_MODEL.districtSd > 0) demWins[i]++; });
+    }
+    return Object.fromEntries(units.map((u, i) => [u.id, ratingOf(demWins[i] / HOUSE_MODEL.sims)]));
+  });
+  const senateModel = () => loadResults(2024).then(r24 => {
+    const units = PREDICTIONS[SENATE_FORECAST].units;
+    const n24 = nationalMargin(r24);
+    const projected = units.map(u => HOUSE_MODEL.environment + twoParty(r24.states[u.state].dem, r24.states[u.state].rep) - n24);
+    const normal = normalFrom(mulberry32(HOUSE_FORECAST + 1));
+    const demWins = new Float64Array(units.length);
+    for (let s = 0; s < HOUSE_MODEL.sims; s++) {
+      const nationalErr = normal() * HOUSE_MODEL.nationalSd;
+      projected.forEach((m, i) => { if (m + nationalErr + normal() * SENATE_MODEL.stateSd > 0) demWins[i]++; });
+    }
+    return Object.fromEntries(units.map((u, i) => [u.id, ratingOf(demWins[i] / HOUSE_MODEL.sims)]));
+  });
+  // 2024's presidential margins, statewide or by district (for the House, on the 2026 lines)
+  const loadResultRatings = year => year === SENATE_FORECAST
+    ? loadResults(2024).then(r24 => Object.fromEntries(PREDICTIONS[SENATE_FORECAST].units.map(u =>
+      [u.id, marginRating(twoParty(r24.states[u.state].dem, r24.states[u.state].rep))])))
+    : year === HOUSE_FORECAST
+    ? houseUnits().then(d26 => Object.fromEntries(PREDICTIONS[HOUSE_FORECAST].units.map(u => [u.id, marginRating(twoParty(...d26.votes[u.id]))])))
+    : Promise.all([loadResults(2024), loadDistricts(2024)]).then(([r24, d24]) =>
+      Object.fromEntries(UNITS.map(u => {
+        const v = u.district ? d24.votes[u.id] : [r24.states[u.state].dem, r24.states[u.state].rep];
+        return [u.id, marginRating(twoParty(v[0], v[1]))];
+      })));
+
+  let onPrediction = () => {};
+  const setRatings = (year, next) => {
+    const P = PREDICTIONS[year];
+    P.ratings = Object.fromEntries(Object.entries(next).filter(([, r]) => r !== TOSSUP));
+    try { localStorage.setItem(P.storage, JSON.stringify(P.ratings)); } catch {}
+    // Once edited, a reload keeps the edits rather than the shared link's map
+    if (P.hash.test(location.hash)) history.replaceState(null, "", location.pathname + location.search);
+    onPrediction();
+  };
+
+  // Detailed outlines: full-resolution Census TIGER counties clipped to the coastline, with states
+  // dissolved from them so the borders line up (built by work/build_shapes.mjs). They're ~1.7 MB
+  // gzipped, so the map first paints with us-atlas's coarse 1:10m states and swaps these in once
+  // they arrive.
+  const detailShapes = d3.json("shapes-albers.json").then(t => ({
+    counties: topojson.feature(t, t.objects.counties).features,
+    states: topojson.feature(t, t.objects.states).features
+  }));
+  const loadCountyShapes = () => detailShapes.then(s => s.counties);
+
+  // Two-party margin in points; shade deepens with margin, saturating at MAX_MARGIN
+  const MAX_MARGIN = 40;
+  const FADE_MS = 250;
+  // Counties shade by the winner's share of the major-candidate vote, from 50% (or less, with a
+  // third ticket) to SHARE_MAX%+
+  const SHARE_MAX = 90;
+  const countyShare = (v, results) => {
+    const r = voteObj(v, results), { winner, total } = rank(r);
+    return { p: winner, pct: r[winner] / total * 100 };
+  };
+  const shareFill = ({ p, pct }) => shade[p](Math.max(0, Math.min(pct - 50, SHARE_MAX - 50)) / (SHARE_MAX - 50));
+  const shade = {
+    dem: d3.interpolateRgb("#dce6f7", "#0b3d91"),
+    rep: d3.interpolateRgb("#f7dcde", "#9e0f1c")
+  };
+
+  d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-albers-10m.json").then(us => {
+    const countyLayer = g.append("g").attr("class", "counties");
+    const districtLayer = g.append("g").attr("class", "districts");
+    const districtShapes = districtLayer.append("g");
+    const districtBorders = districtLayer.append("path").attr("class", "district-states");
+    const stateFeatures = topojson.feature(us, us.objects.states).features;
+    const stateById = new Map(stateFeatures.map(d => [d.id, d]));
+    const stateByName = new Map(stateFeatures.map(d => [d.properties.name, d]));
+    // A county's state: historical outlines name it (a county can change states: Greer, Texas, became
+    // Greer, Oklahoma), today's carry it in the FIPS code
+    const countyState = d => d.properties.key ? stateByName.get(d.properties.state) : stateById.get(d.id.slice(0, 2));
+    const states = g.append("g").attr("class", "states").selectAll("path")
+      .data(stateFeatures)
+      .join("path")
+      .attr("class", "state")
+      .attr("d", path)
+      // On the 2028 prediction a click paints the state instead of zooming to it (the House
+      // prediction paints districts, drawn over the states)
+      .on("click", (e, d) => election === FORECAST_YEAR ? paintUnit(d.properties.name, e)
+        : election !== HOUSE_FORECAST ? zoomToState(e, d)
+        : chamber === "senate" && SENATE_RACES[d.properties.name] ? paintUnit(d.properties.name, e) : null);
+    states.append("title");
+    // Swap in detailed state outlines in place, so selection and lookups keep the same objects
+    detailShapes.then(({ states: detailed }) => {
+      for (const f of detailed) {
+        const s = stateById.get(f.id);
+        if (s) s.geometry = f.geometry;
+      }
+      states.attr("d", path);
+    }).catch(err => console.error("Could not load detailed outlines", err));
+
+    let current = null;  // { year, results, counties, districts } on screen
+    let counties = null; // county paths, once loaded
+    // Which outlines the county paths are: "modern", or "h<election day>" for historical ones, which
+    // are redrawn for each election whose county lines differ
+    let countySet = null, countySetLoading = null;
+    const wantedCountySet = () => current?.counties?.outlinesDate ? `h${current.counties.outlinesDate}` : "modern";
+    function drawCounties() {
+      const want = wantedCountySet();
+      if (countySet === want || countySetLoading === want) return;
+      countySetLoading = want;
+      const day = current.counties.outlinesDate;
+      (day ? loadHistoricalCounties().then(h => h.features.filter(f => f.properties.start <= day && f.properties.end >= day))
+        : loadCountyShapes()).then(features => {
+        if (countySetLoading !== want) return;
+        countySetLoading = null;
+        countyLayer.selectAll("path").remove();
+        counties = countyLayer.selectAll("path")
+          .data(features)
+          .join("path")
+          .attr("class", "county")
+          .attr("d", path)
+          .on("click", (e, d) => zoomToCounty(e, d, countyState(d)));
+        counties.append("title");
+        if (!day) for (const f of features) countyName.set(f.id, f.properties.name);
+        countySet = want;
+        renderCounties();
+        markSelected();
+        updateDetail();
+      }).catch(err => {
+        countySetLoading = null;
+        console.error("Could not load county outlines", err);
+      });
+    }
+
+    const countyName = new Map(); // fips → name, for counties that were part of another
+    // The historical atlas also outlines places no one voted in: lakes drawn as parishes, which are
+    // left unfilled, and unorganized land, reservations and national parks, which take the no-result gray
+    const WATER = /^Lake /;
+    const UNPOPULATED = /Unorganized|Reserve|\bNp\b|Terr\.|Land Dist\.|Couba Island/;
+    const water = d => !!d.properties.key && !d.properties.fips && WATER.test(d.properties.name);
+    const unpopulated = d => !!d.properties.key && UNPOPULATED.test(d.properties.name);
+    // Other counties without results (Alaska, and gaps in the historical returns) take their state's color
+    function renderCounties() {
+      if (!counties || !current?.counties || countySet !== wantedCountySet()) return;
+      const { results, counties: votes } = current;
+      counties
+        .style("fill", d => {
+          const v = votes[countyKey(d)];
+          if (v) return shareFill(countyShare(v, results));
+          if (water(d)) return "none";
+          return unpopulated(d) ? null : stateFill(results, countyState(d)?.properties.name);
+        })
+        .select("title")
+        .text(d => {
+          const v = votes[countyKey(d)];
+          const label = `${d.properties.name}, ${countyState(d)?.properties.name}`;
+          if (!v && water(d)) return label;
+          if (!v && unpopulated(d)) return `${label}: no votes cast`;
+          if (!v) return `${label}: no county results`;
+          const { p, pct } = countyShare(v, results);
+          const r = voteObj(v, results);
+          return `${label}: ${results.candidates[p]} ${pct.toFixed(1)}%`
+            + (v.partOf ? ` (part of ${countyName.get(v.partOf)} in ${current.year})` : "")
+            + "\n" + rank(r).order.map(q => `${results.candidates[q]} ${fmtVotes(r[q])}`).join(" · ");
+        });
+    }
+
+    // Districts shade by vote share like counties; DC's delegate seat has no result and takes DC's color.
+    // On the House prediction they shade by the viewer's rating, and a click paints one.
+    function renderDistricts() {
+      const data = current?.districts;
+      const stateName = d => stateById.get(d.id.slice(0, 2))?.properties.name;
+      const forecast = current?.results.forecast?.race === "house" ? current.results.forecast : null;
+      districtBorders.datum(data?.stateBorders ?? null).attr("d", d => d && districtPath(d));
+      const paths = districtShapes.selectAll("path")
+        .data(data ? data.features.filter(d => !forecast || forecast.byId.has(d.id)) : [], d => d.id)
+        .join(enter => enter.append("path").attr("class", "district").call(p => p.append("title")))
+        .attr("d", districtPath)
+        .on("click", (e, d) => houseForecastOn() ? paintUnit(d.id, e) : zoomToDistrict(e, d, stateById.get(d.id.slice(0, 2))));
+      if (forecast) {
+        paths.style("fill", d => ratingColor(forecast.byId.get(d.id).rating))
+          .select("title").text(d => {
+            const u = forecast.byId.get(d.id), [name, party] = data.incumbents[d.id] ?? [];
+            const m = twoParty(...data.votes[d.id]);
+            return `${u.label}: ${RATINGS[u.rating]}`
+              + (name ? `\nIncumbent: ${name} (${partyAbbr(party, current.results)})` : "")
+              + `\n2024: ${m > 0 ? "Harris" : "Trump"} +${Math.abs(m).toFixed(1)}\nClick to change`;
+          });
+        return markSelected();
+      }
+      paths
+        .style("fill", d => {
+          const v = data.votes[d.id], lone = data.unopposed[d.id];
+          return v ? shareFill(countyShare(v, current.results)) : lone ? shade[lone](1) : stateFill(current.results, stateName(d));
+        });
+      paths.select("title").text(d => {
+        const v = data.votes[d.id], lone = data.unopposed[d.id];
+        const label = districtLabel(d.id, stateName(d));
+        const names = withNames(current.results, data.names[d.id]);
+        const note = data.notes[d.id] ? `\n${data.notes[d.id]}` : "";
+        if (lone && !v) return `${label}: ${names[lone]} (${partyAbbr(lone, current.results)}), unopposed${note}`;
+        if (!v) return `${label}: no district results`;
+        const { p, pct } = countyShare(v, current.results);
+        const r = voteObj(v, current.results);
+        return `${label}: ${names[p]}${data.names[d.id] ? ` (${partyAbbr(p, current.results)})` : ""} ${pct.toFixed(1)}%`
+          + (data.percentOnly.has(d.id) ? "" : "\n" + rank(r).order.map(q => `${names[q]} ${fmtVotes(r[q])}`).join(" · ")) + note;
+      });
+      markSelected();
+    }
+
+    // Toggle county or district detail for the detail setting, zoom, and election, loading
+    // shapes on first use
+    function updateDetail() {
+      // The House prediction and midterm House results are drawn by district whatever the detail
+      // setting; midterm Senate results only by state
+      const houseForecast = current?.results.forecast?.race === "house";
+      const midterm = chamberOf(current?.year);
+      const districtMode = midterm ? midterm === "house" : detailMode === "district" || houseForecast;
+      const districtYear = DISTRICT_YEARS.includes(current?.year) || houseForecast;
+      g.classed("district-detail", districtMode && districtYear && !!current.districts);
+      if (!districtMode && selected?.district) clearSelection();
+      if (districtMode && districtYear && !current.districts) {
+        const year = current.year;
+        loadDistricts(year).then(data => {
+          if (current?.year !== year || current.districts || !data) return;
+          current.districts = data;
+          renderDistricts();
+          updateDetail();
+        });
+      }
+
+      const zoomedIn = !houseForecast && !midterm && (detailMode === "county" || (detailMode === "auto" && zoomK >= COUNTY_ZOOM));
+      const available = COUNTY_YEARS.includes(current?.year);
+      const countiesReady = !!counties && !!current.counties && countySet === wantedCountySet();
+      const detail = zoomedIn && available && countiesReady;
+      const districtDetail = districtMode && districtYear && !!current.districts;
+      g.classed("detail", detail);
+      const forecasting = isForecast(current?.year);
+      d3.select(".legend .measure").text(detail ? "County vote share"
+        : districtDetail ? (midterm ? "House vote share" : "District vote share") : forecasting ? "Projected margin"
+        : midterm ? "Senate margin" : "Margin of victory");
+      d3.select(".legend .ticks").selectAll("span")
+        .data(detail || districtDetail ? ["50%", "60", "70", "80", `${SHARE_MAX}+`] : ["0", "10", "20", "30", `${MAX_MARGIN}+`])
+        .join("span")
+        .text(t => t);
+      const districtYears = DISTRICT_YEARS.filter(y => raceOf(y) === raceOf(current?.year));
+      const seatsWon = (label, n) => n ? `${label} seats won: ${seatText(n, current.results)}` : "";
+      d3.select(".legend .note").text(forecasting
+        ? (zoomedIn || districtMode ? "The prediction is state-level only" : "")
+        : midterm === "senate" ? seatsWon("Senate", current.results.national)
+        : districtMode
+        ? (!districtYear ? `District results available for ${districtYears[0]}\u2013${districtYears.at(-1)}`
+          : current.districts ? `District lines: ${current.districts.lines}`
+            + (midterm ? `. ${seatsWon("House", current.districts.national)}` : "") : "Loading districts\u2026")
+        : !zoomedIn ? ""
+        : available ? (!countiesReady ? "Loading counties\u2026"
+          : (thirdParties(current.results).length ? "Winner's share of the major-candidate vote" : "Winner's share of the two-party vote")
+            // Before 1848 each state picked its own day to vote, in November or early December
+            + (current.counties.outlinesDate ? `. County lines as of ${current.year < 1848 ? "November" : "Election Day"} ${current.year}` : "")
+            + (current.counties.note ? `. ${current.counties.note}` : ""))
+        : current?.year === 1812 ? "No county results for 1812"
+        : `County results available for ${COUNTY_YEARS[0]}\u2013${COUNTY_YEARS.at(-1)}`);
+      if (zoomedIn && available && current.counties) drawCounties();
+    }
+    onZoomLevel = updateDetail;
+    onDetailMode = updateDetail;
+
+    // Margin over the runner-up, in points of the major-candidate vote
+    const marginOf = r => { const { winner, total, lead } = rank(r); return { p: winner, margin: lead / total * 100 }; };
+    const marginFill = ({ p, margin }) => shade[p](Math.min(margin, MAX_MARGIN) / MAX_MARGIN);
+
+    // Where the legislature chose the electors, or no count survives, there's no margin, so take
+    // the middle shade.
+    // States that didn't vote get no fill and show the default gray.
+    const LEGISLATURE_SHADE = 0.5;
+    function stateFill(results, name) {
+      const s = stateStatus(results, name);
+      return s.r ? marginFill(marginOf(s.r))
+        : s.legislature ? shade[s.legislature](LEGISLATURE_SHADE) : null;
+    }
+
+    function stateTitle(results, name) {
+      const s = stateStatus(results, name);
+      const where = s.partOf ? `${name} (part of ${s.partOf})` : name;
+      if (s.r) {
+        const { p, margin } = marginOf(s.r);
+        // Senate races name their candidates
+        const names = withNames(results, results.names?.[name]);
+        if (results.unopposed?.[name]) return `${where}: ${names[p]} (${partyAbbr(p, results)}), unopposed`;
+        const sp = results.specials?.[name];
+        return `${where}: ${names[p]}${results.names?.[name] ? ` (${partyAbbr(p, results)})` : ""} +${margin.toFixed(1)}`
+          + (sp ? `\n${specialText(sp, results)}` : "");
+      }
+      if (s.legislature) return `${where}: ${results.candidates[s.legislature]} (${s.byVoters
+        ? "chosen by voters; no complete statewide count survives" : "electors chosen by the legislature"})`;
+      return `${name}: ${absentText(s.absent)}`;
+    }
+
+    // Rating colors: safe the deepest shade, lean the lightest, toss-ups gray
+    const RATING_DEPTH = [1, 0.55, 0.2];
+    const depth = i => RATING_DEPTH[i < TOSSUP ? i : 6 - i];
+    const ratingColor = i => i === TOSSUP ? "#d4d4d4" : shade[ratingSide(i)](depth(i));
+    const ratingInk = i => i === TOSSUP || depth(i) < 0.5 ? "#111" : "#fff";
+
+    // Senate seats not up in 2026: states striped in the holding party's color (both colors where the
+    // seats are split), so they read as settled rather than rated. Patterns for the map, gradients for the card.
+    const HELD_INK = { dem: shade.dem(0.55), rep: shade.rep(0.55) };
+    const heldPattern = held => [...held].every(c => c === "R") ? "rep" : [...held].includes("R") ? "split" : "dem";
+    // Each pattern's stripes, 2 units wide, with white between them
+    const heldStripes = { dem: [HELD_INK.dem], rep: [HELD_INK.rep], split: [HELD_INK.dem, HELD_INK.rep] };
+    const defs = svg.append("defs");
+    for (const [k, inks] of Object.entries(heldStripes)) {
+      const w = 4 * inks.length;
+      const pat = defs.append("pattern").attr("id", `held-${k}`).attr("patternUnits", "userSpaceOnUse")
+        .attr("width", w).attr("height", w).attr("patternTransform", "rotate(45)");
+      pat.append("rect").attr("width", w).attr("height", w).attr("fill", "#fff");
+      inks.forEach((ink, i) => pat.append("rect").attr("x", 4 * i).attr("width", 2).attr("height", w).attr("fill", ink));
+    }
+    const heldGradient = side => `repeating-linear-gradient(45deg, ${HELD_INK[side]} 0 2px, #fff 2px 4px)`;
+    // Card rows: the seven ratings, then (for the Senate) the seats not up
+    const HELD_ROWS = ["held-dem", "held-rep"];
+    const rowSide = k => k === "held-dem" ? "dem" : "rep";
+
+    // Painting: a chosen rating, or "cycle" to step each click along CYCLE (shift-click steps back)
+    let brush = "cycle";
+    function paintUnit(id, event) {
+      const key = predictionKey(election), { ratings } = PREDICTIONS[key];
+      const cur = ratings[id] ?? TOSSUP;
+      const next = brush !== "cycle" ? brush
+        : CYCLE[(CYCLE.indexOf(cur) + (event?.shiftKey ? -1 : 1) + CYCLE.length) % CYCLE.length];
+      setRatings(key, { ...ratings, [id]: next });
+    }
+
+    const forecastCard = d3.select(".forecast");
+    const renderBrushes = () => {
+      const what = houseForecastOn() ? ["a district", "districts"] : ["a state", "states"];
+      forecastCard.selectAll(".brushes button").attr("aria-pressed", i => brush === i)
+        .attr("title", i => `Paint ${what[1]} ${RATINGS[i]}`);
+      forecastCard.select(".cycle").attr("aria-pressed", brush === "cycle");
+    };
+    forecastCard.select(".brushes").selectAll("button")
+      .data([...RATINGS.keys()])
+      .join("button")
+      .attr("type", "button")
+      .text(i => i === TOSSUP ? "Toss\nup" : RATINGS[i].replace(" ", "\n"))
+      .style("background", ratingColor)
+      .style("color", ratingInk)
+      .on("click", (e, i) => { brush = brush === i ? "cycle" : i; renderBrushes(); });
+    forecastCard.select(".cycle").on("click", () => { brush = "cycle"; renderBrushes(); });
+    renderBrushes();
+
+    forecastCard.selectAll(".presets button[data-preset]").on("click", function () {
+      const which = this.dataset.preset, year = predictionKey(election);
+      if (which === "blank") return setRatings(year, {});
+      this.disabled = true;
+      (which === "model" ? loadModelRatings(year) : loadResultRatings(year))
+        .then(r => setRatings(year, r), err => console.error(`Could not load the ${which} ratings`, err))
+        .finally(() => { this.disabled = false; });
+    });
+    forecastCard.select(".share").on("click", function () {
+      const P = PREDICTIONS[predictionKey(election)];
+      const url = `${location.origin}${location.pathname}${location.search}#${P.hashKey}=${encodeRatings(P)}`;
+      const show = text => { this.textContent = text; setTimeout(() => { this.textContent = "Copy link"; }, 1500); };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(() => show("Copied"), () => show("Couldn't copy"));
+      else show("Couldn't copy");
+    });
+
+    function renderForecastCard(f) {
+      const house = f.race === "house", senate = f.race === "senate", plural = f.race !== "president";
+      const byRating = d3.rollup(f.units, us => ({ ev: d3.sum(us, u => u.ev), labels: us.map(u => u.label) }), u => u.rating);
+      const { dem, rep, tossup, toWin, unit, needs } = f;
+      const units = n => `${n} ${unit[n === 1 ? 0 : 1]}`;
+      // Rows and bar segments: held Democratic seats, the ratings, held Republican seats
+      const seats = k => HELD_ROWS.includes(k) ? f.held?.[rowSide(k)] ?? 0 : byRating.get(k)?.ev ?? 0;
+      const fill = k => HELD_ROWS.includes(k) ? heldGradient(rowSide(k)) : ratingColor(k);
+      const label = k => HELD_ROWS.includes(k) ? `Not up (${rowSide(k) === "dem" ? "D" : "R"})` : RATINGS[k];
+      const keys = senate ? [HELD_ROWS[0], ...RATINGS.keys(), HELD_ROWS[1]] : [...RATINGS.keys()];
+      forecastCard.select(".side-dem").text(plural ? "Democrats" : "Democrat");
+      forecastCard.select(".side-rep").text(plural ? "Republicans" : "Republican");
+      forecastCard.select(".ev-dem").text(dem);
+      forecastCard.select(".ev-rep").text(rep);
+      forecastCard.select(".tossup-ev").text(tossup);
+      forecastCard.select(".evbar .mark").style("left", `${toWin / f.total * 100}%`)
+        .attr("title", needs.dem === needs.rep ? `${toWin} to win` : `Control: Democrats need ${needs.dem}, Republicans ${needs.rep} (the Vice President breaks ties)`);
+      forecastCard.select(".split-units").attr("hidden", plural ? true : null);
+      forecastCard.select('[data-preset="results"]').text(plural ? "2024 president" : "2024 results")
+        .attr("title", `2024's presidential margins${house ? " on the 2026 lines" : senate ? " by state" : ""}: 10+ points safe, 5 to 10 likely, under 5 lean`);
+      forecastCard.select('[data-preset="model"]').attr("title", house
+        ? `Each district's 2024 presidential lean plus a D+${HOUSE_MODEL.environment} national environment (mid-October 2026 generic ballot), simulated and rated by each side's chance to win`
+        : senate ? `Each state's 2024 presidential lean plus a D+${HOUSE_MODEL.environment} national environment (mid-October 2026 generic ballot), simulated and rated by each side's chance to win; no incumbency effects`
+        : "Simulated from 2020 and 2024 results, rated by each side's chance to win");
+      renderBrushes();
+
+      // Electoral votes (or seats) by rating, Democrats from the left
+      forecastCard.select(".evbar").selectAll("div")
+        .data(keys.filter(seats), k => k)
+        .join("div")
+        .order()
+        .style("flex", k => `${seats(k)} 0 0`)
+        .style("background", fill)
+        .attr("title", k => `${label(k)}: ${plural ? units(seats(k)) : `${seats(k)} electoral votes`}`);
+
+      forecastCard.select(".units").selectAll("button")
+        .data(plural ? [] : f.units.filter(u => u.district), u => u.id)
+        .join(enter => enter.append("button").attr("type", "button").on("click", (e, u) => paintUnit(u.id, e)))
+        .text(u => u.label)
+        .style("background", u => ratingColor(u.rating))
+        .style("color", u => ratingInk(u.rating))
+        .attr("title", u => `${u.label}: ${RATINGS[u.rating]}. Click to change`);
+
+      forecastCard.select(".counts tbody").selectAll("tr")
+        .data(keys, k => k)
+        .join(enter => {
+          const tr = enter.append("tr");
+          tr.append("td").call(td => { td.append("span").attr("class", "swatch"); td.append("span").attr("class", "label"); });
+          tr.append("td").attr("class", "n").style("color", "#888");
+          tr.append("td").attr("class", "ev");
+          return tr;
+        })
+        .order()
+        .attr("title", k => HELD_ROWS.includes(k) ? "Seats with no election in 2026" : byRating.get(k)?.labels.join(", ") ?? "")
+        .call(tr => {
+          tr.select(".swatch").style("background", fill);
+          tr.select(".label").text(label);
+          // A House or Senate race is one seat, so only the seats are worth a column
+          tr.select(".n").text(k => { const n = byRating.get(k)?.labels.length ?? 0; return plural || !n ? "" : `${n} race${n === 1 ? "" : "s"}`; });
+          tr.select(".ev").text(k => units(seats(k)));
+        });
+    }
+
+    // Redraw on each new rating, at most once a frame
+    let predictionFrame = 0;
+    onPrediction = () => {
+      cancelAnimationFrame(predictionFrame);
+      predictionFrame = requestAnimationFrame(() => {
+        const year = election;
+        if (!isForecast(year)) return;
+        Promise.all([loadPrediction(year), loadDistricts(year)]).then(([results, districts]) => {
+          if (election === year) render(year, results, null, districts);
+        });
+      });
+    };
+
+    function render(year, results, countyVotes, districts) {
+      current = { year, results, counties: countyVotes, districts };
+      renderCounties();
+      renderDistricts();
+      updateDetail();
+      const party = name => {
+        const s = stateStatus(results, name);
+        return s.r ? rank(s.r).winner : s.legislature ?? "";
+      };
+      states
+        .attr("class", d => "state " + (party(d.properties.name) || "novote"))
+        .style("fill", d => stateFill(results, d.properties.name))
+        .select("title")
+        .text(d => stateTitle(results, d.properties.name));
+      const forecast = results.forecast;
+      d3.select(".forecast").attr("hidden", forecast ? null : true);
+      // The card carries the prediction's scale, so the margin legend steps aside
+      d3.select(".legend").style("display", forecast ? "none" : null);
+      if (forecast?.race === "president") {
+        states
+          .style("fill", d => ratingColor(forecast.states[d.properties.name].rating))
+          .select("title")
+          .text(d => {
+            const u = forecast.states[d.properties.name];
+            return `${d.properties.name} (${u.ev}): ${RATINGS[u.rating]}`
+              + (SPLIT_STATES[d.properties.name] ? " statewide; rate its districts in the card" : "") + "\nClick to change";
+          });
+      }
+      if (forecast?.race === "senate") {
+        states
+          .style("fill", d => {
+            const u = forecast.byId.get(d.properties.name), held = SENATE_HELD[d.properties.name];
+            return u ? ratingColor(u.rating) : held ? `url(#held-${heldPattern(held)})` : null;
+          })
+          .select("title")
+          .text(d => {
+            const name = d.properties.name, u = forecast.byId.get(name), held = SENATE_HELD[name];
+            const heldText = held ? [...held].join(", ") : "";
+            if (!u) return held ? `${name}: no Senate race in 2026 (seats held: ${heldText})` : `${name}: no Senate seats`;
+            const [who, party, special] = SENATE_RACES[name];
+            return `${name}${special ? " (special election)" : ""}: ${RATINGS[u.rating]}\nSeat held by ${who} (${partyAbbr(party, results)})`
+              + `\nOther seat, not up: ${heldText}\nClick to change`;
+          });
+      }
+      if (forecast) renderForecastCard(forecast);
+
+      d3.select(".legend .year").text(year);
+      updatePanel();
+      // Legend: a row per party that carried a state, with a continuous gradient matching the fill
+      // scale, and a gray row when some states didn't vote
+      const winners = new Set(stateFeatures.map(d => party(d.properties.name)));
+      // Midterm House maps are all districts, so the Senate's no-race gray never shows
+      const anyAbsent = winners.has("") && chamberOf(year) !== "house";
+      d3.select(".legend .rows").selectAll(".row")
+        .data([...["dem", "rep", ...thirdParties(results)].filter(p => shade[p] && p in results.candidates && (p === "dem" || p === "rep" || winners.has(p))),
+          ...(anyAbsent ? ["absent"] : [])])
+        .join(enter => enter.append("div").attr("class", "row")
+          .call(row => { row.append("span"); row.append("div").attr("class", "bar"); }))
+        .classed("absent", p => p === "absent")
+        .call(row => row.select("span").text(p => p === "absent" ? (results.race === "senate" ? "No race" : "No vote") : results.candidates[p]))
+        .call(row => row.select(".bar").style("background", p => p === "absent" ? null
+          : `linear-gradient(to right, ${shade[p](0)}, ${shade[p](1)})`));
+    }
+
+    // Fade out, swap in the new year's results once both the fade and the fetch are done, fade in.
+    // A newer selection supersedes any in-flight one.
+    let pending = 0;
+    onElectionChange = year => {
+      if (isForecast(year) && selected) clearSelection();
+      const token = ++pending;
+      g.classed("fading", true);
+      Promise.all([loadResults(year), loadCounties(year),
+        detailMode === "district" || (year === HOUSE_FORECAST && chamber === "house") || chamberOf(year) === "house" ? loadDistricts(year) : null, new Promise(r => setTimeout(r, FADE_MS))])
+        .then(([results, countyVotes, districts]) => {
+          if (token !== pending) return;
+          render(year, results, countyVotes, districts);
+          g.classed("fading", false);
+        })
+        .catch(err => {
+          if (token !== pending) return;
+          console.error(`Could not load results for ${year}`, err);
+          g.classed("fading", false);
+        });
+    };
+
+    Promise.all([loadResults(election), loadCounties(election),
+      detailMode === "district" || houseForecastOn() || chamberOf(election) === "house" ? loadDistricts(election) : null]).then(([results, countyVotes, districts]) => {
+      render(election, results, countyVotes, districts);
+      d3.select(".legend").attr("hidden", null);
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+{
+  "source": "Wikipedia, \"1852 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Pierce",
+    "whig": "Scott",
+    "fs": "Hale"
+  },
+  "parties": {
+    "whig": {
+      "name": "Whig",
+      "abbr": "W",
+      "color": "#c9971a"
+    },
+    "fs": {
+      "name": "Free Soil",
+      "abbr": "FS",
+      "color": "#3d9a3d"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 26881,
+      "whig": 15061,
+      "fs": 0
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "dem": 12179,
+      "whig": 7430,
+      "fs": 0
+    },
+    "California": {
+      "dem": 40585,
+      "whig": 35752,
+      "fs": 62
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "dem": 33249,
+      "whig": 30359,
+      "fs": 3161
+    },
+    "Delaware": {
+      "dem": 6330,
+      "whig": 6299,
+      "fs": 63
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 4318,
+      "whig": 2875,
+      "fs": 0
+    },
+    "Georgia": {
+      "dem": 34708,
+      "whig": 16639,
+      "fs": 0
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "dem": 80368,
+      "whig": 64733,
+      "fs": 9863
+    },
+    "Indiana": {
+      "dem": 94890,
+      "whig": 80901,
+      "fs": 6928
+    },
+    "Iowa": {
+      "dem": 17824,
+      "whig": 16195,
+      "fs": 1612
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "dem": 53807,
+      "whig": 57108,
+      "fs": 256
+    },
+    "Louisiana": {
+      "dem": 18653,
+      "whig": 17255,
+      "fs": 0
+    },
+    "Maine": {
+      "dem": 41609,
+      "whig": 32543,
+      "fs": 8030
+    },
+    "Maryland": {
+      "dem": 40428,
+      "whig": 35080,
+      "fs": 56
+    },
+    "Massachusetts": {
+      "dem": 45875,
+      "whig": 52863,
+      "fs": 28023
+    },
+    "Michigan": {
+      "dem": 41842,
+      "whig": 33860,
+      "fs": 7237
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "dem": 26110,
+      "whig": 16773,
+      "fs": 0
+    },
+    "Missouri": {
+      "dem": 38610,
+      "whig": 29947,
+      "fs": 0
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dem": 28503,
+      "whig": 15486,
+      "fs": 6546
+    },
+    "New Jersey": {
+      "dem": 44301,
+      "whig": 38551,
+      "fs": 336
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "dem": 262083,
+      "whig": 234896,
+      "fs": 25435
+    },
+    "North Carolina": {
+      "dem": 39784,
+      "whig": 39108,
+      "fs": 59
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dem": 169190,
+      "whig": 152577,
+      "fs": 31133
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "dem": 198591,
+      "whig": 179216,
+      "fs": 8596
+    },
+    "Rhode Island": {
+      "dem": 8735,
+      "whig": 7626,
+      "fs": 644
+    },
+    "South Carolina": {
+      "legislature": "dem"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "dem": 57056,
+      "whig": 58807,
+      "fs": 0
+    },
+    "Texas": {
+      "dem": 11519,
+      "whig": 4187,
+      "fs": 0
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "dem": 13044,
+      "whig": 22156,
+      "fs": 8621
+    },
+    "Virginia": {
+      "dem": 73833,
+      "whig": 58732,
+      "fs": 0
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "dem": 33658,
+      "whig": 22240,
+      "fs": 8842
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

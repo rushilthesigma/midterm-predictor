@@ -1,0 +1,353 @@
+{
+  "source": "MIT Election Data and Science Lab, U.S. Senate 1976\u20132018 (github.com/MEDSL/constituency-returns)",
+  "race": "senate",
+  "candidates": {
+    "dem": "Democrats",
+    "rep": "Republicans",
+    "oth": "Others"
+  },
+  "parties": {
+    "oth": {
+      "name": "Others",
+      "abbr": "I",
+      "color": "#7a5ea8"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 538878,
+      "rep": 792561
+    },
+    "Alaska": {
+      "dem": 24133,
+      "rep": 179438
+    },
+    "Arizona": {
+      "absent": "norace"
+    },
+    "Arkansas": {
+      "dem": 433386,
+      "rep": 370735
+    },
+    "California": {
+      "absent": "norace"
+    },
+    "Colorado": {
+      "dem": 648130,
+      "rep": 717893
+    },
+    "Connecticut": {
+      "absent": "norace"
+    },
+    "Delaware": {
+      "dem": 135253,
+      "rep": 94793
+    },
+    "District of Columbia": {
+      "absent": "nosenate"
+    },
+    "Florida": {
+      "absent": "norace"
+    },
+    "Georgia": {
+      "dem": 932422,
+      "rep": 1071352
+    },
+    "Hawaii": {
+      "absent": "norace"
+    },
+    "Idaho": {
+      "dem": 132975,
+      "rep": 266215
+    },
+    "Illinois": {
+      "dem": 2103766,
+      "rep": 1325703
+    },
+    "Indiana": {
+      "absent": "norace"
+    },
+    "Iowa": {
+      "dem": 554278,
+      "rep": 447892
+    },
+    "Kansas": {
+      "rep": 641075
+    },
+    "Kentucky": {
+      "dem": 399634,
+      "rep": 731679
+    },
+    "Louisiana": {
+      "dem": 638654,
+      "rep": 596642
+    },
+    "Maine": {
+      "dem": 209858,
+      "rep": 295041
+    },
+    "Maryland": {
+      "absent": "norace"
+    },
+    "Massachusetts": {
+      "dem": 1605976,
+      "oth": 369807
+    },
+    "Michigan": {
+      "dem": 1896614,
+      "rep": 1185545
+    },
+    "Minnesota": {
+      "dem": 1067246,
+      "rep": 1116697
+    },
+    "Mississippi": {
+      "rep": 533269,
+      "oth": 97226
+    },
+    "Missouri": {
+      "dem": 913778,
+      "rep": 935032
+    },
+    "Montana": {
+      "dem": 204853,
+      "rep": 103611
+    },
+    "Nebraska": {
+      "dem": 70290,
+      "rep": 397438
+    },
+    "Nevada": {
+      "absent": "norace"
+    },
+    "New Hampshire": {
+      "dem": 207478,
+      "rep": 227229
+    },
+    "New Jersey": {
+      "dem": 1138193,
+      "rep": 928439
+    },
+    "New Mexico": {
+      "dem": 168863,
+      "rep": 314193
+    },
+    "New York": {
+      "absent": "norace"
+    },
+    "North Carolina": {
+      "dem": 1047983,
+      "rep": 1248664
+    },
+    "North Dakota": {
+      "absent": "norace"
+    },
+    "Ohio": {
+      "absent": "norace"
+    },
+    "Oklahoma": {
+      "dem": 369789,
+      "rep": 583579
+    },
+    "Oregon": {
+      "dem": 501898,
+      "rep": 712287
+    },
+    "Pennsylvania": {
+      "absent": "norace"
+    },
+    "Rhode Island": {
+      "dem": 253774,
+      "rep": 69808
+    },
+    "South Carolina": {
+      "dem": 487359,
+      "rep": 600010
+    },
+    "South Dakota": {
+      "dem": 167481,
+      "rep": 166949
+    },
+    "Tennessee": {
+      "dem": 728232,
+      "rep": 891498
+    },
+    "Texas": {
+      "dem": 1955758,
+      "rep": 2496243
+    },
+    "Utah": {
+      "absent": "norace"
+    },
+    "Vermont": {
+      "absent": "norace"
+    },
+    "Virginia": {
+      "rep": 1229894
+    },
+    "Washington": {
+      "absent": "norace"
+    },
+    "West Virginia": {
+      "dem": 275281,
+      "rep": 160902
+    },
+    "Wisconsin": {
+      "absent": "norace"
+    },
+    "Wyoming": {
+      "dem": 49570,
+      "rep": 133710
+    }
+  },
+  "names": {
+    "Alabama": [
+      "Susan Parker",
+      "Jeff Sessions"
+    ],
+    "Alaska": [
+      "Frank Vondersaar",
+      "Ted Stevens"
+    ],
+    "Arkansas": [
+      "Mark Pryor",
+      "Tim Hutchinson"
+    ],
+    "Colorado": [
+      "Tom Strickland",
+      "Wayne Allard"
+    ],
+    "Delaware": [
+      "Joseph R. Biden Jr.",
+      "Raymond J. Clatworthy"
+    ],
+    "Georgia": [
+      "Max Cleland",
+      "Saxby Chambliss"
+    ],
+    "Idaho": [
+      "Alan Blinken",
+      "Larry E. Craig"
+    ],
+    "Illinois": [
+      "Richard J. Durbin",
+      "Jim Durkin"
+    ],
+    "Iowa": [
+      "Tom Harkin",
+      "Greg Ganske"
+    ],
+    "Kansas": [
+      null,
+      "Pat Roberts"
+    ],
+    "Kentucky": [
+      "Lois Combs Weinberg",
+      "Mitch McConnell"
+    ],
+    "Louisiana": [
+      "Mary L. Landrieu",
+      "Suzanne Haik Terrell"
+    ],
+    "Maine": [
+      "Chellie Pingree",
+      "Susan M. Collins"
+    ],
+    "Massachusetts": [
+      "John F. Kerry",
+      null,
+      "Michael E. Cloud"
+    ],
+    "Michigan": [
+      "Carl Levin",
+      "Andrew Raczkowski"
+    ],
+    "Minnesota": [
+      "Walter F. Mondale",
+      "Norm Coleman"
+    ],
+    "Mississippi": [
+      null,
+      "Thad Cochran",
+      "Shawn O'Hara"
+    ],
+    "Missouri": [
+      "Jean Carnahan",
+      "Jim Talent"
+    ],
+    "Montana": [
+      "Max Baucus",
+      "Mike Taylor"
+    ],
+    "Nebraska": [
+      "Charlie A. Matulka",
+      "Chuck Hagel"
+    ],
+    "New Hampshire": [
+      "Jeanne Shaheen",
+      "John E. Sununu"
+    ],
+    "New Jersey": [
+      "Frank R. Lautenberg",
+      "Douglas R. Forrester"
+    ],
+    "New Mexico": [
+      "Gloria Tristani",
+      "Pete V. Domenici"
+    ],
+    "North Carolina": [
+      "Erskine B. Bowles",
+      "Elizabeth H. Dole"
+    ],
+    "Oklahoma": [
+      "David Walters",
+      "James M. Inhofe"
+    ],
+    "Oregon": [
+      "Bill Bradbury",
+      "Gordon Smith"
+    ],
+    "Rhode Island": [
+      "Jack Reed",
+      "Robert G. Tingle"
+    ],
+    "South Carolina": [
+      "Alex Sanders",
+      "Lindsey O. Graham"
+    ],
+    "South Dakota": [
+      "Tim Johnson",
+      "John Thune"
+    ],
+    "Tennessee": [
+      "Bob Clement",
+      "Lamar Alexander"
+    ],
+    "Texas": [
+      "Ron Kirk",
+      "John Cornyn"
+    ],
+    "Virginia": [
+      null,
+      "John W. Warner"
+    ],
+    "West Virginia": [
+      "John D. Rockefeller IV",
+      "Jay Wolfe"
+    ],
+    "Wyoming": [
+      "Joyce Jansa Corcoran",
+      "Michael B. Enzi"
+    ]
+  },
+  "specials": {
+    "Missouri": {
+      "only": true
+    }
+  },
+  "unopposed": {},
+  "national": {
+    "dem": 12,
+    "rep": 22
+  }
+}

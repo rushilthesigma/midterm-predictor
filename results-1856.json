@@ -1,0 +1,230 @@
+{
+  "source": "Wikipedia, \"1856 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Buchanan",
+    "rep": "Fremont",
+    "amer": "Fillmore"
+  },
+  "parties": {
+    "amer": {
+      "name": "American",
+      "abbr": "Am",
+      "color": "#b5651d"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 46739,
+      "rep": 0,
+      "amer": 28552
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "dem": 21910,
+      "rep": 0,
+      "amer": 10732
+    },
+    "California": {
+      "dem": 53342,
+      "rep": 20704,
+      "amer": 36195
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "dem": 34997,
+      "rep": 42717,
+      "amer": 2615
+    },
+    "Delaware": {
+      "dem": 8004,
+      "rep": 310,
+      "amer": 6275
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 6358,
+      "rep": 0,
+      "amer": 4833
+    },
+    "Georgia": {
+      "dem": 56581,
+      "rep": 0,
+      "amer": 42439
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "dem": 105528,
+      "rep": 96275,
+      "amer": 37531
+    },
+    "Indiana": {
+      "dem": 118670,
+      "rep": 94375,
+      "amer": 22386
+    },
+    "Iowa": {
+      "dem": 37568,
+      "rep": 45073,
+      "amer": 9669
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "dem": 74642,
+      "rep": 0,
+      "amer": 67416
+    },
+    "Louisiana": {
+      "dem": 22164,
+      "rep": 0,
+      "amer": 20709
+    },
+    "Maine": {
+      "dem": 39140,
+      "rep": 67279,
+      "amer": 3270
+    },
+    "Maryland": {
+      "dem": 39123,
+      "rep": 285,
+      "amer": 47452
+    },
+    "Massachusetts": {
+      "dem": 39244,
+      "rep": 108172,
+      "amer": 19626
+    },
+    "Michigan": {
+      "dem": 52139,
+      "rep": 71762,
+      "amer": 1660
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "dem": 35456,
+      "rep": 0,
+      "amer": 24191
+    },
+    "Missouri": {
+      "dem": 57964,
+      "rep": 0,
+      "amer": 48522
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dem": 31891,
+      "rep": 37473,
+      "amer": 410
+    },
+    "New Jersey": {
+      "dem": 46943,
+      "rep": 28338,
+      "amer": 24115
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "dem": 195878,
+      "rep": 276004,
+      "amer": 124604
+    },
+    "North Carolina": {
+      "dem": 48243,
+      "rep": 0,
+      "amer": 36720
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dem": 170874,
+      "rep": 187497,
+      "amer": 28126
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "dem": 230686,
+      "rep": 147286,
+      "amer": 82189
+    },
+    "Rhode Island": {
+      "dem": 6680,
+      "rep": 11467,
+      "amer": 1675
+    },
+    "South Carolina": {
+      "legislature": "dem"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "dem": 69704,
+      "rep": 0,
+      "amer": 63878
+    },
+    "Texas": {
+      "dem": 31169,
+      "rep": 0,
+      "amer": 15639
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "dem": 10577,
+      "rep": 39561,
+      "amer": 545
+    },
+    "Virginia": {
+      "dem": 90083,
+      "rep": 0,
+      "amer": 60150
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "dem": 52843,
+      "rep": 66090,
+      "amer": 579
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

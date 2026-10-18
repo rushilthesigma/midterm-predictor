@@ -1,0 +1,194 @@
+{
+  "source": "Wikipedia, \"1840 United States presidential election\": results by state",
+  "candidates": {
+    "whig": "Harrison",
+    "dem": "Van Buren"
+  },
+  "parties": {
+    "whig": {
+      "name": "Whig",
+      "abbr": "W",
+      "color": "#c9971a"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "whig": 28515,
+      "dem": 33996
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "whig": 5160,
+      "dem": 6679
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "whig": 31598,
+      "dem": 25281
+    },
+    "Delaware": {
+      "whig": 5967,
+      "dem": 4872
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "whig": 40339,
+      "dem": 31983
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "whig": 45574,
+      "dem": 47441
+    },
+    "Indiana": {
+      "whig": 65302,
+      "dem": 51604
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "whig": 58488,
+      "dem": 32616
+    },
+    "Louisiana": {
+      "whig": 11296,
+      "dem": 7616
+    },
+    "Maine": {
+      "whig": 46612,
+      "dem": 46190
+    },
+    "Maryland": {
+      "whig": 33528,
+      "dem": 28752
+    },
+    "Massachusetts": {
+      "whig": 72852,
+      "dem": 52355
+    },
+    "Michigan": {
+      "whig": 22933,
+      "dem": 21096
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "whig": 19515,
+      "dem": 17010
+    },
+    "Missouri": {
+      "whig": 22954,
+      "dem": 29969
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "whig": 26310,
+      "dem": 32774
+    },
+    "New Jersey": {
+      "whig": 33351,
+      "dem": 31034
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "whig": 226001,
+      "dem": 212733
+    },
+    "North Carolina": {
+      "whig": 46567,
+      "dem": 34168
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "whig": 148157,
+      "dem": 124782
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "whig": 144010,
+      "dem": 143676
+    },
+    "Rhode Island": {
+      "whig": 5278,
+      "dem": 3301
+    },
+    "South Carolina": {
+      "legislature": "dem"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "whig": 60194,
+      "dem": 47951
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "whig": 32445,
+      "dem": 18009
+    },
+    "Virginia": {
+      "whig": 42639,
+      "dem": 43757
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

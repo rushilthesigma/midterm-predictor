@@ -1,0 +1,266 @@
+{
+  "source": "Wikipedia, \"1956 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Stevenson",
+    "rep": "Eisenhower",
+    "unp": "Andrews"
+  },
+  "parties": {
+    "unp": {
+      "name": "Unpledged electors",
+      "abbr": "Unp",
+      "color": "#d98a00"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "rep": 195694,
+      "dem": 280844,
+      "unp": 20323
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "rep": 176990,
+      "dem": 112880,
+      "unp": 303
+    },
+    "Arkansas": {
+      "rep": 186287,
+      "dem": 213277,
+      "unp": 7008
+    },
+    "California": {
+      "rep": 3027668,
+      "dem": 2420135,
+      "unp": 6087
+    },
+    "Colorado": {
+      "rep": 394479,
+      "dem": 263997,
+      "unp": 759
+    },
+    "Connecticut": {
+      "rep": 711837,
+      "dem": 405079,
+      "unp": 0
+    },
+    "Delaware": {
+      "rep": 98057,
+      "dem": 79421,
+      "unp": 0
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 643849,
+      "dem": 480371,
+      "unp": 0
+    },
+    "Georgia": {
+      "rep": 216652,
+      "dem": 441094,
+      "unp": 0
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "rep": 166979,
+      "dem": 105868,
+      "unp": 0
+    },
+    "Illinois": {
+      "rep": 2623327,
+      "dem": 1775682,
+      "unp": 0
+    },
+    "Indiana": {
+      "rep": 1182811,
+      "dem": 783908,
+      "unp": 0
+    },
+    "Iowa": {
+      "rep": 729187,
+      "dem": 501858,
+      "unp": 3202
+    },
+    "Kansas": {
+      "rep": 566878,
+      "dem": 296317,
+      "unp": 0
+    },
+    "Kentucky": {
+      "rep": 572192,
+      "dem": 476453,
+      "unp": 0
+    },
+    "Louisiana": {
+      "rep": 329047,
+      "dem": 243977,
+      "unp": 44520
+    },
+    "Maine": {
+      "rep": 249238,
+      "dem": 102468,
+      "unp": 0
+    },
+    "Maryland": {
+      "rep": 559738,
+      "dem": 372613,
+      "unp": 0
+    },
+    "Massachusetts": {
+      "rep": 1393197,
+      "dem": 948190,
+      "unp": 0
+    },
+    "Michigan": {
+      "rep": 1713647,
+      "dem": 1359898,
+      "unp": 0
+    },
+    "Minnesota": {
+      "rep": 719302,
+      "dem": 617525,
+      "unp": 0
+    },
+    "Mississippi": {
+      "rep": 60685,
+      "dem": 144498,
+      "unp": 42966
+    },
+    "Missouri": {
+      "rep": 914289,
+      "dem": 918273,
+      "unp": 0
+    },
+    "Montana": {
+      "rep": 154933,
+      "dem": 116238,
+      "unp": 0
+    },
+    "Nebraska": {
+      "rep": 378108,
+      "dem": 199029,
+      "unp": 0
+    },
+    "Nevada": {
+      "rep": 56049,
+      "dem": 40640,
+      "unp": 0
+    },
+    "New Hampshire": {
+      "rep": 176519,
+      "dem": 90364,
+      "unp": 111
+    },
+    "New Jersey": {
+      "rep": 1606942,
+      "dem": 850337,
+      "unp": 5317
+    },
+    "New Mexico": {
+      "rep": 146788,
+      "dem": 106098,
+      "unp": 364
+    },
+    "New York": {
+      "rep": 4340340,
+      "dem": 2750769,
+      "unp": 0
+    },
+    "North Carolina": {
+      "rep": 575062,
+      "dem": 590530,
+      "unp": 0
+    },
+    "North Dakota": {
+      "rep": 156766,
+      "dem": 96742,
+      "unp": 483
+    },
+    "Ohio": {
+      "rep": 2262610,
+      "dem": 1439655,
+      "unp": 0
+    },
+    "Oklahoma": {
+      "rep": 473769,
+      "dem": 385581,
+      "unp": 0
+    },
+    "Oregon": {
+      "rep": 406393,
+      "dem": 329204,
+      "unp": 0
+    },
+    "Pennsylvania": {
+      "rep": 2585252,
+      "dem": 1981769,
+      "unp": 0
+    },
+    "Rhode Island": {
+      "rep": 225819,
+      "dem": 161790,
+      "unp": 0
+    },
+    "South Carolina": {
+      "rep": 75700,
+      "dem": 136372,
+      "unp": 88511
+    },
+    "South Dakota": {
+      "rep": 171569,
+      "dem": 122288,
+      "unp": 0
+    },
+    "Tennessee": {
+      "rep": 462288,
+      "dem": 456507,
+      "unp": 19820
+    },
+    "Texas": {
+      "rep": 1080619,
+      "dem": 859958,
+      "unp": 14591
+    },
+    "Utah": {
+      "rep": 215631,
+      "dem": 118364,
+      "unp": 0
+    },
+    "Vermont": {
+      "rep": 110390,
+      "dem": 42549,
+      "unp": 0
+    },
+    "Virginia": {
+      "rep": 386459,
+      "dem": 267760,
+      "unp": 42964
+    },
+    "Washington": {
+      "rep": 620430,
+      "dem": 523002,
+      "unp": 0
+    },
+    "West Virginia": {
+      "rep": 449297,
+      "dem": 381534,
+      "unp": 0
+    },
+    "Wisconsin": {
+      "rep": 954844,
+      "dem": 586768,
+      "unp": 6918
+    },
+    "Wyoming": {
+      "rep": 74573,
+      "dem": 49554,
+      "unp": 0
+    }
+  }
+}

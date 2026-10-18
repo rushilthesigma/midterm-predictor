@@ -1,0 +1,270 @@
+{
+  "source": "Wikipedia, \"1960 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Kennedy",
+    "rep": "Nixon",
+    "unp": "Unpledged"
+  },
+  "parties": {
+    "unp": {
+      "name": "Unpledged electors",
+      "abbr": "Unp",
+      "color": "#d98a00"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 318303,
+      "rep": 237981,
+      "unp": 324050
+    },
+    "Alaska": {
+      "dem": 29809,
+      "rep": 30953,
+      "unp": 0
+    },
+    "Arizona": {
+      "dem": 176781,
+      "rep": 221241,
+      "unp": 0
+    },
+    "Arkansas": {
+      "dem": 215049,
+      "rep": 184508,
+      "unp": 0
+    },
+    "California": {
+      "dem": 3224099,
+      "rep": 3259722,
+      "unp": 0
+    },
+    "Colorado": {
+      "dem": 330629,
+      "rep": 402242,
+      "unp": 0
+    },
+    "Connecticut": {
+      "dem": 657055,
+      "rep": 565813,
+      "unp": 0
+    },
+    "Delaware": {
+      "dem": 99590,
+      "rep": 96373,
+      "unp": 0
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 748700,
+      "rep": 795476,
+      "unp": 0
+    },
+    "Georgia": {
+      "dem": 458638,
+      "rep": 274472,
+      "unp": 0
+    },
+    "Hawaii": {
+      "dem": 92410,
+      "rep": 92295,
+      "unp": 0
+    },
+    "Idaho": {
+      "dem": 138853,
+      "rep": 161597,
+      "unp": 0
+    },
+    "Illinois": {
+      "dem": 2377846,
+      "rep": 2368988,
+      "unp": 0
+    },
+    "Indiana": {
+      "dem": 952358,
+      "rep": 1175120,
+      "unp": 0
+    },
+    "Iowa": {
+      "dem": 550565,
+      "rep": 722381,
+      "unp": 0
+    },
+    "Kansas": {
+      "dem": 363213,
+      "rep": 561474,
+      "unp": 0
+    },
+    "Kentucky": {
+      "dem": 521855,
+      "rep": 602607,
+      "unp": 0
+    },
+    "Louisiana": {
+      "dem": 407339,
+      "rep": 230980,
+      "unp": 169572
+    },
+    "Maine": {
+      "dem": 181159,
+      "rep": 240608,
+      "unp": 0
+    },
+    "Maryland": {
+      "dem": 565808,
+      "rep": 489538,
+      "unp": 0
+    },
+    "Massachusetts": {
+      "dem": 1487174,
+      "rep": 976750,
+      "unp": 0
+    },
+    "Michigan": {
+      "dem": 1687269,
+      "rep": 1620428,
+      "unp": 539
+    },
+    "Minnesota": {
+      "dem": 779933,
+      "rep": 757915,
+      "unp": 0
+    },
+    "Mississippi": {
+      "dem": 108362,
+      "rep": 73561,
+      "unp": 116248
+    },
+    "Missouri": {
+      "dem": 972201,
+      "rep": 962221,
+      "unp": 0
+    },
+    "Montana": {
+      "dem": 134891,
+      "rep": 141841,
+      "unp": 0
+    },
+    "Nebraska": {
+      "dem": 232542,
+      "rep": 380553,
+      "unp": 0
+    },
+    "Nevada": {
+      "dem": 54880,
+      "rep": 52387,
+      "unp": 0
+    },
+    "New Hampshire": {
+      "dem": 137772,
+      "rep": 157989,
+      "unp": 0
+    },
+    "New Jersey": {
+      "dem": 1385415,
+      "rep": 1363324,
+      "unp": 0
+    },
+    "New Mexico": {
+      "dem": 156027,
+      "rep": 153733,
+      "unp": 0
+    },
+    "New York": {
+      "dem": 3830085,
+      "rep": 3446419,
+      "unp": 0
+    },
+    "North Carolina": {
+      "dem": 713136,
+      "rep": 655420,
+      "unp": 0
+    },
+    "North Dakota": {
+      "dem": 123963,
+      "rep": 154310,
+      "unp": 0
+    },
+    "Ohio": {
+      "dem": 1944248,
+      "rep": 2217611,
+      "unp": 0
+    },
+    "Oklahoma": {
+      "dem": 370111,
+      "rep": 533039,
+      "unp": 0
+    },
+    "Oregon": {
+      "dem": 367402,
+      "rep": 408060,
+      "unp": 0
+    },
+    "Pennsylvania": {
+      "dem": 2556282,
+      "rep": 2439956,
+      "unp": 0
+    },
+    "Rhode Island": {
+      "dem": 258032,
+      "rep": 147502,
+      "unp": 0
+    },
+    "South Carolina": {
+      "dem": 198129,
+      "rep": 188558,
+      "unp": 0
+    },
+    "South Dakota": {
+      "dem": 128070,
+      "rep": 178417,
+      "unp": 0
+    },
+    "Tennessee": {
+      "dem": 481453,
+      "rep": 556577,
+      "unp": 0
+    },
+    "Texas": {
+      "dem": 1167567,
+      "rep": 1121310,
+      "unp": 0
+    },
+    "Utah": {
+      "dem": 169248,
+      "rep": 205361,
+      "unp": 0
+    },
+    "Vermont": {
+      "dem": 69186,
+      "rep": 98131,
+      "unp": 0
+    },
+    "Virginia": {
+      "dem": 362327,
+      "rep": 404521,
+      "unp": 0
+    },
+    "Washington": {
+      "dem": 599298,
+      "rep": 629273,
+      "unp": 0
+    },
+    "West Virginia": {
+      "dem": 441786,
+      "rep": 395995,
+      "unp": 0
+    },
+    "Wisconsin": {
+      "dem": 830805,
+      "rep": 895175,
+      "unp": 0
+    },
+    "Wyoming": {
+      "dem": 63331,
+      "rep": 77451,
+      "unp": 0
+    }
+  }
+}

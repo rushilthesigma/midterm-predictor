@@ -1,0 +1,250 @@
+{
+  "source": "Wikipedia, \"1832 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Jackson",
+    "nr": "Clay",
+    "am": "Wirt",
+    "nul": "Floyd"
+  },
+  "parties": {
+    "nr": {
+      "name": "National Republican",
+      "abbr": "NR",
+      "color": "#8c5bb5"
+    },
+    "am": {
+      "name": "Anti-Masonic",
+      "abbr": "AM",
+      "color": "#6b8e23"
+    },
+    "nul": {
+      "name": "Nullifier",
+      "abbr": "N",
+      "color": "#3f8f93"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 14286,
+      "nr": 5,
+      "am": 0,
+      "nul": 0
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "absent": "territory"
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "dem": 11269,
+      "nr": 18155,
+      "am": 3409,
+      "nul": 0
+    },
+    "Delaware": {
+      "dem": 4110,
+      "nr": 4276,
+      "am": 0,
+      "nul": 0
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "dem": 20750,
+      "nr": 0,
+      "am": 0,
+      "nul": 0
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "dem": 14609,
+      "nr": 6745,
+      "am": 97,
+      "nul": 0
+    },
+    "Indiana": {
+      "dem": 31551,
+      "nr": 25472,
+      "am": 27,
+      "nul": 0
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "dem": 36292,
+      "nr": 43449,
+      "am": 0,
+      "nul": 0
+    },
+    "Louisiana": {
+      "dem": 3908,
+      "nr": 2429,
+      "am": 0,
+      "nul": 0
+    },
+    "Maine": {
+      "dem": 33978,
+      "nr": 27331,
+      "am": 844,
+      "nul": 0
+    },
+    "Maryland": {
+      "dem": 19156,
+      "nr": 19160,
+      "am": 0,
+      "nul": 0
+    },
+    "Massachusetts": {
+      "dem": 13933,
+      "nr": 31963,
+      "am": 14692,
+      "nul": 0
+    },
+    "Michigan": {
+      "absent": "territory"
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "dem": 5750,
+      "nr": 0,
+      "am": 0,
+      "nul": 0
+    },
+    "Missouri": {
+      "dem": 8904,
+      "nr": 4760,
+      "am": 0,
+      "nul": 0
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dem": 24855,
+      "nr": 18938,
+      "am": 0,
+      "nul": 0
+    },
+    "New Jersey": {
+      "dem": 23826,
+      "nr": 23466,
+      "am": 468,
+      "nul": 0
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "dem": 168497,
+      "nr": 154896,
+      "am": 0,
+      "nul": 0
+    },
+    "North Carolina": {
+      "dem": 25261,
+      "nr": 4538,
+      "am": 0,
+      "nul": 0
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dem": 81246,
+      "nr": 76539,
+      "am": 509,
+      "nul": 0
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "dem": 91949,
+      "nr": 0,
+      "am": 66689,
+      "nul": 0
+    },
+    "Rhode Island": {
+      "dem": 2051,
+      "nr": 2871,
+      "am": 819,
+      "nul": 0
+    },
+    "South Carolina": {
+      "legislature": "nul"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "dem": 28078,
+      "nr": 1347,
+      "am": 0,
+      "nul": 0
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "dem": 7870,
+      "nr": 11152,
+      "am": 13106,
+      "nul": 0
+    },
+    "Virginia": {
+      "dem": 34243,
+      "nr": 11436,
+      "am": 3,
+      "nul": 0
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

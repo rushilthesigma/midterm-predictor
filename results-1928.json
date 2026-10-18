@@ -1,0 +1,210 @@
+{
+  "source": "Wikipedia, \"1928 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Smith",
+    "rep": "Hoover"
+  },
+  "states": {
+    "Alabama": {
+      "rep": 120725,
+      "dem": 127797
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "rep": 52533,
+      "dem": 38537
+    },
+    "Arkansas": {
+      "rep": 77751,
+      "dem": 119196
+    },
+    "California": {
+      "rep": 1162323,
+      "dem": 614365
+    },
+    "Colorado": {
+      "rep": 253872,
+      "dem": 133131
+    },
+    "Connecticut": {
+      "rep": 296614,
+      "dem": 252040
+    },
+    "Delaware": {
+      "rep": 68860,
+      "dem": 36643
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 144168,
+      "dem": 101764
+    },
+    "Georgia": {
+      "rep": 99369,
+      "dem": 129602
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "rep": 97322,
+      "dem": 52926
+    },
+    "Illinois": {
+      "rep": 1769141,
+      "dem": 1313817
+    },
+    "Indiana": {
+      "rep": 848290,
+      "dem": 562691
+    },
+    "Iowa": {
+      "rep": 623570,
+      "dem": 379311
+    },
+    "Kansas": {
+      "rep": 513672,
+      "dem": 193003
+    },
+    "Kentucky": {
+      "rep": 558064,
+      "dem": 381070
+    },
+    "Louisiana": {
+      "rep": 51160,
+      "dem": 164655
+    },
+    "Maine": {
+      "rep": 179923,
+      "dem": 81179
+    },
+    "Maryland": {
+      "rep": 301479,
+      "dem": 223626
+    },
+    "Massachusetts": {
+      "rep": 775566,
+      "dem": 792758
+    },
+    "Michigan": {
+      "rep": 965396,
+      "dem": 396762
+    },
+    "Minnesota": {
+      "rep": 560977,
+      "dem": 396451
+    },
+    "Mississippi": {
+      "rep": 27153,
+      "dem": 124539
+    },
+    "Missouri": {
+      "rep": 834080,
+      "dem": 662562
+    },
+    "Montana": {
+      "rep": 113300,
+      "dem": 78578
+    },
+    "Nebraska": {
+      "rep": 345745,
+      "dem": 197959
+    },
+    "Nevada": {
+      "rep": 18327,
+      "dem": 14090
+    },
+    "New Hampshire": {
+      "rep": 115404,
+      "dem": 80715
+    },
+    "New Jersey": {
+      "rep": 925285,
+      "dem": 616162
+    },
+    "New Mexico": {
+      "rep": 69645,
+      "dem": 48211
+    },
+    "New York": {
+      "rep": 2193344,
+      "dem": 2089863
+    },
+    "North Carolina": {
+      "rep": 348923,
+      "dem": 286227
+    },
+    "North Dakota": {
+      "rep": 131441,
+      "dem": 106648
+    },
+    "Ohio": {
+      "rep": 1627546,
+      "dem": 864210
+    },
+    "Oklahoma": {
+      "rep": 394046,
+      "dem": 219174
+    },
+    "Oregon": {
+      "rep": 205341,
+      "dem": 109223
+    },
+    "Pennsylvania": {
+      "rep": 2055382,
+      "dem": 1067586
+    },
+    "Rhode Island": {
+      "rep": 117522,
+      "dem": 118973
+    },
+    "South Carolina": {
+      "rep": 5858,
+      "dem": 62700
+    },
+    "South Dakota": {
+      "rep": 157603,
+      "dem": 102660
+    },
+    "Tennessee": {
+      "rep": 195388,
+      "dem": 167343
+    },
+    "Texas": {
+      "rep": 367036,
+      "dem": 341032
+    },
+    "Utah": {
+      "rep": 94618,
+      "dem": 80985
+    },
+    "Vermont": {
+      "rep": 90404,
+      "dem": 44440
+    },
+    "Virginia": {
+      "rep": 164609,
+      "dem": 140146
+    },
+    "Washington": {
+      "rep": 335844,
+      "dem": 156772
+    },
+    "West Virginia": {
+      "rep": 375551,
+      "dem": 263784
+    },
+    "Wisconsin": {
+      "rep": 544205,
+      "dem": 450259
+    },
+    "Wyoming": {
+      "rep": 52748,
+      "dem": 29299
+    }
+  }
+}

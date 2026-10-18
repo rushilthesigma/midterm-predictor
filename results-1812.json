@@ -1,0 +1,190 @@
+{
+  "source": "Wikipedia, \"1812 United States presidential election\": results by state",
+  "candidates": {
+    "dr": "Madison",
+    "clinton": "Clinton",
+    "fed": "King"
+  },
+  "parties": {
+    "dr": {
+      "name": "Democratic-Republican",
+      "abbr": "DR",
+      "color": "#2e8b57"
+    },
+    "clinton": {
+      "name": "Clintonian (Federalist-backed)",
+      "abbr": "C",
+      "color": "#b36b2e"
+    },
+    "fed": {
+      "name": "Federalist",
+      "abbr": "F",
+      "color": "#d9822b"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "absent": "territory"
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "absent": "territory"
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "legislature": "clinton"
+    },
+    "Delaware": {
+      "legislature": "clinton"
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "legislature": "dr"
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "absent": "territory"
+    },
+    "Indiana": {
+      "absent": "territory"
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "electors": "dr"
+    },
+    "Louisiana": {
+      "legislature": "dr"
+    },
+    "Maine": {
+      "partOf": "Massachusetts"
+    },
+    "Maryland": {
+      "electors": "dr"
+    },
+    "Massachusetts": {
+      "dr": 27314,
+      "clinton": 50639,
+      "fed": 0
+    },
+    "Michigan": {
+      "absent": "territory"
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "absent": "territory"
+    },
+    "Missouri": {
+      "absent": "territory"
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dr": 15907,
+      "clinton": 20286,
+      "fed": 0
+    },
+    "New Jersey": {
+      "legislature": "clinton"
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "legislature": "clinton"
+    },
+    "North Carolina": {
+      "legislature": "dr"
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dr": 7420,
+      "clinton": 3301,
+      "fed": 0
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "electors": "dr"
+    },
+    "Rhode Island": {
+      "dr": 2084,
+      "clinton": 4032,
+      "fed": 0
+    },
+    "South Carolina": {
+      "legislature": "dr"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "electors": "dr"
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "legislature": "dr"
+    },
+    "Virginia": {
+      "dr": 15128,
+      "clinton": 0,
+      "fed": 5583
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

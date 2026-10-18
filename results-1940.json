@@ -1,0 +1,210 @@
+{
+  "source": "Wikipedia, \"1940 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Roosevelt",
+    "rep": "Willkie"
+  },
+  "states": {
+    "Alabama": {
+      "dem": 250726,
+      "rep": 42184
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "dem": 95267,
+      "rep": 54030
+    },
+    "Arkansas": {
+      "dem": 158622,
+      "rep": 42121
+    },
+    "California": {
+      "dem": 1877618,
+      "rep": 1351419
+    },
+    "Colorado": {
+      "dem": 265554,
+      "rep": 279576
+    },
+    "Connecticut": {
+      "dem": 417621,
+      "rep": 361819
+    },
+    "Delaware": {
+      "dem": 74599,
+      "rep": 61440
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "dem": 359334,
+      "rep": 126158
+    },
+    "Georgia": {
+      "dem": 265194,
+      "rep": 46360
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "dem": 127842,
+      "rep": 106553
+    },
+    "Illinois": {
+      "dem": 2149934,
+      "rep": 2047240
+    },
+    "Indiana": {
+      "dem": 874063,
+      "rep": 899466
+    },
+    "Iowa": {
+      "dem": 578800,
+      "rep": 632370
+    },
+    "Kansas": {
+      "dem": 364725,
+      "rep": 489169
+    },
+    "Kentucky": {
+      "dem": 557222,
+      "rep": 410384
+    },
+    "Louisiana": {
+      "dem": 319751,
+      "rep": 52446
+    },
+    "Maine": {
+      "dem": 156478,
+      "rep": 163951
+    },
+    "Maryland": {
+      "dem": 384546,
+      "rep": 269534
+    },
+    "Massachusetts": {
+      "dem": 1076522,
+      "rep": 939700
+    },
+    "Michigan": {
+      "dem": 1032991,
+      "rep": 1039917
+    },
+    "Minnesota": {
+      "dem": 644196,
+      "rep": 596274
+    },
+    "Mississippi": {
+      "dem": 168267,
+      "rep": 7364
+    },
+    "Missouri": {
+      "dem": 958476,
+      "rep": 871009
+    },
+    "Montana": {
+      "dem": 145698,
+      "rep": 99579
+    },
+    "Nebraska": {
+      "dem": 263677,
+      "rep": 352201
+    },
+    "Nevada": {
+      "dem": 31945,
+      "rep": 21229
+    },
+    "New Hampshire": {
+      "dem": 125292,
+      "rep": 110127
+    },
+    "New Jersey": {
+      "dem": 1016404,
+      "rep": 944876
+    },
+    "New Mexico": {
+      "dem": 103699,
+      "rep": 79315
+    },
+    "New York": {
+      "dem": 3251918,
+      "rep": 3027478
+    },
+    "North Carolina": {
+      "dem": 609015,
+      "rep": 213633
+    },
+    "North Dakota": {
+      "dem": 124036,
+      "rep": 154590
+    },
+    "Ohio": {
+      "dem": 1733139,
+      "rep": 1586773
+    },
+    "Oklahoma": {
+      "dem": 474313,
+      "rep": 348872
+    },
+    "Oregon": {
+      "dem": 258415,
+      "rep": 219555
+    },
+    "Pennsylvania": {
+      "dem": 2171035,
+      "rep": 1889848
+    },
+    "Rhode Island": {
+      "dem": 182182,
+      "rep": 138653
+    },
+    "South Carolina": {
+      "dem": 95470,
+      "rep": 4360
+    },
+    "South Dakota": {
+      "dem": 131362,
+      "rep": 177065
+    },
+    "Tennessee": {
+      "dem": 351601,
+      "rep": 169153
+    },
+    "Texas": {
+      "dem": 909974,
+      "rep": 212692
+    },
+    "Utah": {
+      "dem": 154277,
+      "rep": 93151
+    },
+    "Vermont": {
+      "dem": 64269,
+      "rep": 78371
+    },
+    "Virginia": {
+      "dem": 235961,
+      "rep": 109363
+    },
+    "Washington": {
+      "dem": 462145,
+      "rep": 322123
+    },
+    "West Virginia": {
+      "dem": 495662,
+      "rep": 372414
+    },
+    "Wisconsin": {
+      "dem": 704821,
+      "rep": 679206
+    },
+    "Wyoming": {
+      "dem": 59287,
+      "rep": 52633
+    }
+  }
+}

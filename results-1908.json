@@ -1,0 +1,262 @@
+{
+  "source": "Wikipedia, \"1908 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Bryan",
+    "rep": "Taft",
+    "pop": "Watson"
+  },
+  "parties": {
+    "pop": {
+      "name": "Populist",
+      "abbr": "Pop",
+      "color": "#3d9a3d"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "rep": 25561,
+      "dem": 74391,
+      "pop": 1576
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "rep": 56624,
+      "dem": 87015,
+      "pop": 1026
+    },
+    "California": {
+      "rep": 214398,
+      "dem": 127492,
+      "pop": 0
+    },
+    "Colorado": {
+      "rep": 123693,
+      "dem": 126644,
+      "pop": 0
+    },
+    "Connecticut": {
+      "rep": 112915,
+      "dem": 68255,
+      "pop": 0
+    },
+    "Delaware": {
+      "rep": 25014,
+      "dem": 22055,
+      "pop": 0
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 10654,
+      "dem": 31104,
+      "pop": 1946
+    },
+    "Georgia": {
+      "rep": 41355,
+      "dem": 72350,
+      "pop": 16687
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "rep": 52621,
+      "dem": 36162,
+      "pop": 0
+    },
+    "Illinois": {
+      "rep": 629932,
+      "dem": 450810,
+      "pop": 633
+    },
+    "Indiana": {
+      "rep": 348993,
+      "dem": 338262,
+      "pop": 1193
+    },
+    "Iowa": {
+      "rep": 275209,
+      "dem": 200771,
+      "pop": 261
+    },
+    "Kansas": {
+      "rep": 197216,
+      "dem": 161209,
+      "pop": 0
+    },
+    "Kentucky": {
+      "rep": 235711,
+      "dem": 244092,
+      "pop": 333
+    },
+    "Louisiana": {
+      "rep": 8958,
+      "dem": 63568,
+      "pop": 0
+    },
+    "Maine": {
+      "rep": 66987,
+      "dem": 35403,
+      "pop": 1
+    },
+    "Maryland": {
+      "rep": 116513,
+      "dem": 115908,
+      "pop": 0
+    },
+    "Massachusetts": {
+      "rep": 265966,
+      "dem": 155543,
+      "pop": 0
+    },
+    "Michigan": {
+      "rep": 335580,
+      "dem": 175771,
+      "pop": 0
+    },
+    "Minnesota": {
+      "rep": 195843,
+      "dem": 109401,
+      "pop": 0
+    },
+    "Mississippi": {
+      "rep": 4363,
+      "dem": 60287,
+      "pop": 1276
+    },
+    "Missouri": {
+      "rep": 347203,
+      "dem": 346574,
+      "pop": 1165
+    },
+    "Montana": {
+      "rep": 32333,
+      "dem": 29326,
+      "pop": 0
+    },
+    "Nebraska": {
+      "rep": 126997,
+      "dem": 131099,
+      "pop": 0
+    },
+    "Nevada": {
+      "rep": 10775,
+      "dem": 11212,
+      "pop": 0
+    },
+    "New Hampshire": {
+      "rep": 53149,
+      "dem": 33655,
+      "pop": 0
+    },
+    "New Jersey": {
+      "rep": 265298,
+      "dem": 182522,
+      "pop": 0
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "rep": 870070,
+      "dem": 667468,
+      "pop": 0
+    },
+    "North Carolina": {
+      "rep": 114887,
+      "dem": 136928,
+      "pop": 0
+    },
+    "North Dakota": {
+      "rep": 57680,
+      "dem": 32885,
+      "pop": 0
+    },
+    "Ohio": {
+      "rep": 572312,
+      "dem": 502721,
+      "pop": 162
+    },
+    "Oklahoma": {
+      "rep": 110550,
+      "dem": 123907,
+      "pop": 412
+    },
+    "Oregon": {
+      "rep": 62530,
+      "dem": 38049,
+      "pop": 0
+    },
+    "Pennsylvania": {
+      "rep": 745779,
+      "dem": 448782,
+      "pop": 0
+    },
+    "Rhode Island": {
+      "rep": 43942,
+      "dem": 24706,
+      "pop": 0
+    },
+    "South Carolina": {
+      "rep": 3945,
+      "dem": 62288,
+      "pop": 0
+    },
+    "South Dakota": {
+      "rep": 67536,
+      "dem": 40266,
+      "pop": 0
+    },
+    "Tennessee": {
+      "rep": 117977,
+      "dem": 135608,
+      "pop": 1092
+    },
+    "Texas": {
+      "rep": 65666,
+      "dem": 217302,
+      "pop": 994
+    },
+    "Utah": {
+      "rep": 61028,
+      "dem": 42601,
+      "pop": 0
+    },
+    "Vermont": {
+      "rep": 39552,
+      "dem": 11496,
+      "pop": 0
+    },
+    "Virginia": {
+      "rep": 52572,
+      "dem": 82946,
+      "pop": 105
+    },
+    "Washington": {
+      "rep": 106062,
+      "dem": 58691,
+      "pop": 0
+    },
+    "West Virginia": {
+      "rep": 137869,
+      "dem": 111418,
+      "pop": 0
+    },
+    "Wisconsin": {
+      "rep": 247747,
+      "dem": 166662,
+      "pop": 0
+    },
+    "Wyoming": {
+      "rep": 20846,
+      "dem": 14918,
+      "pop": 0
+    }
+  }
+}

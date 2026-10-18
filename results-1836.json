@@ -1,0 +1,287 @@
+{
+  "source": "Wikipedia, \"1836 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Van Buren",
+    "whig": "Harrison",
+    "white": "White",
+    "webster": "Webster",
+    "mangum": "Mangum"
+  },
+  "parties": {
+    "whig": {
+      "name": "Whig",
+      "abbr": "W",
+      "color": "#c9971a"
+    },
+    "white": {
+      "name": "Whig (White)",
+      "abbr": "W",
+      "color": "#d98a00"
+    },
+    "webster": {
+      "name": "Whig (Webster)",
+      "abbr": "W",
+      "color": "#a0522d"
+    },
+    "mangum": {
+      "name": "Whig (Mangum)",
+      "abbr": "W",
+      "color": "#7d7d7d"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 20638,
+      "whig": 0,
+      "white": 16658,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "dem": 2380,
+      "whig": 0,
+      "white": 1334,
+      "webster": 0,
+      "mangum": 0
+    },
+    "California": {
+      "absent": "territory"
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "dem": 19294,
+      "whig": 18799,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Delaware": {
+      "dem": 4154,
+      "whig": 4736,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "absent": "territory"
+    },
+    "Georgia": {
+      "dem": 22778,
+      "whig": 0,
+      "white": 24481,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "dem": 18369,
+      "whig": 15220,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Indiana": {
+      "dem": 32478,
+      "whig": 41281,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Iowa": {
+      "absent": "territory"
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "dem": 33229,
+      "whig": 36861,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Louisiana": {
+      "dem": 3842,
+      "whig": 0,
+      "white": 3583,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Maine": {
+      "dem": 22825,
+      "whig": 14803,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Maryland": {
+      "dem": 22267,
+      "whig": 25852,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Massachusetts": {
+      "dem": 33486,
+      "whig": 0,
+      "white": 0,
+      "webster": 41201,
+      "mangum": 0
+    },
+    "Michigan": {
+      "dem": 7122,
+      "whig": 5545,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Minnesota": {
+      "absent": "territory"
+    },
+    "Mississippi": {
+      "dem": 10297,
+      "whig": 0,
+      "white": 9782,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Missouri": {
+      "dem": 10995,
+      "whig": 0,
+      "white": 7337,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "dem": 18697,
+      "whig": 6228,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "New Jersey": {
+      "dem": 25592,
+      "whig": 26137,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "dem": 166795,
+      "whig": 138548,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "North Carolina": {
+      "dem": 26631,
+      "whig": 0,
+      "white": 23521,
+      "webster": 0,
+      "mangum": 0
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "dem": 96238,
+      "whig": 104958,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "absent": "territory"
+    },
+    "Pennsylvania": {
+      "dem": 91457,
+      "whig": 87235,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Rhode Island": {
+      "dem": 2964,
+      "whig": 2710,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "South Carolina": {
+      "legislature": "mangum"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "dem": 26170,
+      "whig": 0,
+      "white": 36027,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Texas": {
+      "absent": "territory"
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "dem": 14037,
+      "whig": 20994,
+      "white": 0,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Virginia": {
+      "dem": 30556,
+      "whig": 0,
+      "white": 23384,
+      "webster": 0,
+      "mangum": 0
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "absent": "territory"
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}

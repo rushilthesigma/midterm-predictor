@@ -1,0 +1,380 @@
+{
+  "source": "MIT Election Data and Science Lab, U.S. Senate 1976\u20132018 (github.com/MEDSL/constituency-returns)",
+  "race": "senate",
+  "candidates": {
+    "dem": "Democrats",
+    "rep": "Republicans",
+    "oth": "Others"
+  },
+  "parties": {
+    "oth": {
+      "name": "Others",
+      "abbr": "I",
+      "color": "#7a5ea8"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 515619,
+      "rep": 968181
+    },
+    "Alaska": {
+      "dem": 60045,
+      "rep": 101091
+    },
+    "Arizona": {
+      "dem": 592011,
+      "rep": 1005615
+    },
+    "Arkansas": {
+      "dem": 288156,
+      "rep": 451618
+    },
+    "California": {
+      "dem": 5218441,
+      "rep": 4217366
+    },
+    "Colorado": {
+      "dem": 851590,
+      "rep": 822731
+    },
+    "Connecticut": {
+      "dem": 636040,
+      "rep": 498341
+    },
+    "Delaware": {
+      "dem": 174012,
+      "rep": 123053
+    },
+    "District of Columbia": {
+      "absent": "nosenate"
+    },
+    "Florida": {
+      "dem": 1092936,
+      "rep": 2645743,
+      "oth": 1607549
+    },
+    "Georgia": {
+      "dem": 996516,
+      "rep": 1489904
+    },
+    "Hawaii": {
+      "dem": 277228,
+      "rep": 79939
+    },
+    "Idaho": {
+      "dem": 112057,
+      "rep": 319953
+    },
+    "Illinois": {
+      "dem": 1719478,
+      "rep": 1778698
+    },
+    "Indiana": {
+      "dem": 697775,
+      "rep": 952116
+    },
+    "Iowa": {
+      "dem": 371686,
+      "rep": 718215
+    },
+    "Kansas": {
+      "dem": 220971,
+      "rep": 587175
+    },
+    "Kentucky": {
+      "dem": 600052,
+      "rep": 755706
+    },
+    "Louisiana": {
+      "dem": 476572,
+      "rep": 715415
+    },
+    "Maine": {
+      "absent": "norace"
+    },
+    "Maryland": {
+      "dem": 1140531,
+      "rep": 655666
+    },
+    "Massachusetts": {
+      "absent": "norace"
+    },
+    "Michigan": {
+      "absent": "norace"
+    },
+    "Minnesota": {
+      "absent": "norace"
+    },
+    "Mississippi": {
+      "absent": "norace"
+    },
+    "Missouri": {
+      "dem": 789736,
+      "rep": 1054160
+    },
+    "Montana": {
+      "absent": "norace"
+    },
+    "Nebraska": {
+      "absent": "norace"
+    },
+    "Nevada": {
+      "dem": 362785,
+      "rep": 321361
+    },
+    "New Hampshire": {
+      "dem": 167545,
+      "rep": 273218
+    },
+    "New Jersey": {
+      "absent": "norace"
+    },
+    "New Mexico": {
+      "absent": "norace"
+    },
+    "New York": {
+      "dem": 3047880,
+      "rep": 1480423
+    },
+    "North Carolina": {
+      "dem": 1145074,
+      "rep": 1458046
+    },
+    "North Dakota": {
+      "dem": 52955,
+      "rep": 181689
+    },
+    "Ohio": {
+      "dem": 1503297,
+      "rep": 2168742
+    },
+    "Oklahoma": {
+      "dem": 265814,
+      "rep": 718482
+    },
+    "Oregon": {
+      "dem": 825507,
+      "rep": 566199
+    },
+    "Pennsylvania": {
+      "dem": 1948716,
+      "rep": 2028945
+    },
+    "Rhode Island": {
+      "absent": "norace"
+    },
+    "South Carolina": {
+      "dem": 364598,
+      "rep": 810771
+    },
+    "South Dakota": {
+      "rep": 227947
+    },
+    "Tennessee": {
+      "absent": "norace"
+    },
+    "Texas": {
+      "absent": "norace"
+    },
+    "Utah": {
+      "dem": 191732,
+      "rep": 360403
+    },
+    "Vermont": {
+      "dem": 151281,
+      "rep": 72699
+    },
+    "Virginia": {
+      "absent": "norace"
+    },
+    "Washington": {
+      "dem": 1314930,
+      "rep": 1196164
+    },
+    "West Virginia": {
+      "dem": 283358,
+      "rep": 230013
+    },
+    "Wisconsin": {
+      "dem": 1020958,
+      "rep": 1125999
+    },
+    "Wyoming": {
+      "absent": "norace"
+    }
+  },
+  "names": {
+    "Alabama": [
+      "William G. Barnes",
+      "Richard C. Shelby"
+    ],
+    "Alaska": [
+      "Scott T. McAdams",
+      "Lisa Murkowski"
+    ],
+    "Arizona": [
+      "Rodney Glassman",
+      "John McCain"
+    ],
+    "Arkansas": [
+      "Blanche L. Lincoln",
+      "John Boozman"
+    ],
+    "California": [
+      "Barbara Boxer",
+      "Carly Fiorina"
+    ],
+    "Colorado": [
+      "Michael F. Bennet",
+      "Ken Buck"
+    ],
+    "Connecticut": [
+      "Richard Blumenthal",
+      "Linda E. McMahon"
+    ],
+    "Delaware": [
+      "Christopher A. Coons",
+      "Christine O'Donnell"
+    ],
+    "Florida": [
+      "Kendrick B. Meek",
+      "Marco Rubio",
+      "Charlie Crist"
+    ],
+    "Georgia": [
+      "Michael \"Mike\" Thurmond",
+      "Johnny Isakson"
+    ],
+    "Hawaii": [
+      "Daniel K. Inouye",
+      "Cam Cavasso"
+    ],
+    "Idaho": [
+      "P. Tom Sullivan",
+      "Mike Crapo"
+    ],
+    "Illinois": [
+      "Alexander \"Alexi\" Giannoulias",
+      "Mark Steven Kirk"
+    ],
+    "Indiana": [
+      "Brad Ellsworth",
+      "Dan Coats"
+    ],
+    "Iowa": [
+      "Roxanne Conlin",
+      "Chuck Grassley"
+    ],
+    "Kansas": [
+      "Lisa Johnston",
+      "Jerry Moran"
+    ],
+    "Kentucky": [
+      "Jack Conway",
+      "Rand Paul"
+    ],
+    "Louisiana": [
+      "\"Charlie\" Melancon",
+      "David Vitter"
+    ],
+    "Maryland": [
+      "Barbara Mikulski",
+      "Eric Wargotz"
+    ],
+    "Missouri": [
+      "Robin Carnahan",
+      "Roy Blunt"
+    ],
+    "Nevada": [
+      "Harry Reid",
+      "Sharron Angle"
+    ],
+    "New Hampshire": [
+      "Paul W. Hodes",
+      "Kelly Ayotte"
+    ],
+    "New York": [
+      "Charles E. Schumer",
+      "Jay Townsend"
+    ],
+    "North Carolina": [
+      "Elaine Marshall",
+      "Richard Burr"
+    ],
+    "North Dakota": [
+      "Tracy Potter",
+      "John Hoeven"
+    ],
+    "Ohio": [
+      "Lee Fisher",
+      "Rob Portman"
+    ],
+    "Oklahoma": [
+      "Jim Rogers",
+      "Thomas A. Coburn"
+    ],
+    "Oregon": [
+      "Ron Wyden",
+      "Jim Huffman"
+    ],
+    "Pennsylvania": [
+      "Joe Sestak",
+      "Pat Toomey"
+    ],
+    "South Carolina": [
+      "Alvin M. Greene",
+      "Jim DeMint"
+    ],
+    "South Dakota": [
+      null,
+      "John Thune"
+    ],
+    "Utah": [
+      "Sam F. Granato",
+      "Mike Lee"
+    ],
+    "Vermont": [
+      "Patrick J. Leahy",
+      "Len Britton"
+    ],
+    "Washington": [
+      "Patty Murray",
+      "Dino Rossi"
+    ],
+    "West Virginia": [
+      "Joe Manchin III",
+      "John R. Raese"
+    ],
+    "Wisconsin": [
+      "Russell D. Feingold",
+      "Ron Johnson"
+    ]
+  },
+  "specials": {
+    "Delaware": {
+      "only": true
+    },
+    "Illinois": {
+      "only": true
+    },
+    "New York": {
+      "votes": {
+        "dem": 2837684,
+        "rep": 1582693
+      },
+      "names": [
+        "Kirsten E. Gillibrand",
+        "Joseph J. DioGuardi"
+      ]
+    },
+    "West Virginia": {
+      "only": true
+    }
+  },
+  "unopposed": {},
+  "national": {
+    "dem": 13,
+    "rep": 24
+  }
+}

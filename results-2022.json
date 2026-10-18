@@ -1,0 +1,373 @@
+{
+  "source": "FEC, Federal Elections 2022",
+  "race": "senate",
+  "candidates": {
+    "dem": "Democrats",
+    "rep": "Republicans",
+    "oth": "Others"
+  },
+  "parties": {
+    "oth": {
+      "name": "Others",
+      "abbr": "I",
+      "color": "#7a5ea8"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "dem": 436746,
+      "rep": 942154
+    },
+    "Alaska": {
+      "dem": 27145,
+      "rep": 113495
+    },
+    "Arizona": {
+      "dem": 1322027,
+      "rep": 1196308
+    },
+    "Arkansas": {
+      "dem": 280187,
+      "rep": 592437
+    },
+    "California": {
+      "dem": 6621621,
+      "rep": 4222029
+    },
+    "Colorado": {
+      "dem": 1397170,
+      "rep": 1031693
+    },
+    "Connecticut": {
+      "dem": 723864,
+      "rep": 535943
+    },
+    "Delaware": {
+      "absent": "norace"
+    },
+    "District of Columbia": {
+      "absent": "nosenate"
+    },
+    "Florida": {
+      "dem": 3201522,
+      "rep": 4474847
+    },
+    "Georgia": {
+      "dem": 1820633,
+      "rep": 1721244
+    },
+    "Hawaii": {
+      "dem": 290894,
+      "rep": 106358
+    },
+    "Idaho": {
+      "dem": 169808,
+      "rep": 358539
+    },
+    "Illinois": {
+      "dem": 2329136,
+      "rep": 1701055
+    },
+    "Indiana": {
+      "dem": 704480,
+      "rep": 1090390
+    },
+    "Iowa": {
+      "dem": 533330,
+      "rep": 681501
+    },
+    "Kansas": {
+      "dem": 372214,
+      "rep": 602976
+    },
+    "Kentucky": {
+      "dem": 564311,
+      "rep": 913326
+    },
+    "Louisiana": {
+      "dem": 246933,
+      "rep": 851568
+    },
+    "Maine": {
+      "absent": "norace"
+    },
+    "Maryland": {
+      "dem": 1316897,
+      "rep": 682293
+    },
+    "Massachusetts": {
+      "absent": "norace"
+    },
+    "Michigan": {
+      "absent": "norace"
+    },
+    "Minnesota": {
+      "absent": "norace"
+    },
+    "Mississippi": {
+      "absent": "norace"
+    },
+    "Missouri": {
+      "dem": 872694,
+      "rep": 1146966
+    },
+    "Montana": {
+      "absent": "norace"
+    },
+    "Nebraska": {
+      "absent": "norace"
+    },
+    "Nevada": {
+      "dem": 498316,
+      "rep": 490388
+    },
+    "New Hampshire": {
+      "dem": 332490,
+      "rep": 275631
+    },
+    "New Jersey": {
+      "absent": "norace"
+    },
+    "New Mexico": {
+      "absent": "norace"
+    },
+    "New York": {
+      "dem": 3320561,
+      "rep": 2501151
+    },
+    "North Carolina": {
+      "dem": 1784049,
+      "rep": 1905786
+    },
+    "North Dakota": {
+      "dem": 59995,
+      "rep": 135474,
+      "oth": 44406
+    },
+    "Ohio": {
+      "dem": 1939489,
+      "rep": 2192114
+    },
+    "Oklahoma": {
+      "dem": 369370,
+      "rep": 739960
+    },
+    "Oregon": {
+      "dem": 1076424,
+      "rep": 788991
+    },
+    "Pennsylvania": {
+      "dem": 2751012,
+      "rep": 2487260
+    },
+    "Rhode Island": {
+      "absent": "norace"
+    },
+    "South Carolina": {
+      "dem": 627616,
+      "rep": 1066274
+    },
+    "South Dakota": {
+      "dem": 91007,
+      "rep": 242316
+    },
+    "Tennessee": {
+      "absent": "norace"
+    },
+    "Texas": {
+      "absent": "norace"
+    },
+    "Utah": {
+      "rep": 571974,
+      "oth": 459958
+    },
+    "Vermont": {
+      "dem": 196575,
+      "rep": 80468
+    },
+    "Virginia": {
+      "absent": "norace"
+    },
+    "Washington": {
+      "dem": 1741827,
+      "rep": 1299322
+    },
+    "West Virginia": {
+      "absent": "norace"
+    },
+    "Wisconsin": {
+      "dem": 1310467,
+      "rep": 1337185
+    },
+    "Wyoming": {
+      "absent": "norace"
+    }
+  },
+  "names": {
+    "Alabama": [
+      "Will Boyd",
+      "Katie Britt"
+    ],
+    "Alaska": [
+      "Patricia R. Chesbro",
+      "Lisa Murkowski"
+    ],
+    "Arizona": [
+      "Mark Kelly",
+      "Blake Masters"
+    ],
+    "Arkansas": [
+      "Natalie James",
+      "John Boozman"
+    ],
+    "California": [
+      "Alex Padilla",
+      "Mark P. Meuser"
+    ],
+    "Colorado": [
+      "Michael Bennet",
+      "Joe O'Dea"
+    ],
+    "Connecticut": [
+      "Blumenthal",
+      "Leora R. Levy"
+    ],
+    "Florida": [
+      "Val Demings",
+      "Marco Rubio"
+    ],
+    "Georgia": [
+      "Raphael Warnock",
+      "Herschel Junior Walker"
+    ],
+    "Hawaii": [
+      "Brian Schatz",
+      "Bob McDermott"
+    ],
+    "Idaho": [
+      "David Roth",
+      "Mike Crapo"
+    ],
+    "Illinois": [
+      "Tammy Duckworth",
+      "Kathy Salvi"
+    ],
+    "Indiana": [
+      "Thomas M., Jr. McDermott",
+      "Todd Young"
+    ],
+    "Iowa": [
+      "Michael Franken",
+      "Chuck Grassley"
+    ],
+    "Kansas": [
+      "Mark R. Holland",
+      "Jerry Moran"
+    ],
+    "Kentucky": [
+      "Charles Booker",
+      "Rand Paul"
+    ],
+    "Louisiana": [
+      "Gary, Jr. Chambers",
+      "John Kennedy"
+    ],
+    "Maryland": [
+      "Chris Van Hollen",
+      "Chris Chaffee"
+    ],
+    "Missouri": [
+      "Trudy Busch Valentine",
+      "Eric Schmitt"
+    ],
+    "Nevada": [
+      "Catherine Cortez Masto",
+      "Adam Paul Laxalt"
+    ],
+    "New Hampshire": [
+      "Maggie Hassan",
+      "Donald C. Bolduc"
+    ],
+    "New York": [
+      "Charles E. Schumer",
+      "Joe Pinion"
+    ],
+    "North Carolina": [
+      "Cheri Beasley",
+      "Ted Budd"
+    ],
+    "North Dakota": [
+      "Katrina Christiansen",
+      "John Hoeven",
+      "Rick Becker"
+    ],
+    "Ohio": [
+      "Tim Ryan",
+      "JD Vance"
+    ],
+    "Oklahoma": [
+      "Madison Horn",
+      "James Lankford"
+    ],
+    "Oregon": [
+      "Ron Wyden",
+      "Joe Rae Perkins"
+    ],
+    "Pennsylvania": [
+      "John K. Fetterman",
+      "Mehmet Oz"
+    ],
+    "South Carolina": [
+      "Krystle Matthews",
+      "Tim Scott"
+    ],
+    "South Dakota": [
+      "Brian L. Bengs",
+      "John R. Thune"
+    ],
+    "Utah": [
+      null,
+      "Mike Lee",
+      "Evan McMullin"
+    ],
+    "Vermont": [
+      "Peter Welch",
+      "Gerald Malloy"
+    ],
+    "Washington": [
+      "Patty Murray",
+      "Tiffany Smiley"
+    ],
+    "Wisconsin": [
+      "Mandela Barnes",
+      "Ron Johnson"
+    ]
+  },
+  "specials": {
+    "California": {
+      "votes": {
+        "dem": 6559308,
+        "rep": 4212450
+      },
+      "names": [
+        "Alex Padilla",
+        "Mark P. Meuser"
+      ]
+    },
+    "Oklahoma": {
+      "votes": {
+        "dem": 405389,
+        "rep": 710643
+      },
+      "names": [
+        "Kendra Horn",
+        "Markwayne Mullin"
+      ]
+    }
+  },
+  "unopposed": {},
+  "national": {
+    "dem": 16,
+    "rep": 20
+  }
+}

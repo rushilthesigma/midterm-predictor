@@ -1,0 +1,281 @@
+{
+  "source": "Wikipedia, \"1860 United States presidential election\": results by state",
+  "candidates": {
+    "dem": "Douglas",
+    "rep": "Lincoln",
+    "sd": "Breckinridge",
+    "cu": "Bell",
+    "fus": "Fusion"
+  },
+  "parties": {
+    "sd": {
+      "name": "Southern Democratic",
+      "abbr": "SD",
+      "color": "#1e8a5a"
+    },
+    "cu": {
+      "name": "Constitutional Union",
+      "abbr": "CU",
+      "color": "#d98a00"
+    },
+    "fus": {
+      "name": "Anti-Lincoln fusion",
+      "abbr": "Fus",
+      "color": "#3f8f93"
+    }
+  },
+  "states": {
+    "Alabama": {
+      "rep": 0,
+      "dem": 13618,
+      "sd": 48669,
+      "cu": 27835
+    },
+    "Alaska": {
+      "absent": "territory"
+    },
+    "Arizona": {
+      "absent": "territory"
+    },
+    "Arkansas": {
+      "rep": 0,
+      "dem": 5390,
+      "sd": 28732,
+      "cu": 20095
+    },
+    "California": {
+      "rep": 38734,
+      "dem": 38025,
+      "sd": 33975,
+      "cu": 9136
+    },
+    "Colorado": {
+      "absent": "territory"
+    },
+    "Connecticut": {
+      "rep": 43486,
+      "dem": 17364,
+      "sd": 16558,
+      "cu": 3337
+    },
+    "Delaware": {
+      "rep": 3822,
+      "dem": 1066,
+      "sd": 7339,
+      "cu": 3886
+    },
+    "District of Columbia": {
+      "absent": "dc"
+    },
+    "Florida": {
+      "rep": 0,
+      "dem": 221,
+      "sd": 8155,
+      "cu": 4731
+    },
+    "Georgia": {
+      "rep": 0,
+      "dem": 11687,
+      "sd": 52181,
+      "cu": 42954
+    },
+    "Hawaii": {
+      "absent": "territory"
+    },
+    "Idaho": {
+      "absent": "territory"
+    },
+    "Illinois": {
+      "rep": 171106,
+      "dem": 158264,
+      "sd": 2291,
+      "cu": 4852
+    },
+    "Indiana": {
+      "rep": 139013,
+      "dem": 115166,
+      "sd": 12295,
+      "cu": 5339
+    },
+    "Iowa": {
+      "rep": 70316,
+      "dem": 55091,
+      "sd": 1038,
+      "cu": 1763
+    },
+    "Kansas": {
+      "absent": "territory"
+    },
+    "Kentucky": {
+      "rep": 1364,
+      "dem": 25641,
+      "sd": 53143,
+      "cu": 66058
+    },
+    "Louisiana": {
+      "rep": 0,
+      "dem": 7625,
+      "sd": 22681,
+      "cu": 20204
+    },
+    "Maine": {
+      "rep": 62915,
+      "dem": 29761,
+      "sd": 6377,
+      "cu": 2046
+    },
+    "Maryland": {
+      "rep": 2296,
+      "dem": 6080,
+      "sd": 42505,
+      "cu": 41768
+    },
+    "Massachusetts": {
+      "rep": 106533,
+      "dem": 34370,
+      "sd": 6105,
+      "cu": 22332
+    },
+    "Michigan": {
+      "rep": 88450,
+      "dem": 64889,
+      "sd": 805,
+      "cu": 415
+    },
+    "Minnesota": {
+      "rep": 22076,
+      "dem": 11923,
+      "sd": 744,
+      "cu": 53
+    },
+    "Mississippi": {
+      "rep": 0,
+      "dem": 3288,
+      "sd": 40797,
+      "cu": 25045
+    },
+    "Missouri": {
+      "rep": 17029,
+      "dem": 58804,
+      "sd": 31312,
+      "cu": 58261
+    },
+    "Montana": {
+      "absent": "territory"
+    },
+    "Nebraska": {
+      "absent": "territory"
+    },
+    "Nevada": {
+      "absent": "territory"
+    },
+    "New Hampshire": {
+      "rep": 37519,
+      "dem": 25887,
+      "sd": 2125,
+      "cu": 412
+    },
+    "New Jersey": {
+      "rep": 58344,
+      "dem": 0,
+      "sd": 0,
+      "cu": 0,
+      "fus": 62869
+    },
+    "New Mexico": {
+      "absent": "territory"
+    },
+    "New York": {
+      "rep": 353804,
+      "dem": 0,
+      "sd": 0,
+      "cu": 0,
+      "fus": 305101
+    },
+    "North Carolina": {
+      "rep": 0,
+      "dem": 2701,
+      "sd": 48539,
+      "cu": 44990
+    },
+    "North Dakota": {
+      "absent": "territory"
+    },
+    "Ohio": {
+      "rep": 231808,
+      "dem": 187419,
+      "sd": 11404,
+      "cu": 12194
+    },
+    "Oklahoma": {
+      "absent": "territory"
+    },
+    "Oregon": {
+      "rep": 5344,
+      "dem": 4131,
+      "sd": 5074,
+      "cu": 212
+    },
+    "Pennsylvania": {
+      "rep": 268030,
+      "dem": 16765,
+      "sd": 0,
+      "cu": 12770,
+      "fus": 178871
+    },
+    "Rhode Island": {
+      "rep": 12244,
+      "dem": 7707,
+      "sd": 0,
+      "cu": 0
+    },
+    "South Carolina": {
+      "legislature": "sd"
+    },
+    "South Dakota": {
+      "absent": "territory"
+    },
+    "Tennessee": {
+      "rep": 0,
+      "dem": 11384,
+      "sd": 65053,
+      "cu": 69710
+    },
+    "Texas": {
+      "rep": 0,
+      "dem": 18,
+      "sd": 47639,
+      "cu": 15422
+    },
+    "Utah": {
+      "absent": "territory"
+    },
+    "Vermont": {
+      "rep": 33808,
+      "dem": 8649,
+      "sd": 1866,
+      "cu": 218
+    },
+    "Virginia": {
+      "rep": 1909,
+      "dem": 16183,
+      "sd": 74350,
+      "cu": 74691
+    },
+    "Washington": {
+      "absent": "territory"
+    },
+    "West Virginia": {
+      "partOf": "Virginia"
+    },
+    "Wisconsin": {
+      "rep": 86114,
+      "dem": 65024,
+      "sd": 889,
+      "cu": 153
+    },
+    "Wyoming": {
+      "absent": "territory"
+    }
+  }
+}
